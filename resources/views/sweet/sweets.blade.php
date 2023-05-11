@@ -20,15 +20,34 @@
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link active" href=" {{ route('sweet.index') }}">I nostri dolci</a></li>
-            </ul><a class="btn btn-primary shadow" role="button" href="/signup.html">Sign up</a>
+            </ul><a class="btn btn-primary shadow" role="button" href="/signup.html">Registrati</a>
         </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->
+
+    <!-- Inserimento interfacciamento con Database -->
+
     <section class="py-5">
+        <!-- Start: Team -->
         <div class="container py-5">
-            <div data-reflow-type="product" data-bss-dynamic-product="" data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html"></div>
-        </div>
+            <div class="row mb-4 mb-lg-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="fw-bold">I nostri dolci</h2>
+                    <p class="text-muted">Guarda e compra i nostri dolci, cruelty free al 100%.&nbsp;</p>
+                </div>
+            </div>
+            <div class="row mx-auto">
+                <div class="col">
+                    @foreach ($sweets as $sweet)
+                    <!-- Inserimento di codice per la bella visione delle torte -->
+                        {{ $sweet->name}}
+                    @endforeach
+                    <!-- <div data-reflow-type="product-list" data-reflow-layout="cards" data-reflow-order="date_desc" data-reflow-product-link="/product.html?product={id}"></div> -->
+                </div>
+            </div>
+        </div><!-- End: Team -->
     </section><!-- Start: Footer Multi Column -->
+
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
