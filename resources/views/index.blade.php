@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
@@ -40,9 +40,9 @@
                 </div>
                 <div class="col-12 col-lg-10 mx-auto">
                     <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.8" src="/assets/img/products/3.jpg"></div>
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.4" src="/assets/img/products/2.jpg"></div>
-                        <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.25" src="/assets/img/products/1.jpg"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.8" src="/img/products/3.jpg"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.4" src="/img/products/2.jpg"></div>
+                        <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.25" src="/img/products/1.jpg"></div>
                     </div>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
                         <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
-                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/assets/img/team/avatar2.jpg">
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/img/team/avatar2.jpg">
                             <div>
                                 <p class="fw-bold text-primary mb-0">John Smith</p>
                                 <p class="text-muted mb-0">Erat netus</p>
@@ -167,7 +167,7 @@
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
                         <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
-                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/assets/img/team/avatar4.jpg">
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/img/team/avatar4.jpg">
                             <div>
                                 <p class="fw-bold text-primary mb-0">John Smith</p>
                                 <p class="text-muted mb-0">Erat netus</p>
@@ -178,7 +178,7 @@
                 <div class="col mb-4">
                     <div class="d-flex flex-column align-items-center align-items-sm-start">
                         <p class="bg-light border rounded border-light p-4">Nisi sit justo faucibus nec ornare amet, tortor torquent. Blandit class dapibus, aliquet morbi.</p>
-                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/assets/img/team/avatar5.jpg">
+                        <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="/img/team/avatar5.jpg">
                             <div>
                                 <p class="fw-bold text-primary mb-0">John Smith</p>
                                 <p class="text-muted mb-0">Erat netus</p>
@@ -316,9 +316,9 @@
             </div>
         </div>
     </footer><!-- End: Footer Multi Column -->
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/js/bs-init.js"></script>
-    <script src="/assets/js/bold-and-bright.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/bold-and-bright.js"></script>
 </body>
 
 </html>
