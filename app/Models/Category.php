@@ -14,8 +14,8 @@ class Category extends Model
     public $tiemstamps = false;
     
     // Associazione 1...n fra Category -> Sweet
-    public function cakes()
+    public function sweets()
     {
-        return $this->hasMany(Sweet::class,'category_id','id');
+        return $this->hasMany(Sweet::class,'id','id');
     }
 }

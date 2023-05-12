@@ -50,7 +50,7 @@
                         <div class="ref-product-data">
                             <h2 class="ref-name"> {{$sweet->name}}</h2>
                             <div class="ref-categories">
-                                <span class="ref-category"> categoria </span>
+                                <span class="ref-category"> {{$sweet->category->name}} </span>
                             </div>
                             <strong class="ref-price ref-on-sale"> {{$sweet->price}}</strong>
                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qy="20" data-reflow-min-qy="1">
