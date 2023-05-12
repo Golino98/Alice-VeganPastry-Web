@@ -38,24 +38,21 @@
             </div>
             <div class="row mx-auto">
                 <div class="col">
-                    @foreach ($sweets as $sweet)
-                    <!-- Inserimento di codice per la bella visione delle torte -->
-                        
-                    @endforeach
                 </div>
             </div>
+            @foreach ($sweets as $sweet)
             <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
                 <div class="reflow-product"> 
                     <div class="ref-media">
                         <div class="ref-preview">
-                            <img class="ref-image" src="INSERIRE PATH IMMAGINE" data-reflow-preview-type="image"/>
+                            <img class="ref-image" src="<?php echo $sweet->image; ?>"  data-reflow-preview-type="image"/>
                         </div>
                         <div class="ref-product-data">
-                            <h2 class="ref-name"> INSERIRE NOME PRODOTTO </h2>
+                            <h2 class="ref-name"> {{$sweet->name}}</h2>
                             <div class="ref-categories">
-                                <span class="ref-category"> INSERIRE CATEGORIA </span>
+                                <span class="ref-category"> categoria </span>
                             </div>
-                            <strong class="ref-price ref-on-sale"> INSERIRE PREZZO </strong>
+                            <strong class="ref-price ref-on-sale"> {{$sweet->price}}</strong>
                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qy="20" data-reflow-min-qy="1">
                                 <div class="ref-decrease">
                                     <span></span>
@@ -66,12 +63,13 @@
                         </div>
                         </span>
                         <div class ="ref-description">
-                            INSERIRE DESCRIZIONE
+                            {{$sweet->description}}
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+            @endforeach
+        </div>
 </section>
 
         </div><!-- End: Team -->

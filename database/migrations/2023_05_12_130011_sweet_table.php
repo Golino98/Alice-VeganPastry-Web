@@ -16,6 +16,12 @@ return new class extends Migration
             $table->float('price');
             $table->string('image');
             $table->string('opt_image')->nullable();
+            $table->integer('category_id')->unsigned();
+        });
+
+        Schema::table('sweet',function(Blueprint $table)
+        {
+            $table->foreign('category_id')->references('id')->on('category');
         });
     }
 

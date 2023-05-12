@@ -21,7 +21,7 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href=" {{ route('sweet.index') }}">I nostri dolci</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="/signup.html">Sign up</a>
+                </ul><a class="btn btn-primary shadow" role="button" href="/signup.html">Registrati</a>
             </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->
