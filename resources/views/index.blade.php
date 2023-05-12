@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>Alice VeganPastry</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
@@ -37,9 +37,9 @@
                 </div>
                 <div class="col-12 col-lg-10 mx-auto">
                     <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.5" src="/img/sweets/about_alice.jpg"></div>
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.4" src="/img/sweets/cupcake_burro_arachidi_lampone_1.jpg"></div>
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-25%, 15%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.7" src="/img/sweets/fetta.jpg"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.5" src="/img/home/2.jpg"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.4" src="/img/home/1.jpg"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-25%, 15%, 0);"><img class="rounded img-fluid" data-bss-parallax="" data-bss-parallax-speed="0.7" src="/img/home/3.jpg"></div>
                     </div>
                 </div>
             </div>
