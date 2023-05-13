@@ -12707,6 +12707,7 @@ fieldset:disabled .btn {
     --ref-gray-600: #4e5d78 !important;
     --ref-gray-700: #495057 !important;
     --ref-border-radius: 1rem !important;
+    --ref-border-radius-image: 10rem !important;
     --ref-input-padding: 0.6rem 1rem !important;
     --ref-btn-padding: 0.6rem 2rem !important;
     --ref-btn-border-radius: 2rem !important

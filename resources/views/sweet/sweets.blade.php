@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Alice VeganPastry</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css">
+    <link rel="stylesheet" href="css/toolkit.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
@@ -38,8 +38,8 @@
             </div>            
         </div>
 
-        <section class="py-5">
         @foreach ($sweets as $sweet)
+        <section class="py-5">
         
             <div class="container py-5">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
@@ -53,25 +53,51 @@
                                 <div class="ref-categories">
                                     <span class="ref-category"> {{$sweet->category->name}} </span>
                                 </div>
-                                <strong class="ref-price ref-on-sale"> {{$sweet->price}}</strong>
-                                <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qy="20" data-reflow-min-qy="1">
-                                    <div class="ref-decrease">
-                                        <span></span>
+                                <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
+                                <span data-reflow-type="add-to-cart" data-reflow-shoppingcart-url="shopping-cart.html" data-reflow-addtocart-text data-reflow-product="589605485" data-reflow-variant="199976733_s">
+                                    <div class="reflow-add-to-cart ref-product-controls">
+                                            <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="999" data-reflow-quantity="1">
+                                                <div class ="ref-quantity-widget">                                                    
+                                                    <button type="button" class="btn btn-danger btn-sm"  onclick="decrease()">-</button>    
+                                                    <script>
+                                                        function decrease(){
+                                                            var value = parseInt(document.getElementById('valueSweets').value, 10);
+                                                            value = isNaN(value) ? 0 : value;
+                                                            value--;
+                                                            if(value < 1){
+                                                                value = 1;
+                                                            }
+                                                            document.getElementById('valueSweets').value = value;
+                                                        }
+                                                    </script>
+                                                    <input type="text" id='valueSweets' value="1"/>
+                                                    <button type="button" class="btn btn-success btn-sm" onclick="increase()">+</button>
+                                                    <script>
+                                                        function increase(){
+                                                            var value = parseInt(document.getElementById('valueSweets').value, 10);
+                                                            value = isNaN(value) ? 0 : value;
+                                                            value++;
+                                                            if(value>=20)
+                                                            {
+                                                                value = 20;
+                                                            }
+                                                            document.getElementById('valueSweets').value = value;
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </span>
+                                            <a class="ref-button" href="#">Add to cart</a>
                                     </div>
-                                </div>
                                 </span>
-                                <a class ="ref-button" href="#"> Aggiungi al carrello </a>
-                            </div>
-                            </span>
-                            <div class ="ref-description">
-                                {{$sweet->description}}
+                                <div class ="ref-description">
+                                    {{$sweet->description}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             @endforeach
-        </section>
     </section><!-- Start: Footer Multi Column -->
 
     <footer class="bg-primary-gradient">
