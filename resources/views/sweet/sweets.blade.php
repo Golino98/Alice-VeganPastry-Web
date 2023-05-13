@@ -38,8 +38,9 @@
             </div>            
         </div>
 
-        @foreach ($sweets as $sweet)
         <section class="py-5">
+        @foreach ($sweets as $sweet)
+        
             <div class="container py-5">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
                     <div class="reflow-product"> 
@@ -69,8 +70,8 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </section>
-        @endforeach
     </section><!-- Start: Footer Multi Column -->
 
     <footer class="bg-primary-gradient">
