@@ -35,44 +35,42 @@
                     <h2 class="fw-bold">I nostri dolci</h2>
                     <p class="text-muted">Guarda e compra i nostri dolci, cruelty free al 100%.&nbsp;</p>
                 </div>
-            </div>
-            <div class="row mx-auto">
-                <div class="col">
-                </div>
-            </div>
-            @foreach ($sweets as $sweet)
-            <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
-                <div class="reflow-product"> 
-                    <div class="ref-media">
-                        <div class="ref-preview">
-                            <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
-                        </div>
-                        <div class="ref-product-data">
-                            <h2 class="ref-name"> {{$sweet->name}}</h2>
-                            <div class="ref-categories">
-                                <span class="ref-category"> {{$sweet->category->name}} </span>
+            </div>            
+        </div>
+
+        @foreach ($sweets as $sweet)
+        <section class="py-5">
+            <div class="container py-5">
+                <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
+                    <div class="reflow-product"> 
+                        <div class="ref-media">
+                            <div class="ref-preview">
+                                <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
                             </div>
-                            <strong class="ref-price ref-on-sale"> {{$sweet->price}}</strong>
-                            <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qy="20" data-reflow-min-qy="1">
-                                <div class="ref-decrease">
-                                    <span></span>
+                            <div class="ref-product-data">
+                                <h2 class="ref-name"> {{$sweet->name}}</h2>
+                                <div class="ref-categories">
+                                    <span class="ref-category"> {{$sweet->category->name}} </span>
                                 </div>
+                                <strong class="ref-price ref-on-sale"> {{$sweet->price}}</strong>
+                                <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qy="20" data-reflow-min-qy="1">
+                                    <div class="ref-decrease">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                </span>
+                                <a class ="ref-button" href="#"> Aggiungi al carrello </a>
                             </div>
                             </span>
-                            <a class ="ref-button" href="#"> Aggiungi al carrello </a>
-                        </div>
-                        </span>
-                        <div class ="ref-description">
-                            {{$sweet->description}}
+                            <div class ="ref-description">
+                                {{$sweet->description}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-        </div>
-</section>
-
-        </div><!-- End: Team -->
+        </section>
+        @endforeach
     </section><!-- Start: Footer Multi Column -->
 
     <footer class="bg-primary-gradient">
