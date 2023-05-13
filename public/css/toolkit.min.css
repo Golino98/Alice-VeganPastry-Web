@@ -1276,7 +1276,8 @@
 }
 
 .reflow-product .ref-media .ref-preview {
-    margin-bottom: var(--ref-gutter-sm)
+    margin-bottom: var(--ref-gutter-sm);
+    padding: 5px;
 }
 
 .reflow-product .ref-media .ref-preview .ref-image {
@@ -1350,7 +1351,8 @@
 }
 
 .reflow-product .ref-product-data {
-    flex: 1
+    flex: 1;
+    padding: 0.5px;
 }
 
 .reflow-product .reflow-add-to-cart.ref-product-controls {
@@ -2384,3 +2386,15 @@
 .reflow-user-settings .ref-settings .ref-button.ref-submit {
     margin-top: var(--ref-gutter-md)
 }
+
+.flex-container{
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 

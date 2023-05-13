@@ -49,9 +49,13 @@
                                 <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
                             </div>
                             <div class="ref-product-data">
+                                <div>
                                 <h2 class="ref-name"> {{$sweet->name}}</h2>
                                 <div class="ref-categories">
                                     <span class="ref-category"> {{$sweet->category->name}} </span>
+                                </div>
+                                <div class ="ref-description">
+                                    {{$sweet->description}}
                                 </div>
                                 <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
                                 <span data-reflow-type="add-to-cart" data-reflow-shoppingcart-url="shopping-cart.html" data-reflow-addtocart-text data-reflow-product="589605485" data-reflow-variant="199976733_s">
@@ -59,7 +63,7 @@
                                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="999" data-reflow-quantity="1">
                                                 <div class ="ref-quantity-widget">                                                    
                                                     <button type="button" class="btn btn-danger btn-sm"  onclick="decrease()">-</button>    
-                                                    <script>
+                                                    <!-- <script>
                                                         function decrease(){
                                                             var value = parseInt(document.getElementById('valueSweets').value, 10);
                                                             value = isNaN(value) ? 0 : value;
@@ -69,10 +73,10 @@
                                                             }
                                                             document.getElementById('valueSweets').value = value;
                                                         }
-                                                    </script>
+                                                    </script> -->
                                                     <input type="text" id='valueSweets' value="1"/>
                                                     <button type="button" class="btn btn-success btn-sm" onclick="increase()">+</button>
-                                                    <script>
+                                                    <!-- <script>
                                                         function increase(){
                                                             var value = parseInt(document.getElementById('valueSweets').value, 10);
                                                             value = isNaN(value) ? 0 : value;
@@ -83,21 +87,18 @@
                                                             }
                                                             document.getElementById('valueSweets').value = value;
                                                         }
-                                                    </script>
+                                                    </script> -->
                                                 </div>
                                             </span>
                                             <a class="ref-button" href="#">Add to cart</a>
                                     </div>
                                 </span>
-                                <div class ="ref-description">
-                                    {{$sweet->description}}
-                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-            </section>
-            @endforeach
+            </div>
+        </section>
+        @endforeach
     </section><!-- Start: Footer Multi Column -->
 
     <footer class="bg-primary-gradient">
