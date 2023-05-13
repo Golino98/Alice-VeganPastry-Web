@@ -16,6 +16,10 @@ class Category extends Model
     // Associazione 1...n fra Category -> Sweet
     public function sweets()
     {
-        return $this->hasMany(Sweet::class,'id','id');
+        return $this->hasMany(Sweet::class,'category_id','id');
     }
+
+    // secondo var è il nome della tabella pivot
+    // terzo var foreign key you are defining
+    // quarta var è il nome della foreign key model a cui mi sto facendo riferimento
 }

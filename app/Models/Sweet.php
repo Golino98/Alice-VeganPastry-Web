@@ -24,6 +24,6 @@ class Sweet extends Model
     //Associazione 1...n fra Cake -> Category
     public function category()
     {
-        return $this->hasOne(Category::class,'id','id');
+        return $this->hasOne(Category::class,'id','category_id');
     }
 }
