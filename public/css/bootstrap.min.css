@@ -3768,7 +3768,7 @@ fieldset:disabled .btn {
     display: none;
     min-width: var(--bs-dropdown-min-width);
     padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
-    margin: 0;
+    margin-bottom: 1rem;
     font-size: var(--bs-dropdown-font-size);
     color: var(--bs-dropdown-color);
     text-align: left;
@@ -12980,3 +12980,19 @@ input::-webkit-inner-spin-button {
 input[type=number] {
 -moz-appearance: textfield;
 }
+
+/* #wrapper {
+    width: 800px;
+    border: 1px solid black;
+    overflow: hidden; 
+}
+#first {
+    width: 300px;
+    float:left; 
+    border: 1px solid red;
+}
+#second {
+    border: 1px solid green;
+    float: left;
+    overflow: hidden;
+} */
