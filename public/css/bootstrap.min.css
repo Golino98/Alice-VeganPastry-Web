@@ -9040,12 +9040,17 @@ fieldset:disabled .btn {
     font-weight: 700 !important
 }
 
+.fw-bold-inline {
+    font-weight: 700 !important;
+    display:inline
+}
+
 .fw-semibold {
     font-weight: 600 !important
 }
 
 .fw-bolder {
-    font-weight: bolder !important
+    font-weight: bolder !important;
 }
 
 .lh-1 {

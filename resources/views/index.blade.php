@@ -28,7 +28,7 @@
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Scoprili tutti!</a></li>
                 </ul>
-                </ul><a class="btn btn-primary shadow" role="button" href="{{route('user.login')}}">Registrati</a>
+                </ul><a class="btn btn-primary shadow" role="button" href="{{route('user.login')}}">Accedi</a>
             </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->

@@ -32,7 +32,7 @@ class AuthController extends Controller
 
 
             // Se l'utente è valido lo ridirezione alla rotta book.index
-            return Redirect::to(route('book.index'));
+            return Redirect::to(route('sweet.index'));
         }
         return view('auth.authErrorPage');
     }
@@ -44,6 +44,14 @@ class AuthController extends Controller
         session_destroy();
         
         return Redirect::to(route('home'));
+    }
+
+    public function registration(Request $req) {
+        $dl = new DataLayer();
+        
+        $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
+       
+        return Redirect::to(route('user.login'));
     }
 
 }
