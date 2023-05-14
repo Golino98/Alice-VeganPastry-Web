@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
+<script type="text/javascript" src="js/number-sweets.js"></script>
+
+
 <body>
     <!-- Start: Navbar Centered Links -->
     <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
@@ -40,7 +43,6 @@
 
         @foreach ($sweets as $sweet)
         <section class="py-5">
-        
             <div class="container py-5">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
                     <div class="reflow-product"> 
@@ -60,38 +62,14 @@
                                 <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
                                 <span data-reflow-type="add-to-cart" data-reflow-shoppingcart-url="shopping-cart.html" data-reflow-addtocart-text data-reflow-product="589605485" data-reflow-variant="199976733_s">
                                     <div class="reflow-add-to-cart ref-product-controls">
-                                            <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="999" data-reflow-quantity="1">
+                                            <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
                                                 <div class ="ref-quantity-widget">                                                    
-                                                    <button type="button" class="btn btn-danger btn-sm"  onclick="decrease()">-</button>    
-                                                    <!-- <script>
-                                                        function decrease(){
-                                                            var value = parseInt(document.getElementById('valueSweets').value, 10);
-                                                            value = isNaN(value) ? 0 : value;
-                                                            value--;
-                                                            if(value < 1){
-                                                                value = 1;
-                                                            }
-                                                            document.getElementById('valueSweets').value = value;
-                                                        }
-                                                    </script> -->
-                                                    <input type="text" id='valueSweets' value="1"/>
-                                                    <button type="button" class="btn btn-success btn-sm" onclick="increase()">+</button>
-                                                    <!-- <script>
-                                                        function increase(){
-                                                            var value = parseInt(document.getElementById('valueSweets').value, 10);
-                                                            value = isNaN(value) ? 0 : value;
-                                                            value++;
-                                                            if(value>=20)
-                                                            {
-                                                                value = 20;
-                                                            }
-                                                            document.getElementById('valueSweets').value = value;
-                                                        }
-                                                    </script> -->
-                                                </div>
+                                                    <button type="button" class="btn btn-danger btn-sm"  onclick="decrease({{$sweet->id}})">-</button>    
+                                                        <input type="number" id='valueSweets{{$sweet->id}}' value=0 min=0 max=20 onfocus="this.value=''"/>
+                                                    <button type="button" class="btn btn-success btn-sm" onclick="increase({{$sweet->id}})">+</button>
                                             </span>
-                                            <a class="ref-button" href="#">Add to cart</a>
-                                    </div>
+                                        </div>
+                                        <a class="ref-button" href="#">Aggiungi</a>
                                 </span>
                             </div>
                     </div>

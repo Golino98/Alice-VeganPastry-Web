@@ -12970,3 +12970,13 @@ footer ul li a {
         --ref-products-per-row: 3 !important
     }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+input[type=number] {
+-moz-appearance: textfield;
+}
