@@ -20,8 +20,15 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href=" {{ route('sweet.index') }}">I nostri dolci</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="/signup.html">Registrati</a>
+                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Torte</a></li>
+                    <li><a class="dropdown-item" href="#">Biscotti</a></li>
+                    <li><a class="dropdown-item" href="#">Cupcake</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Scoprili tutti!</a></li>
+                </ul>
+                </ul><a class="btn btn-primary shadow" role="button" href="{{route('user.login')}}">Registrati</a>
             </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->

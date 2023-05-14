@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Alice VeganPastry</title>
+    <title>Registrazione - Alice VeganPastry</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/toolkit.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+</head>    
 </head>
-
-<script type="text/javascript" src="js/number-sweets.js"></script>
-
 
 <body>
     <!-- Start: Navbar Centered Links -->
@@ -22,72 +19,46 @@
             <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <!-- <li class="nav-item"><a class="nav-link active" href=" {{ route('sweet.index') }}">I nostri dolci</a></li> -->
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
+                <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Torte</a></li>
                     <li><a class="dropdown-item" href="#">Biscotti</a></li>
                     <li><a class="dropdown-item" href="#">Cupcake</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Scoprili tutti!</a></li>
-                </ul>
-            </ul><a class="btn btn-primary shadow" role="button" href=" {{route('user.login')}} ">Registrati</a>
+                </ul>    
+            </ul><a class="btn btn-primary shadow" role="button" href="{{route('user.register')}} ">Registrati</a>
         </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->
-
-    <!-- Inserimento interfacciamento con Database -->
-
     <section class="py-5">
-        <!-- Start: Team -->
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">I nostri dolci</h2>
-                    <p class="text-muted">Guarda e compra i nostri dolci, cruelty free al 100%.&nbsp;</p>
+                    <p class="fw-bold text-success mb-2">Sign up</p>
+                    <h2 class="fw-bold">Welcome</h2>
                 </div>
-            </div>            
-        </div>
-
-        @foreach ($sweets as $sweet)
-        <section class="py-5">
-            <div class="container py-5">
-                <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
-                    <div class="reflow-product"> 
-                        <div class="ref-media">
-                            <div class="ref-preview">
-                                <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
-                            </div>
-                            <div class="ref-product-data">
-                                <div>
-                                <h2 class="ref-name"> {{$sweet->name}}</h2>
-                                <div class="ref-categories">
-                                    <span class="ref-category"> {{$sweet->category->name}} </span>
-                                </div>
-                                <div class ="ref-description">
-                                    {{$sweet->description}}
-                                </div>
-                                <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
-                                <span data-reflow-type="add-to-cart" data-reflow-shoppingcart-url="shopping-cart.html" data-reflow-addtocart-text data-reflow-product="589605485" data-reflow-variant="199976733_s">
-                                    <div class="reflow-add-to-cart ref-product-controls">
-                                            <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
-                                                <div class ="ref-quantity-widget">                                                    
-                                                    <button type="button" class="btn btn-danger btn-sm"  onclick="decrease({{$sweet->id}})">-</button>    
-                                                        <input type="number" id='valueSweets{{$sweet->id}}' value=0 min=0 max=20 onfocus="this.value=''"/>
-                                                    <button type="button" class="btn btn-success btn-sm" onclick="increase({{$sweet->id}})">+</button>
-                                            </span>
-                                        </div>
-                                        <a class="ref-button" href="#">Aggiungi</a>
-                                </span>
-                            </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                                </svg></div>
+                            <form method="post">
+                                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                                <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit">Sign up</button></div>
+                                <p class="text-muted">Already have an account?&nbsp;<a href="login.html">Log in</a></p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        @endforeach
+        </div>
     </section><!-- Start: Footer Multi Column -->
-
     <footer class="bg-primary-gradient">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
@@ -145,7 +116,6 @@
         </div>
     </footer><!-- End: Footer Multi Column -->
     <script src="/js/bootstrap.min.js"></script>
-    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
     <script src="/js/bs-init.js"></script>
     <script src="/js/bold-and-bright.js"></script>
 </body>
