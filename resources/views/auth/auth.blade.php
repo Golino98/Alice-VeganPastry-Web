@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Registrazione - Alice VeganPastry</title>
+    <title>Accedi - Alice VeganPastry</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/toolkit.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
@@ -36,7 +36,7 @@
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <p class="fw-bold text-success mb-2">Crea il tuo dolce profilo vegano</p>
+                    <p class="fw-bold text-success mb-2">Entra nel tuo dolce profilo vegano</p>
                     <h2 class="fw-bold">Benvenut<p class="fw-bold-inline text-success">ə</p></h2>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                                 @csrf
                                 <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                                <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit" value="Register">Accedi</button></div>
+                                <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit" value="Login">Accedi</button></div>
                                 
                                 <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.login')}}">Registrati</a></p>
                             </form>
