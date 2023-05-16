@@ -47,11 +47,8 @@ class AuthController extends Controller
     }
 
     public function registration(Request $req) {
-        $dl = new DataLayer();
-        
+        $dl = new DataLayer();        
         $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
-       
         return Redirect::to(route('user.login'));
     }
-
 }

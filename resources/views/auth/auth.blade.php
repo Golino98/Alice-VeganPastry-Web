@@ -53,7 +53,7 @@
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
                                 <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit" value="Login">Accedi</button></div>
                                 
-                                <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.login')}}">Registrati</a></p>
+                                <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.register')}}">Registrati</a></p>
                             </form>
                         </div>
                 </div>
