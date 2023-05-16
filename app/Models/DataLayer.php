@@ -4,10 +4,19 @@ namespace App\Models;
 
 class DataLayer
 {
-    public function listSweets()
+    // TODO chiedere al profe come prendere in ingresso il nome della categoria per fare un filtering 
+    public function listSweet($category)
     {
-        $sweets = Sweet::orderBy('name','asc')->get();
+        if(empty($category))
+        {
+        $sweets = Sweet::where('category', $category)->orderBy('name','asc')->get();
         return $sweets;
+        }
+        else
+        {
+            $sweets = Sweet::orderBy('name','asc')->get();
+            return $sweets;
+        }
     }
 
     public function validUser($email, $password) 

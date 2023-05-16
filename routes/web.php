@@ -19,9 +19,6 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', [FrontController::class, 'getHome'])->name('home');
-
-
 //Rotta che mi permette di andare nella pagina di login
 Route::get('/', [FrontController::class, 'getHome'])->name('home');
 
@@ -31,7 +28,9 @@ Route::post('/user/login', [AuthController::class, 'login'])->name('user.login')
 
 Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
 Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
+
 Route::resource('sweet', SweetController::class);
+
 
 Route::middleware(['authCustom'])->group(function () {
 });

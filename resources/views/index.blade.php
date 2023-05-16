@@ -8,11 +8,11 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Torte</a></li>
+            <li><a class="dropdown-item" href="{{route('sweet.index')}}">Torte</a></li>
             <li><a class="dropdown-item" href="#">Biscotti</a></li>
             <li><a class="dropdown-item" href="#">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ route('sweet.index') }}">Scoprili tutti!</a></li>
+            <li><a class="dropdown-item" href="{{ route('sweet.index',[null]) }}">Scoprili tutti!</a></li>
         </ul>
     </li>
 @endsection

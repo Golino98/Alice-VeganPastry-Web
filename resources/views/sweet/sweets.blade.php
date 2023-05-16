@@ -3,13 +3,14 @@
 @section('title', 'I nostri dolci')
 <script type="text/javascript" src="js/number-sweets.js"></script>
 
+<!-- TODO chiedere al profe come è possibile passare dalla route un valore, tipo il nome della categoria -->
 @section('menu')
     @parent
     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Torte</a></li>
+            <li><a class="dropdown-item" href="{{route('sweet.torte')}}">Torte</a></li>
             <li><a class="dropdown-item" href="#">Biscotti</a></li>
             <li><a class="dropdown-item" href="#">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -32,7 +33,8 @@
             </div>            
         </div>
 
-        @foreach ($sweets as $sweet)
+        <!-- Ordinamento tramite nome -->
+        @foreach ($sweets->sortBy('name') as $sweet)
         <section class="py-5">
             <div class="container py-5">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">

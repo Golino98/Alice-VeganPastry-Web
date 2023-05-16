@@ -11,10 +11,13 @@ class SweetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+     // TODO chiedere al profe come prendere in ingresso il nome della categoria per fare un filtering
+
+    public function index($category)
     {
         $dl = new DataLayer();
-        $sweets = $dl->listSweets();
+        $sweets = $dl->listSweet($category);
         return view('sweet.sweets')->with('sweets', $sweets);
     }
 }
