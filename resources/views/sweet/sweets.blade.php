@@ -3,13 +3,14 @@
 @section('title', 'I nostri dolci')
 <script type="text/javascript" src="js/number-sweets.js"></script>
 
-<!-- TODO chiedere al profe come è possibile passare dalla route un valore, tipo il nome della categoria -->
 @section('menu')
     @parent
     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
+
+        <!-- TODO chiedere se è possibile mandare il valotr di una variabile tramite route -->
             <li><a class="dropdown-item" href="{{route('sweet.index')}}">Torte</a></li>
             <li><a class="dropdown-item" href="#">Biscotti</a></li>
             <li><a class="dropdown-item" href="#">Cupcake</a></li>

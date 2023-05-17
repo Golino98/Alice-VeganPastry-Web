@@ -7,12 +7,9 @@ use App\Models\DataLayer;
 use Illuminate\Http\Request;
 
 class SweetController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-
-     // TODO chiedere al profe come prendere in ingresso il nome della categoria per fare un filtering
+{   
+    
+    // TODO chiedere al profe come prendere in ingresso il nome della categoria per fare un filtering
 
     // public function index($category)
     // {

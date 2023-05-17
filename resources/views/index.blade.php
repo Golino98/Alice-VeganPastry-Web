@@ -12,7 +12,7 @@
             <li><a class="dropdown-item" href="#">Biscotti</a></li>
             <li><a class="dropdown-item" href="#">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ route('sweet.index',[null]) }}">Scoprili tutti!</a></li>
+            <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Scoprili tutti!</a></li>
         </ul>
     </li>
 @endsection
