@@ -25,9 +25,7 @@ Route::get('/', [FrontController::class, 'getHome'])->name('home');
 Route::get('/user/login', [AuthController::class, 'authentication'])->name('user.login');
 Route::post('/user/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
-Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
-
+Route::get('/user/register', [AuthController::class, 'registration'])->name('user.register');
+Route::post('/user/register', [AuthController::class, 'registration'])->name('user.registration');
 
 Route::resource('sweet', SweetController::class);
-Route::middleware(['authCustom'])->group(function () {
-});

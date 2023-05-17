@@ -14,7 +14,7 @@ class Ingredient extends Model
     public $timestamps = false;
 
     // Associazione n...n fra Ingredient -> Sweet
-    public function cakes()
+    public function sweets()
     {
         return $this->belongsToMany(Sweet::class,'ingredient_sweet','sweet_id','ingredient_id');
     }

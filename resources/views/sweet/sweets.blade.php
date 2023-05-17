@@ -2,7 +2,6 @@
 
 @section('title', 'I nostri dolci')
 <script type="text/javascript" src="js/number-sweets.js"></script>
-<script type="text/javascript" src="js/check.js"></script>
 
 @section('menu')
     @parent

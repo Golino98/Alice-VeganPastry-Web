@@ -11,6 +11,16 @@ class authController extends Controller
     public function authentication() {
         return view('auth.auth');
     }
+        
+    public function registration() {
+        return view('auth.register');
+     }
+
+     public function register(Request $req) {
+        $dl = new DataLayer();    
+        $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
+        return Redirect::to(route('user.login'));
+    }
 
     public function logout() {
         session_start();
@@ -31,13 +41,5 @@ class authController extends Controller
             return Redirect::to(route('sweet.index'));
         }
         return view('auth.authErrorPage');
-    }
-
-    public function registration(Request $req) {
-        $dl = new DataLayer();
-        
-        $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
-       
-        return Redirect::to(route('user.login'));
     }
 }
