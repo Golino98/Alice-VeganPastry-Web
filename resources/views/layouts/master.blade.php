@@ -24,7 +24,13 @@
                 @section('menu')
 
                 @show
-            </ul><a class="btn btn-primary shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
+            </ul>
+            <!-- Check if logged is true or false  -->
+            @if($logged)
+                <a class="btn btn-primary shadow" role="button" href=" {{route('user.logout')}} ">{{$loggedName}}</a>
+            @else
+                <a class="btn btn-primary shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
+            @endif
         </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->

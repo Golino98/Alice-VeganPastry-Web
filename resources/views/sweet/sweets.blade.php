@@ -2,6 +2,7 @@
 
 @section('title', 'I nostri dolci')
 <script type="text/javascript" src="js/number-sweets.js"></script>
+<script type="text/javascript" src="js/check.js"></script>
 
 @section('menu')
     @parent
@@ -9,20 +10,17 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
-
-        <!-- TODO chiedere se è possibile mandare il valotr di una variabile tramite route -->
-            <li><a class="dropdown-item" href="{{route('sweet.index')}}">Torte</a></li>
-            <li><a class="dropdown-item" href="#">Biscotti</a></li>
-            <li><a class="dropdown-item" href="#">Cupcake</a></li>
+            <li><a class="dropdown-item" href="{{route('sweet.index')}}">Torte</a></li>           
+            <li><a class="dropdown-item" href="{{route('sweet.index')}}" onclick="retrieveByCategory({{$sweets}},'Biscotto')">Biscotti</a></li>
+            <li><a class="dropdown-item" href="{{route('sweet.index')}}">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ route('sweet.index') }}">Scoprili tutti!</a></li>
+            <li><a class="dropdown-item" href="{{ route('sweet.index')}}" onclick="event.preventDefault()">Scoprili tutti!</a></li>
         </ul>
     </li>
 @endsection
 
 @section('content')
     <!-- Inserimento interfacciamento con Database -->
-
     <section class="py-5">
         <!-- Start: Team -->
         <div class="container py-5">
@@ -34,8 +32,7 @@
             </div>            
         </div>
 
-        <!-- Ordinamento tramite nome -->
-        @foreach ($sweets->sortBy('name') as $sweet)
+        @foreach ($sweets as $sweet)
         <section class="py-5">
             <div class="container py-5">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">

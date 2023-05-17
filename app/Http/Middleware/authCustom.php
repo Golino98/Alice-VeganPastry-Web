@@ -17,12 +17,12 @@ class authCustom
      */
     public function handle(Request $request, Closure $next)
     {
-        //Recupero le informazioni sulla sessione
         session_start();
-        if(!isset($_SESSION['logged']))
-        {
+
+        if (!isset($_SESSION['logged'])) {
             return Redirect::to(route('user.login'));
         }
+
         return $next($request);
     }
 }
