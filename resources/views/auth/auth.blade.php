@@ -48,7 +48,7 @@
                                 </svg></div>
                             <form id="login-form" action="{{route('user.login')}}" method="post">
                                 @csrf
-                                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                                <div class="mb-3"><input class="form-control" type="email" name="username" placeholder="Email"></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
                                 <label for="Login" class="btn btn-primary"><i class="bi-check-lg"></i> Accedi</label>
                                 <input id="Login" type="submit" value="Login" hidden>

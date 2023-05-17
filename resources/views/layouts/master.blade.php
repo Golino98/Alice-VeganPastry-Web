@@ -15,6 +15,7 @@
 <body>
 
 <!-- Start: Navbar Centered Links -->
+
     <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container" ><a class="navbar-brand d-flex align-items-center" href="/"  alt="">
             <img src="/img/logo/logo.jpg" alt="" width="100" height="100" class="d-inline-block align-text-top">

@@ -40,8 +40,9 @@ class DataLayer
     }
 
     public function getUserName($email) {
-        $users = User::where('email',$email)->get();
-        return $users[0]->name;
+
+        $users = User::where('email',$email)->get(['name']);
+        return $users[0]->name;      
     }
 
 }
