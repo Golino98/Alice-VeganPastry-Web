@@ -50,9 +50,10 @@
                                 @csrf
                                 <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                                <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit" value="Login">Accedi</button></div>
+                                <label for="Login" class="btn btn-primary"><i class="bi-check-lg"></i> Accedi</label>
+                                <input id="Login" type="submit" value="Login" hidden>
                             </form>
-                             <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.register')}}">Registrati</a></p>
+                             <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.registration')}}">Registrati</a></p>
                         </div>
                 </div>
             </div>

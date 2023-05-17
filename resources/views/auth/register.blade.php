@@ -49,12 +49,12 @@
                                 </svg></div>
                                 <form id="register-form" action="{{route('user.registration')}}" method="post">
                                     @csrf
-                                    <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username"></div>
+                                    <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Username"></div>
                                     <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                                     <div class="mb-3"><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
                                     <div class="mb-3"><input class="form-control" type="password" name="conf_password" id="confirm_password" placeholder="Reinserisci la password"></div>
-                                    <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit" value="Register">Registrati</button></div>
-                
+                                    <label for="Register" class="btn btn-primary"><i class="bi-check-lg"></i> Registrati</label>
+                                    <input id="Register" type="submit" value="Register" hidden>
                                 </form>
                             <p class="text-muted">Hai già un profilo?&nbsp;<a href="{{route('user.login')}}">Accedi</a></p>
                         </div>

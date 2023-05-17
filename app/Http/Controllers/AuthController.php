@@ -31,13 +31,13 @@ class authController extends Controller
     public function login(Request $req) {
         session_start();
         $dl = new DataLayer();
-        $user_name = $dl->getUserName($req->input('username'));
+        $user_name = $dl->getUserName($req->input('name'));
 
-        if ($dl->validUser($req->input('username'), $req->input('password'))) 
+        if ($dl->validUser($req->input('name'), $req->input('password'))) 
         {
             $_SESSION['logged'] = true;
             $_SESSION['loggedName'] = $user_name;
-            $_SESSION['loggedEmail'] = $req->input('username');
+            $_SESSION['loggedEmail'] = $req->input('name');
             return Redirect::to(route('sweet.index'));
         }
         return view('auth.authErrorPage');
