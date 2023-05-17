@@ -9040,6 +9040,11 @@ fieldset:disabled .btn {
     font-weight: 700 !important
 }
 
+.fw-bold-personal {
+    font-weight: 700 !important;
+    font-size: 1.5rem !important
+}
+
 .fw-bold-inline {
     font-weight: 700 !important;
     display:inline
@@ -9175,7 +9180,13 @@ fieldset:disabled .btn {
 
 .text-muted {
     --bs-text-opacity: 1;
-    color: #4e5d78 !important
+    color: #4e5d78 !important;
+}
+
+.text-muted-personal {
+    --bs-text-opacity: 1;
+    color: #4e5d78 !important;
+    margin-top: 0.5rem;
 }
 
 .text-black-50 {

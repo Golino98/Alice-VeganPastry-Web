@@ -37,7 +37,7 @@
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <h2 class="fw-bold">Benvenut<p class="fw-bold-inline text-success">ə</p></h2>
-                    <p class="fw-bold text-success mb-2">Crea il tuo profilo vegano</p>
+                    <p class="fw-bold-personal text-success mb-2">Crea il tuo profilo vegano</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -56,7 +56,7 @@
                                     <label for="Register" class="btn btn-primary"><i class="bi-check-lg"></i> Registrati</label>
                                     <input id="Register" type="submit" value="Register" hidden>
                                 </form>
-                            <p class="text-muted">Hai già un profilo?&nbsp;<a href="{{route('user.login')}}">Accedi</a></p>
+                            <p class="text-muted-personal">Hai già un profilo?&nbsp;<a href="{{route('user.login')}}">Accedi</a></p>
                         </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
         <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{route('sweet.index')}}">Torte</a></li>           
-            <li><a class="dropdown-item" href="{{route('sweet.index')}}" onclick="retrieveByCategory({{$sweets}},'Biscotto')">Biscotti</a></li>
+            <li><a class="dropdown-item" href="{{route('sweet.index')}}">Biscotti</a></li>
             <li><a class="dropdown-item" href="{{route('sweet.index')}}">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ route('sweet.index')}}" onclick="event.preventDefault()">Scoprili tutti!</a></li>

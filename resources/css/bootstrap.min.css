@@ -189,7 +189,7 @@ h6,
 }
 
 p {
-    margin-top: 0;
+    margin-top: 1rem;
     margin-bottom: 1rem
 }
 
@@ -9171,7 +9171,7 @@ fieldset:disabled .btn {
 
 .text-muted {
     --bs-text-opacity: 1;
-    color: #4e5d78 !important
+    color: #4e5d78 !important;
 }
 
 .text-black-50 {

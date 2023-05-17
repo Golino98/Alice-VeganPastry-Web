@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -36,7 +35,7 @@
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <h2 class="fw-bold">Benvenut<p class="fw-bold-inline text-success">ə</p></h2>
-                    <p class="fw-bold text-success mb-2">Entra nel tuo dolce profilo vegano</p>
+                    <p class="fw-bold-personal text-success mb-2">Entra nel tuo dolce profilo vegano</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -53,7 +52,7 @@
                                 <label for="Login" class="btn btn-primary"><i class="bi-check-lg"></i> Accedi</label>
                                 <input id="Login" type="submit" value="Login" hidden>
                             </form>
-                             <p class="text-muted">Non hai ancora un profilo?&nbsp;<a href="{{route('user.registration')}}">Registrati</a></p>
+                             <p class="text-muted-personal">Non hai ancora un profilo?&nbsp;<a href="{{route('user.registration')}}">Registrati</a></p>
                         </div>
                 </div>
             </div>
