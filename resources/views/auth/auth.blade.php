@@ -49,7 +49,7 @@
                                 @csrf
                                 <div class="mb-3"><input class="form-control" type="email" name="username" placeholder="Email"></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                                <label for="Login" class="btn btn-primary"><i class="bi-check-lg"></i> Accedi</label>
+                                <label for="Login" class="btn btn-log"><i class="bi-check-lg"></i> Accedi</label>
                                 <input id="Login" type="submit" value="Login" hidden>
                             </form>
                              <p class="text-muted-personal">Non hai ancora un profilo?&nbsp;<a href="{{route('user.registration')}}">Registrati</a></p>

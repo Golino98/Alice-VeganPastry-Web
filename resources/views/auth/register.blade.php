@@ -53,7 +53,7 @@
                                     <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                                     <div class="mb-3"><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
                                     <div class="mb-3"><input class="form-control" type="password" name="conf_password" id="confirm_password" placeholder="Reinserisci la password"></div>
-                                    <label for="Register" class="btn btn-primary"><i class="bi-check-lg"></i> Registrati</label>
+                                    <label for="Register" class="btn btn-log"><i class="bi-check-lg"></i> Registrati</label>
                                     <input id="Register" type="submit" value="Register" hidden>
                                 </form>
                             <p class="text-muted-personal">Hai già un profilo?&nbsp;<a href="{{route('user.login')}}">Accedi</a></p>

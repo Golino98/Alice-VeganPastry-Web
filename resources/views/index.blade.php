@@ -58,7 +58,7 @@
                                     </svg></div>
                                 <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
                                 <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p>
-                                <button class="btn btn-primary shadow" type="button">Learn more</button>
+                                <button class="btn btn-log shadow" type="button">Learn more</button>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                                         <path d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z"></path>
                                     </svg></div>
                                 <h5 class="fw-bold card-title">Lorem ipsum dolor sit&nbsp;</h5>
-                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-primary shadow" type="button">Learn more</button>
+                                <p class="text-muted card-text mb-4">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><button class="btn btn-log shadow" type="button">Learn more</button>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                         <div class="card bg-primary-light">
                             <div class="card-body text-center px-4 py-5 px-md-5">
                                 <p class="fw-bold text-primary card-text mb-2">Fully Managed</p>
-                                <h5 class="fw-bold card-title mb-3">Lorem ipsum dolor sit&nbsp;nullam et quis ad cras porttitor</h5><button class="btn btn-primary btn-sm" type="button">Learn more</button>
+                                <h5 class="fw-bold card-title mb-3">Lorem ipsum dolor sit&nbsp;nullam et quis ad cras porttitor</h5><button class="btn btn-log btn-sm" type="button">Learn more</button>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="card bg-info-light">
                             <div class="card-body text-center px-4 py-5 px-md-5">
                                 <p class="fw-bold text-info card-text mb-2">Fully Managed</p>
-                                <h5 class="fw-bold card-title mb-3">Lorem ipsum dolor sit&nbsp;nullam et quis ad cras porttitor</h5><button class="btn btn-info btn-sm" type="button">Learn more</button>
+                                <h5 class="fw-bold card-title mb-3">Lorem ipsum dolor sit&nbsp;nullam et quis ad cras porttitor</h5><button class="btn btn-log btn-sm" type="button">Learn more</button>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                             <!-- Start: Error Example -->
                             <div class="mb-3"><input class="form-control" type="email" id="email-1" name="email" placeholder="Email"></div><!-- End: Error Example -->
                             <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6" placeholder="Dicci qualcosa!"></textarea></div>
-                            <div><button class="btn btn-primary shadow d-block w-100" type="submit">Invia </button></div>
+                            <div><button class="btn btn-log shadow d-block w-100" type="submit">Invia </button></div>
                         </form>
                     </div>
                 </div>

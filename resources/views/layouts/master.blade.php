@@ -28,9 +28,19 @@
             </ul>
             <!-- Check if logged is true or false  -->
             @if($logged)
-                <a class="btn btn-primary shadow" role="button" href=" {{route('user.logout')}} ">{{$loggedName}}</a>
+                <div class="btn-group">
+                    <button class="btn btn-log dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                    {{$loggedName}}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">I miei ordini</a></li>
+                        <li><a class="dropdown-item" href="#">Modifica profilo</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}">Esci</a></li>
+                    </ul>
+                    </div>
             @else
-                <a class="btn btn-primary shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
+                <!-- Cambia a btn-primary per farlo tornare blu -->
+                <a class="btn btn-log shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
             @endif
         </div>
         </div>
