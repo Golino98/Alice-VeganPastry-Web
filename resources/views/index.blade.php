@@ -39,9 +39,9 @@
             </div>
         </div><!-- End: Hero Clean Reverse -->
 
-    <section>
         <!-- Start: Features Cards -->
-        <div class="container bg-primary-gradient py-5">
+        <!-- <div class="container bg-primary-gradient py-5">
+                <section>
             <div class="row">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <p class="fw-bold text-success mb-2">DA INSERIRE</p>
@@ -76,10 +76,11 @@
                     </div>
                 </div>
             </div>
-        </div><!-- End: Features Cards -->
-    </section>
-    <section>
+        </section>
+        </div> -->
+        <!-- End: Features Cards -->
         <!-- Start: Features Cards -->
+        <!-- <section>
         <div class="container py-5">
             <div class="mx-auto" style="max-width: 900px;">
                 <div class="row row-cols-1 row-cols-md-2 d-flex justify-content-center">
@@ -101,8 +102,9 @@
                     </div>
                 </div>
             </div>
-        </div><!-- End: Features Cards -->
-    </section>
+        </div>
+    </section> -->
+    <!-- End: Features Cards -->
     <!-- Start: Contact Details -->
     <section class="py-5">
         <div class="container">

@@ -12904,7 +12904,7 @@ img::-moz-selection {
 
 .bs-icon.bs-icon-primary {
     color: var(--bs-white);
-    background: var(--bs-primary)
+    background: #00b779
 }
 
 .bs-icon.bs-icon-primary-light {
