@@ -47,6 +47,23 @@ class authController extends Controller
         }
         
     }
+    public function modification() {
+        return view('auth.modify');
+    }
+    public function modify(Request $req)
+    {
+        $dl = new DataLayer();
+        session_start();
+
+        try
+        {
+            $dl->modifyUser($req->input('name'), $req->input('password'));
+            return Redirect::to(route('home'));
+        }catch(\Exception $e)
+        {
+            return view('auth.authErrorPage');      
+        }
+    }
 
     public function logout() {
         session_start();

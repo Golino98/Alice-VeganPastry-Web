@@ -1,7 +1,7 @@
+<?php session_start(); ?>
 @extends('layouts.master')
-
 @section('title', 'I nostri dolci')
-<script type="text/javascript" src="js/number-sweets.js"></script>
+
 
 @section('menu')
     @parent
@@ -18,7 +18,9 @@
     </li>
 @endsection
 
+
 @section('content')
+    @parent
     <!-- Inserimento interfacciamento con Database -->
     <section class="py-5">
         <!-- Start: Team -->
@@ -54,9 +56,9 @@
                                     <div class="reflow-add-to-cart ref-product-controls">
                                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
                                                 <div class ="ref-quantity-widget">                                                    
-                                                    <button type="button" class="btn btn-danger btn-sm"  onclick="decrease({{$sweet->id}})">-</button>    
+                                                    <button type="button" class="btn-minus"  onclick="decrease({{$sweet->id}})">-</button>    
                                                         <input type="number" id='valueSweets{{$sweet->id}}' value=0 min=0 max=20 onfocus="this.value=''"/>
-                                                    <button type="button" class="btn btn-success btn-sm" onclick="increase({{$sweet->id}})">+</button>
+                                                    <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
                                             </span>
                                         </div>
                                         <a class="ref-button" href="#">Aggiungi</a>

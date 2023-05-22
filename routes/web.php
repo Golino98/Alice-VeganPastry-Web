@@ -22,10 +22,14 @@ use App\Http\Controllers\AuthController;
 //Rotta che mi permette di andare nella pagina di login
 Route::get('/', [FrontController::class, 'getHome'])->name('home');
 
+Route::get('/sweet', [SweetController::class, 'index'])->name('sweet.index');
+
 Route::get('/user/login', [AuthController::class, 'authentication'])->name('user.login');
 Route::post('/user/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
+
 Route::get('/user/register', [AuthController::class, 'registration'])->name('user.registration');
 Route::post('/user/register', [AuthController::class, 'register'])->name('user.registration');
 
-Route::resource('sweet', SweetController::class);
+Route::get('/user/modify', [AuthController::class, 'modification'])->name('user.modify');
+Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modify');

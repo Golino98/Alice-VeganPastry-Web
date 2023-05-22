@@ -33,6 +33,13 @@ class DataLayer
         $user->email = $email;
         $user->save();
     }
+
+    public function modifyUser($name, $password) {
+        $user = User::where('email',$_SESSION['loggedEmail'])->first();
+        $user->name = $name;
+        $user->password = md5($password);
+        $user->save();
+    }
     
     public function getUserID($username) {
         $users = User::where('email',$username)->get(['id']);

@@ -16,7 +16,7 @@
 
 <!-- Start: Navbar Centered Links -->
 
-    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container" ><a class="navbar-brand d-flex align-items-center" href="/"  alt="">
             <img src="/img/logo/logo.jpg" alt="" width="100" height="100" class="d-inline-block align-text-top">
             <span>Alice VeganPastry</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -27,17 +27,16 @@
                 @show
             </ul>
             <!-- Check if logged is true or false  -->
-            @if($logged)
+            @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true)
                 <div class="btn-group">
-                    <button class="btn btn-log dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    {{$loggedName}}
-                    </button>
+                    <button class="btn btn-log dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}}
+                </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">I miei ordini</a></li>
-                        <li><a class="dropdown-item" href="#">Modifica profilo</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.modify')}}">Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.logout')}}">Esci</a></li>
                     </ul>
-                    </div>
+                </div>
             @else
                 <!-- Cambia a btn-primary per farlo tornare blu -->
                 <a class="btn btn-log shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
