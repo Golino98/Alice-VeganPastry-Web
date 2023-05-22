@@ -29,17 +29,18 @@
             <!-- Check if logged is true or false  -->
             @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true)
                 <div class="btn-group">
-                    <button class="btn btn-log dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}}
+                    <button class="btn btn-log" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}} <i class="bi bi-list-nested"></i>
                 </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">I miei ordini</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.modify')}}">Modifica profilo</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.logout')}}">Esci</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-cart3"></i> Il mio carrello</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-bag-heart"></i> I miei ordini</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
                     </ul>
                 </div>
             @else
                 <!-- Cambia a btn-primary per farlo tornare blu -->
-                <a class="btn btn-log shadow" role="button" href=" {{route('user.login')}} ">Accedi</a>
+                <a class="btn btn-log shadow" role="button" href="{{route('user.login')}}"><i class="bi bi-balloon"></i> Accedi</a>
             @endif
         </div>
         </div>

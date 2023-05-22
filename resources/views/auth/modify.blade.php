@@ -49,12 +49,19 @@
                                         <input type="password" class="form-control" name = "conf_password" id="confirm_password" placeholder="Password">
                                         <label>Reinserisci la password</label>
                                     </div>
-                                    <label for="Modify" class="btn btn-log">Salva le modifiche</label>
+                                    <label for="Modify" class="btn btn-log">Salva le modifiche  <i class="bi bi-check2"></i></label>
                                     <input id="Modify" type="submit" value="Modify" hidden>
                                 </form>
+                                <!-- Add space between the two buttons -->
+                                <div class="mb-2"></div>
+                                <div>  
+                                    <a href="{{route('home')}}" class="btn btn-back">Torna alla Home  <i class="bi bi-house"></i></a>
+                                    </div>
+                            </div>
                             </div>
                     </div>
-                </div>
+                    <!-- Create a button to go back to the Home -->
+
             </div>
         </div>
     </section>
