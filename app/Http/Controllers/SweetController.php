@@ -14,11 +14,10 @@ class SweetController extends Controller
         $sweets = $dl->listSweet();
         return view('sweet.sweets')->with('sweets', $sweets);
     }
-
-    public function filterByCategory($category)
+    public function show($id)
     {
         $dl = new DataLayer();
-        $sweets = $dl->listSweetByCategory($category);
-        return view('sweet.sweets')->with('sweets', $sweets);
+        $sweets = $dl->listSweetByCategoryName($id);
+        return view ('sweet.categorySweet')->with('sweets', $sweets);
     }
 }

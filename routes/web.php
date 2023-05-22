@@ -33,3 +33,5 @@ Route::post('/user/register', [AuthController::class, 'register'])->name('user.r
 
 Route::get('/user/modify', [AuthController::class, 'modification'])->name('user.modify');
 Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modify');
+
+Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');

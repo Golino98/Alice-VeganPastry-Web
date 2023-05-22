@@ -10,10 +10,19 @@ class DataLayer
         return $sweets;
     }
 
-    public function listSweetByCategory($category)
+    public function listSweetByCategoryId($categoryId)
     {
-        $sweets = Sweet::where('category_id', $category)->orderBy('name','asc')->get();
+        $sweets = Sweet::where('category_id', $categoryId)->orderBy('name','asc')->get();
         return $sweets;
+    }
+    public function listSweetByCategoryName($category)
+    {
+    // give me the list of sweets where the category name is equal to the variable $category
+        $sweets = Sweet::whereHas('category', function($query) use ($category) {
+            $query->where('name', $category);
+        })->orderBy('name','asc')->get();
+        return $sweets;
+
     }
     public function validUser($username, $password) {
         $users = User::where('email',$username)->get(['password']);

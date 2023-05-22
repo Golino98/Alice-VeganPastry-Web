@@ -42,7 +42,8 @@
                     <div class="reflow-product"> 
                         <div class="ref-media">
                             <div class="ref-preview">
-                                <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
+                            <?php $path = "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>
+                                <img class="ref-image active" src="<?php echo $path ?>"  data-reflow-preview-type="image"/>
                             </div>
                             <div class="ref-product-data">
                                 <div>
