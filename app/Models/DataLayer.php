@@ -60,5 +60,4 @@ class DataLayer
         $users = User::where('email',$email)->get(['name']);
         return $users[0]->name;      
     }
-
 }

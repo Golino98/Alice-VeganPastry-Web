@@ -36,6 +36,10 @@ class authController extends Controller
         session_start();
         try
         {
+            if($req->input('password') != $req->input('conf_password'))
+            {
+                throw new \Exception();
+            }
             $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
             $_SESSION['logged'] = true;
             $_SESSION['loggedName'] = $req->input('name');

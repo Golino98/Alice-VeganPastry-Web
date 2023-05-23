@@ -60,7 +60,7 @@
                                                     <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
                                             </span>
                                         </div>
-                                        <a class="ref-button" href="#"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
+                                        <a class="ref-button"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
                                 </span>
                             </div>
                     </div>
