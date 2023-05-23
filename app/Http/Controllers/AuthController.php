@@ -38,14 +38,19 @@ class authController extends Controller
         {
             if($req->input('password') != $req->input('conf_password'))
             {
-                throw new \Exception();
+                throw new \ErrorException();
             }
             $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
             $_SESSION['logged'] = true;
             $_SESSION['loggedName'] = $req->input('name');
             $_SESSION['loggedEmail'] = $req->input('email');
             return Redirect::to(route('home'));
-        }catch(\Exception $e)
+        }
+        catch(\ErrorException $e)
+        {
+            return view('auth.noMatchPassword');      
+        }
+        catch(\Exception $e)
         {
             return view('auth.authErrorPage');      
         }

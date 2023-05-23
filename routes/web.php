@@ -1,11 +1,8 @@
 <?php
-
-
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
-use App\Http\Controllers\IngredientController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
 
 /*

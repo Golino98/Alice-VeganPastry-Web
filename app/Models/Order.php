@@ -10,7 +10,6 @@ class Order extends Model
     use HasFactory;
 
     protected $table = 'orders';
-    protected $timestamps = false;
 
     public function sweets()
     {

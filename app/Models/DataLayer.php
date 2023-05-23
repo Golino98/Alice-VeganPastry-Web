@@ -50,13 +50,12 @@ class DataLayer
         $user->save();
     }
     
-    public function getUserID($username) {
-        $users = User::where('email',$username)->get(['id']);
+    public function getUserID($email) {
+        $users = User::where('email',$email)->get(['id']);
         return $users[0]->id;
     }
 
     public function getUserName($email) {
-
         $users = User::where('email',$email)->get(['name']);
         return $users[0]->name;      
     }
