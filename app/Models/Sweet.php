@@ -9,7 +9,7 @@ class Sweet extends Model
 {
     use HasFactory;
 
-    protected $table = 'sweet';
+    protected $table = 'sweets';
 
     public $timestamps = false;
     protected $fillable = ['name','description', 'price','image'];
@@ -25,5 +25,10 @@ class Sweet extends Model
     public function category()
     {
         return $this->hasOne(Category::class,'id','category_id');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class,'order_sweet','sweet_id','order_id');
     }
 }

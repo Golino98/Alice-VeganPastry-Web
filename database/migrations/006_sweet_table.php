@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('sweet',function(Blueprint $table)
+        Schema::create('sweets',function(Blueprint $table)
         {
             $table->increments('id');
             $table->string('name');
@@ -19,14 +19,14 @@ return new class extends Migration
             $table->integer('category_id')->unsigned();
         });
 
-        Schema::table('sweet',function(Blueprint $table)
+        Schema::table('sweets',function(Blueprint $table)
         {
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('sweet');
+        Schema::dropIfExists('sweets');
     }
 };

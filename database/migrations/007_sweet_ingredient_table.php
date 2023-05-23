@@ -12,8 +12,8 @@ return new class extends Migration
         {
             $table->integer(('sweet_id'))->unsigned();
             $table->integer(('ingredient_id'))->unsigned();
-            $table->foreign('sweet_id')->references('id')->on('sweet');
-            $table->foreign('ingredient_id')->references('id')->on('ingredient');
+            $table->foreign('sweet_id')->references('id')->on('sweets');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients');
         });
     }
 

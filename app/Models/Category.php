@@ -9,9 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'category';
+    protected $table = 'categories';
     protected $fillable = ['name'];
-    public $tiemstamps = false;
+    public $timestamps = false;
     
     // Associazione 1...n fra Category -> Sweet
     public function sweets()
