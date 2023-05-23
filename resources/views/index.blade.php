@@ -4,7 +4,7 @@
 
 @section('menu')
 
-    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+    <li class="nav-item"><a class="nav-link active" onclick="event.preventDefault();" href="{{route('sweet.index')}}">Home</a></li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
         <ul class="dropdown-menu">
