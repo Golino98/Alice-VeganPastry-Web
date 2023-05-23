@@ -4,9 +4,7 @@
 
 <script type="text/javascript" src="js\number-sweets.js"></script>
 
-
 @section('menu')
-    @parent
     <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle dropdown-toggle-split active" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
