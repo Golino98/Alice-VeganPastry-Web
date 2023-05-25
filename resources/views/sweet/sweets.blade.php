@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 @extends('layouts.master')
 @section('title', 'I nostri dolci')
 
@@ -32,11 +33,6 @@
                 </div>
             </div>            
         </div>
-
-        <?php if(empty($_SESSION['order']))
-        {
-            $_SESSION['order'] = array();
-        } ?>
         
         @foreach ($sweets as $sweet)
         <section class="py-5">
@@ -73,7 +69,11 @@
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                             @endif
-                                    </div>        
+                                            @if(isset($_SESSION['order']))
+                                                SETTATA
+                                            @else
+                                                NON SETTATA
+                                            @endif
                                 </span>
                             </div>
                         </div>

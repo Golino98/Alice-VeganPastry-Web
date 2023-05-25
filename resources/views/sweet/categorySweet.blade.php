@@ -3,7 +3,7 @@
 @section('title', 'I nostri dolci')
 
 <script type="text/javascript" src="js\number-sweets.js"></script>
-
+<script type="text/javascript" src="js\add-to-cart.js"></script>
 
 @section('menu')
     @parent
@@ -52,11 +52,19 @@
                                                     <button type="button" class="btn-minus"  onclick="decrease({{$sweet->id}})">-</button>    
                                                         <input type="number" id='valueSweets{{$sweet->id}}' value=0 min=0 max=20 onfocus="this.value=''"/>
                                                     <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
+                                                    </div>
                                             </span>
-                                        </div>
-                                        <a class="ref-button" href="#">Aggiungi</a>
+                                            @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true)
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(true,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                            @else
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                            @endif
+                                    </div>        
                                 </span>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
