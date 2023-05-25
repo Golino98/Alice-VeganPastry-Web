@@ -1,4 +1,6 @@
-function addToCart(id) {
+function addToCart(logged, id) {
+    if(!logged)
+    {
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
       const wrapper = document.createElement('div')
       wrapper.innerHTML = [
@@ -8,4 +10,7 @@ function addToCart(id) {
         '</div>'
       ].join('')
       alertPlaceholder.append(wrapper)
+    }
+    else{
+    }
 }

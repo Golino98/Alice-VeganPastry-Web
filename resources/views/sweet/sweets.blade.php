@@ -65,9 +65,14 @@
                                                         <input type="number" id='valueSweets{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
                                                     <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
-                                            </span>                                        
-                                        <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
-                                        <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                            </span>
+                                            @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true)
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(true,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                            @else
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                            @endif
                                     </div>        
                                 </span>
                             </div>
