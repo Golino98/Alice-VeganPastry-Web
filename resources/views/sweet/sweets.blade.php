@@ -77,5 +77,5 @@
             </div>
         </section>
         @endforeach
-    </section><!-- Start: Footer Multi Column -->
+    </section>
 @endsection
