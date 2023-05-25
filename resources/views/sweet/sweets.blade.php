@@ -15,7 +15,7 @@
             <li><a class="dropdown-item" href="{{route('sweet.show', ['category' => 'biscotto'])}}">Biscotti</a></li>
             <li><a class="dropdown-item" href="{{route('sweet.show', ['category' => 'cupcake'])}}">Cupcake</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" onclick="event.preventDefault();" href="{{ route('sweet.index')}}">Scoprili tutti!</a></li>
+            <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Scoprili tutti!</a></li>
         </ul>
     </li>
 @endsection
@@ -33,6 +33,13 @@
                 </div>
             </div>            
         </div>
+
+        <!-- Creazione della sessione del carrello -->
+        <?php 
+            if(!isset($_SESSION['cart'])){
+                $_SESSION['cart'] = array();
+            }
+        ?>        
         
         @foreach ($sweets as $sweet)
         <section class="py-5">
@@ -63,7 +70,7 @@
                                                 </div>
                                             </span>
                                             @if(isset($_SESSION['logged']))
-                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                             @else
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
