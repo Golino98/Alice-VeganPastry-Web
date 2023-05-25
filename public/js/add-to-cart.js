@@ -2,7 +2,6 @@ function addToCart(logged, id) {
     if (!logged) 
     {
         const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
-        var test = document.getElementById('warning'.concat(id))
         const wrapper = document.createElement('div')
         wrapper.innerHTML = [
             `<div class="alert alert-danger alert-dismissible fade show" id="warning" role="alert">`,
@@ -11,20 +10,21 @@ function addToCart(logged, id) {
             '</div>'
         ].join('')
         alertPlaceholder.append(wrapper)
-    }
-    else 
+    }else
     {
-        session_start();
-        // Inserire il codice per l'aggiunta a carrello
-        let order ={sweetId: id, quantity: document.getElementById('valueSweets'.concat(id)).value};
-        if (isset($_SESSION['order'])) 
+        var value = parseInt(document.getElementById("valueSweets".concat(id)).value, 10);
+        value = isNaN(value) ? 0 : value;
+        if(value <= 0)
         {
-            $_SESSION['order'].push(order);
-
-        }else
-        {
-            $_SESSION['order'] = array();
-            $_SESSION['order'].push(order);
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
+            const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-info alert-dismissible fade show" id="info" role="alert">`,
+            `   <div>Devi selezionare almeno una unità del dolce prima di poterlo aggiungere al carrello.</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+        alertPlaceholder.append(wrapper)
         }
     }
 }

@@ -69,11 +69,8 @@
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                             @endif
-                                            @if(isset($_SESSION['order']))
-                                                SETTATA
-                                            @else
-                                                NON SETTATA
-                                            @endif
+
+                                            <!-- Crea e aggiungi delle relazioni nel carrello ma senza cambiare la pagina -->
                                 </span>
                             </div>
                         </div>
