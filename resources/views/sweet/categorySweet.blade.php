@@ -10,7 +10,6 @@
     
 @endsection
 
-
 @section('content')
     @parent
     <!-- Inserimento interfacciamento con Database -->

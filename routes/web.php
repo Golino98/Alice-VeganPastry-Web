@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;

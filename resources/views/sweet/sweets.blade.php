@@ -69,8 +69,6 @@
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                             @endif
-
-                                            <!-- Crea e aggiungi delle relazioni nel carrello ma senza cambiare la pagina -->
                                 </span>
                             </div>
                         </div>
