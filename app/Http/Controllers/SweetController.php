@@ -18,6 +18,6 @@ class SweetController extends Controller
     {
         $dl = new DataLayer();
         $sweets = $dl->listSweetByCategoryName($id);
-        return view ('sweet.categorySweet')->with('sweets', $sweets);
+        return view ('sweet.sweets')->with('sweets', $sweets);
     }
 }
