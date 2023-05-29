@@ -57,6 +57,13 @@ class DataLayer
 
     public function getUserName($email) {
         $users = User::where('email',$email)->get(['name']);
-        return $users[0]->name;      
+        try{
+            return $users[0]->name;      
+        }
+        catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = "l'email inserita non è presente nel nostro database!";
+            return view('auth.authErrorPage');
+        }
     }
 }

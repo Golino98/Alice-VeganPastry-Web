@@ -24,6 +24,7 @@ class authController extends Controller
             $_SESSION['loggedEmail'] = $req->input('username');
             return Redirect::to(route('home'));
         }
+        $_SESSION['errorMessage'] = "le credenziali inserite sono errate errate!";
         return view('auth.authErrorPage');
     }
         
@@ -48,13 +49,14 @@ class authController extends Controller
         }
         catch(\ErrorException $e)
         {
-            return view('auth.noMatchPassword');      
-        }
+            $_SESSION['errorMessage'] = "le password inserite non coincidono!";     
+            return view('auth.authErrorPage'); 
+        }        
         catch(\Exception $e)
         {
-            return view('auth.authErrorPage');      
+            $_SESSION['errorMessage'] = "l'email inserita è già presente nel nostro database!";     
+            return view('auth.authErrorPage'); 
         }
-        
     }
     public function modification() {
         return view('auth.modify');
@@ -70,6 +72,7 @@ class authController extends Controller
             return Redirect::to(route('home'));
         }catch(\Exception $e)
         {
+            $_SESSION['errorMessage'] = "le password inserite non coincidono!";     
             return view('auth.authErrorPage');      
         }
     }
