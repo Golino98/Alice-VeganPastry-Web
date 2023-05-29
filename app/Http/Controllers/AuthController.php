@@ -40,6 +40,9 @@ class authController extends Controller
             if($req->input('password') != $req->input('conf_password'))
             {
                 throw new \ErrorException();
+            }else if($req->input('password') == null || $req->input('conf_password') == null)
+            {
+                throw new \InvalidArgumentException();
             }
             $dl->addUser($req->input('name'), $req->input('password'), $req->input('email'));
             $_SESSION['logged'] = true;
@@ -51,7 +54,12 @@ class authController extends Controller
         {
             $_SESSION['errorMessage'] = "le password inserite non coincidono!";     
             return view('auth.authErrorPage'); 
-        }        
+        }
+        catch(\InvalidArgumentException $e)
+        {
+            $_SESSION['errorMessage'] = "le password inserite non possono essere vuote!";     
+            return view('auth.authErrorPage'); 
+        }
         catch(\Exception $e)
         {
             $_SESSION['errorMessage'] = "l'email inserita è già presente nel nostro database!";     
@@ -68,7 +76,7 @@ class authController extends Controller
 
         try
         {
-            $dl->modifyUser($req->input('name'), $req->input('password'));
+            $dl->modifyUser($req->input('name'), $req->input('password'), $req->input('conf_password'));
             return Redirect::to(route('home'));
         }catch(\Exception $e)
         {

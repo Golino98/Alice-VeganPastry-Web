@@ -31,7 +31,7 @@
                                         <label>Password</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name = "conf_password" id="confirm_password" placeholder="Password">
+                                        <input type="password" class="form-control" name = "conf_password" id="conf_password" placeholder="Password">
                                         <label>Reinserisci la password</label>
                                     </div>
                                     <label for="Modify" class="btn btn-log">Salva le modifiche  <i class="bi bi-check2"></i></label>

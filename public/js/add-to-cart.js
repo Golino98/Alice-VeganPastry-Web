@@ -28,3 +28,4 @@ function addToCart(logged, id) {
         }
     }
 }
+
