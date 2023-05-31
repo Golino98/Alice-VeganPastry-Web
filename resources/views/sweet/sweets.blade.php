@@ -32,14 +32,7 @@
                     <p class="text-muted">Guarda e compra i nostri dolci, cruelty free al 100%.&nbsp;</p>
                 </div>
             </div>            
-        </div>
-
-        <!-- Creazione della sessione del carrello -->
-        <?php 
-            if(!isset($_SESSION['cart'])){
-                $_SESSION['cart'] = array();
-            }
-        ?>        
+        </div>     
         
         @foreach ($sweets as $sweet)
         <section class="py-5">
@@ -71,7 +64,7 @@
                                             </span>
                                             @if(isset($_SESSION['logged']))
                                             
-                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                                 
                                             @else
