@@ -105,6 +105,7 @@
         </div>
     </section> -->
     <!-- End: Features Cards -->
+    
     <!-- Start: Contact Details -->
     <section class="py-5">
         <div class="container">
@@ -123,7 +124,7 @@
                             <!-- Start: Error Example -->
                             <div class="mb-3"><input class="form-control" type="email" id="email-1" name="email" placeholder="Email"></div><!-- End: Error Example -->
                             <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6" placeholder="Dicci qualcosa!"></textarea></div>
-                            <div><button class="btn btn-log shadow d-block w-100" type="submit">Invia </button></div>
+                            <div><button class="btn btn-log shadow d-block w-100" type="submit"><i class="bi bi-send"></i> Invia</button></div>
                         </form>
                     </div>
                 </div>
