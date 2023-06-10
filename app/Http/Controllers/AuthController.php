@@ -22,9 +22,10 @@ class authController extends Controller
             $_SESSION['logged'] = true;
             $_SESSION['loggedName'] = $user_name;
             $_SESSION['loggedEmail'] = $req->input('username');
+            $_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('username'));
             return Redirect::to(route('home'));
         }
-        $_SESSION['errorMessage'] = "le credenziali inserite sono errate errate!";
+        $_SESSION['errorMessage'] = "le credenziali inserite sono errate!";
         return view('auth.authErrorPage');
     }
         
@@ -48,6 +49,7 @@ class authController extends Controller
             $_SESSION['logged'] = true;
             $_SESSION['loggedName'] = $req->input('name');
             $_SESSION['loggedEmail'] = $req->input('email');
+            $_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('email'));
             return Redirect::to(route('home'));
         }
         catch(\ErrorException $e)

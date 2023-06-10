@@ -73,4 +73,9 @@ class DataLayer
             return view('auth.authErrorPage');
         }
     }
+
+    public function getUserPrivilegies($email) {
+        $users = User::where('email',$email)->get(['admin']);
+        return ($users[0]->admin);
+    }
 }

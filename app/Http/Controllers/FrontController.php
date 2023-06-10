@@ -10,7 +10,8 @@ class FrontController extends Controller
     {
         session_start();
 
-        if (isset($_SESSION['logged'])) {
+        if (isset($_SESSION['logged'])) 
+        {
             return view('index')->with('logged', true)->with('loggedName', $_SESSION['loggedName']);
         } else 
         {

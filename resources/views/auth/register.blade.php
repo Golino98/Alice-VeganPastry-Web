@@ -1,4 +1,3 @@
-<?php session_start();?>
 @extends('layouts.master')
 @section('title', 'Registrati')
 
