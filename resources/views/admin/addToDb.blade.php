@@ -7,6 +7,9 @@
         <div class="container py-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
+                <center> <h2 class="fw-bold">Aggiungi un <p class="fw-bold-inline text-success">dolce</p></h2> </center>
+                <br>
+
                 <form action="#" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">

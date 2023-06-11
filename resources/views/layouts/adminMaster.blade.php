@@ -89,3 +89,34 @@
         </div>
     </nav><!-- End: Navbar Centered Links -->
 @yield('content')
+<br>
+<footer class="bg-primary-gradient">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <!-- Start: Services -->
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">Come e dove trovarci</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt"></i><a href="https://www.google.it/maps/place/River+Oglio+bike+bar/@45.9003982,10.2071018,17z/data=!3m1!4b1!4m6!3m5!1s0x4783d1662433c493:0xf0bb4baae9c9cb24!8m2!3d45.9003982!4d10.2096767!16s%2Fg%2F11h4lmsq03?entry=ttu"> Google Maps</a></li>
+                    </ul>
+                </div><!-- End: Services -->
+                <!-- Start: About -->
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">I nostri Social</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-instagram"></i><a href="https://www.instagram.com/alice.veganpastry/"> VeganPastry</a></li>
+                        <li><i class="bi bi-instagram"></i><a href="https://www.instagram.com/pellegrinellialice/"> Alice</a></li>
+                    </ul>
+                </div><!-- End: About -->
+                <!-- Start: Careers -->
+                
+            </div>
+            <hr>
+            <div class="text-center mb-0">
+                <!-- Create a centered paragraph -->
+                <p class="text-center mb-0">© 2023 Alice VeganPastry. All rights reserved.</p>                
+            </div>
+        </div>
+    </footer><!-- End: Footer Multi Column -->
+</body>
+</html>
