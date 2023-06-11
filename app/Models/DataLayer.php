@@ -10,6 +10,12 @@ class DataLayer
         return $sweets;
     }
 
+    public function listCategory()
+    {
+        $categories = Category::orderBy('name','asc')->get();
+        return $categories;
+    }
+
     public function listSweetByCategoryId($categoryId)
     {
         $sweets = Sweet::where('category_id', $categoryId)->orderBy('name','asc')->get();
