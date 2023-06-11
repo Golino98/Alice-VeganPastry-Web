@@ -49,6 +49,28 @@ class DataLayer
         $user->save();
     }
 
+    public function getCategoryIdByName($category) {
+        $categories = Category::where('name',$category)->get(['id']);
+        return $categories[0]->id;
+    }
+    public function addSweet($name, $category, $price, $description, $image) {
+        $dl = new DataLayer();
+        $categoryId = $dl->getCategoryIdByName($category);
+
+        $sweet = new Sweet();
+        $sweet->name = $name;
+        $sweet->category_id = $categoryId;
+        $sweet->price = $price;
+        $sweet->description = $description;
+
+        $pathImage = pathinfo($image, PATHINFO_FILENAME);
+        $extension = pathinfo($image, PATHINFO_EXTENSION);
+        $completePath = $pathImage . "." . $extension;
+
+        $sweet->image = $completePath;
+        $sweet->save();
+    }
+
     public function modifyUser($name, $password,$conf_password) {
         $user = User::where('email',$_SESSION['loggedEmail'])->first();
         $user->name = $name;

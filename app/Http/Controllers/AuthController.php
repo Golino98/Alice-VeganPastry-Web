@@ -47,22 +47,6 @@ class authController extends Controller
         }
      }
 
-     public function insert()
-     {
-        session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
-        {
-            $dl = new DataLayer();
-            $categories = $dl->listCategory();
-            return view('admin.addToDb')->with('categories', $categories);
-        }
-        else
-        {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
-        }
-     }
-
      public function register(Request $req) {
         $dl = new DataLayer();    
         session_start();
