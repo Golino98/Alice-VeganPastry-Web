@@ -24,6 +24,8 @@ Route::get('/user/login', [AuthController::class, 'authentication'])->name('user
 Route::post('/user/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
 
+Route::get('/admin/panelControll', [AuthController::class, 'admin'])->name('admin.control');
+
 Route::get('/user/register', [AuthController::class, 'registration'])->name('user.registration');
 Route::post('/user/register', [AuthController::class, 'register'])->name('user.registration');
 

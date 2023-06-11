@@ -33,6 +33,20 @@ class authController extends Controller
         return view('auth.register');
      }
 
+     public function admin()
+     {
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            return view('admin.adminControlSystem');
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            return view('auth.authErrorPage');
+        }
+     }
+
      public function register(Request $req) {
         $dl = new DataLayer();    
         session_start();
