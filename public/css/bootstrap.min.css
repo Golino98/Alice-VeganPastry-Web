@@ -357,8 +357,8 @@ caption {
 }
 
 th {
-    text-align: inherit;
-    text-align: -webkit-match-parent
+    text-align: -webkit-match-parent;
+    text-align: center;
 }
 
 thead,
@@ -369,7 +369,8 @@ td,
 th {
     border-color: inherit;
     border-style: solid;
-    border-width: 0
+    border-width: 0;
+    text-align: center;
 }
 
 label {
@@ -2048,7 +2049,7 @@ progress {
     width: 100%;
     margin-bottom: 1rem;
     color: var(--bs-table-color);
-    vertical-align: top;
+    vertical-align: middle;
     border-color: var(--bs-table-border-color)
 }
 
@@ -2064,7 +2065,7 @@ progress {
 }
 
 .table>thead {
-    vertical-align: bottom
+    vertical-align: middle
 }
 
 .table-group-divider {
@@ -2152,6 +2153,20 @@ progress {
     --bs-table-active-bg: #b8d9cd;
     --bs-table-active-color: #000;
     --bs-table-hover-bg: #bddfd3;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-personal {
+    --bs-table-color: #000;
+    --bs-table-bg: #00ea9b;
+    --bs-table-border-color: #000000;
+    --bs-table-striped-bg: #00b77a9a;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #000000;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #c7cfea;
     --bs-table-hover-color: #000;
     color: var(--bs-table-color);
     border-color: var(--bs-table-border-color)

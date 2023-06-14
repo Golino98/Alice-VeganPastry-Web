@@ -26,8 +26,8 @@ Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout
 
 Route::get('/admin/panelControll', [AuthController::class, 'admin'])->name('admin.control');
 
-Route::get('/admin/panelControll/insert', [SweetController::class, 'insert'])->name('admin.insert');
-Route::post('/admin/panelControll/insert', [SweetController::class, 'save'])->name('admin.insert');
+Route::get('/admin/panelControll/insertSweet', [SweetController::class, 'insert'])->name('admin.insert');
+Route::post('/admin/panelControll/insertSweet', [SweetController::class, 'save'])->name('admin.insert');
 
 Route::get('/user/register', [AuthController::class, 'registration'])->name('user.registration');
 Route::post('/user/register', [AuthController::class, 'register'])->name('user.registration');

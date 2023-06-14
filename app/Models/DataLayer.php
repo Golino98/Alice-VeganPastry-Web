@@ -49,10 +49,6 @@ class DataLayer
         $user->save();
     }
 
-    public function getCategoryIdByName($category) {
-        $categories = Category::where('name',$category)->get(['id']);
-        return $categories[0]->id;
-    }
     public function addSweet($name, $category, $price, $description, $image) {
         $dl = new DataLayer();
         $categoryId = $dl->getCategoryIdByName($category);
@@ -69,9 +65,13 @@ class DataLayer
         // Save the uploaded file in the destination folder
         move_uploaded_file($_FILES['image']['tmp_name'], $destination.$filename);
         
-
         $sweet->image = $filename;
         $sweet->save();
+    }
+
+    public function deleteSweet($id) {
+        $sweet = Sweet::find($id);
+        $sweet->delete();
     }
 
     public function modifyUser($name, $password,$conf_password) {
@@ -103,6 +103,11 @@ class DataLayer
             $_SESSION['errorMessage'] = "l'email inserita non è presente nel nostro database!";
             return view('auth.authErrorPage');
         }
+    }
+
+    public function getCategoryIdByName($category) {
+        $categories = Category::where('name',$category)->get(['id']);
+        return $categories[0]->id;
     }
 
     public function getUserPrivilegies($email) {
