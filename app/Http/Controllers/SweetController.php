@@ -43,7 +43,7 @@ class SweetController extends Controller
         {
             $dl = new DataLayer();
             $dl->addSweet($request->input('name'), $request->input('category'), $request->input('price'), $request->input('description'), $request->input('image'));
-            return redirect()->route('sweet.index');
+            return redirect()->route('admin.control');
         }
         else
         {

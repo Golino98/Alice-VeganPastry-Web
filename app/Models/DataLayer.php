@@ -63,11 +63,14 @@ class DataLayer
         $sweet->price = $price;
         $sweet->description = $description;
 
-        $pathImage = pathinfo($image, PATHINFO_FILENAME);
-        $extension = pathinfo($image, PATHINFO_EXTENSION);
-        $completePath = $pathImage . "." . $extension;
+        $destination = "img/sweets/".strtolower($category)."/";
+        $filename = $_FILES['image']['name'];
 
-        $sweet->image = $completePath;
+        // Save the uploaded file in the destination folder
+        move_uploaded_file($_FILES['image']['tmp_name'], $destination.$filename);
+        
+
+        $sweet->image = $filename;
         $sweet->save();
     }
 
