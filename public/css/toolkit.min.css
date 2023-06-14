@@ -1242,7 +1242,8 @@
 
 .reflow-product .ref-price.ref-on-sale,
 .reflow-product-list .ref-price.ref-on-sale {
-    color: var(--ref-success)
+    color: var(--ref-success);
+    font-size: 20px;
 }
 
 .reflow-product-list .ref-original-price {

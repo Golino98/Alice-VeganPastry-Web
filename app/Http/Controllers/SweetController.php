@@ -27,7 +27,41 @@ class SweetController extends Controller
         {
             $dl = new DataLayer();
             $categories = $dl->listCategory();
-            return view('admin.addToDb')->with('categories', $categories);
+            return view('admin.addSweet')->with('categories', $categories);
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            return view('auth.authErrorPage');
+        }
+     }
+
+     public function retrieve()
+     {
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl = new DataLayer();
+            $sweets = $dl->listSweet();
+            $categories = $dl->listCategory();
+            return view('admin.modifySweet')->with('sweets', $sweets)->with('categories', $categories);
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            return view('auth.authErrorPage');
+        }
+     }
+
+     public function modify($id)
+     {
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl = new DataLayer();
+            $sweet = $dl->getSweetById($id);
+            $categories = $dl->listCategory();
+            return view('admin.modifySweet')->with('sweet', $sweet)->with('categories', $categories);
         }
         else
         {

@@ -10,6 +10,12 @@ class DataLayer
         return $sweets;
     }
 
+    public function getSweetById($id)
+    {
+        $sweet = Sweet::find($id);
+        return $sweet;
+    }
+
     public function listCategory()
     {
         $categories = Category::orderBy('name','asc')->get();

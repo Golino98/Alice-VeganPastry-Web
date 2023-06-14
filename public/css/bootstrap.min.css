@@ -3314,6 +3314,43 @@ textarea.form-control.is-invalid {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
+.btn-modify {
+    --bs-btn-padding-x: 2rem;
+    --bs-btn-padding-y: 0.6rem;
+    --bs-btn-font-family: ;
+    --bs-btn-font-size: 1rem;
+    --bs-btn-font-weight: 700;
+    --bs-btn-line-height: 1.6;
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #0099ff;
+    --bs-btn-border-width: 1px;
+    --bs-btn-border-color: transparent;
+    --bs-btn-border-radius: 2rem;
+    --bs-btn-hover-border-color: ;
+    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-disabled-opacity: 0.65;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+    display: inline-block;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    font-family: var(--bs-btn-font-family);
+    font-size: var(--bs-btn-font-size);
+    font-weight: var(--bs-btn-font-weight);
+    line-height: var(--bs-btn-line-height);
+    color: var(--bs-btn-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    border-radius: var(--bs-btn-border-radius);
+    background-color: var(--bs-btn-bg);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
 .btn-back {
     --bs-btn-padding-x: 2rem;
     --bs-btn-padding-y: 0.6rem;
@@ -13149,3 +13186,25 @@ input[type=number] {
     float: left;
     overflow: hidden;
 } */
+
+.my-select {
+    /* Codice CSS qui */
+    select {
+        appearance: none; /* Rimuove lo stile predefinito del browser */
+        padding: 8px 12px; /* Aggiunge spazio intorno alle opzioni */
+        border-radius: 20px; /* Rende gli angoli delle opzioni arrotondati */
+        background-color: #f2f2f2; /* Colore di sfondo delle opzioni */
+        border: none; /* Rimuove il bordo */
+        box-shadow: none; /* Rimuove l'ombra */
+        outline: none; /* Rimuove l'outline */
+        cursor: pointer; /* Mostra il cursore a forma di mano al passaggio del mouse */
+      }
+      
+      /* Stile per l'opzione selezionata */
+      select option:checked {
+        background-color: #a5d8ff; /* Cambia il colore di sfondo dell'opzione selezionata */
+        color: #fff; /* Cambia il colore del testo dell'opzione selezionata */
+      }
+      
+  }
+  

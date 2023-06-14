@@ -10,7 +10,7 @@
                 <center> <h2 class="fw-bold">Aggiungi un <p class="fw-bold-inline text-success">dolce</p></h2> </center>
                 <br>
 
-                <form action="{{route('admin.insert')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.insertSweet')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome</label>

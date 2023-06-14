@@ -39,8 +39,8 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-pie"></i> Dolci</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('admin.insert')}}">Aggiungi</a></li>           
-                        <li><a class="dropdown-item" href="#">Modifica</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica</a></li>
                         <li><a class="dropdown-item" href="#">Rimuovi</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Visualizzali tutti</a></li>
