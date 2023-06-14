@@ -1,5 +1,5 @@
 @extends('layouts.adminMaster')
-@section('title', 'Modifica dolce nel database')
+@section('title', 'Rimuovi dolce nel database')
 
 
 @section('content')
@@ -25,7 +25,7 @@
                                     </div>
                                     <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
                                     </span>
-                                        <button a href="#" class="ref-button">Modifica</button>
+                                        <button a href="#" class="btn-back"><i class="bi bi-trash3"></i> Elimina</button>
                                 </div>
                         </div>
                     </div>

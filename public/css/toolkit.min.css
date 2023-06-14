@@ -33,7 +33,9 @@
     line-height: 1.5;
     font-size: 1em;
     cursor: pointer;
-    user-select: none
+    user-select: none;
+    border: none;
+
 }
 
 .ref-button.inactive {
@@ -1365,8 +1367,8 @@
 }
 
 .reflow-product .ref-category {
-    font-size: .75em;
-    color: var(--ref-gray);
+    font-size: 1.2em;
+    color: #00B799;
     text-decoration: none
 }
 

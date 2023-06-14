@@ -43,6 +43,7 @@
                             <div class="ref-preview">
                                 <img class="ref-image active" src="<?php echo "img/sweets/{$sweet->category->name}/{$sweet->image}"; ?>"  data-reflow-preview-type="image"/>
                             </div>
+                        </div>
                             <div class="ref-product-data">
                                 <div>
                                 <h2 class="ref-name">{{$sweet->name}}</h2>
@@ -62,6 +63,8 @@
                                                     <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
                                             </span>
+                                            <!-- manda a capo il bottone -->
+                                            <br>
                                             @if(isset($_SESSION['logged']))
                                             
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
