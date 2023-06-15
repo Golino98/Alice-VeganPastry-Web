@@ -21,3 +21,8 @@ INSERT INTO `sweet_ingredient` (`sweet_id`, `ingredient_id`) VALUES
 (3, 3),
 (1, 1),
 (3, 1);
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'fraGolino', 'giacomogolino@gmail.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 0, NULL, '2023-06-10 12:37:57', '2023-06-10 12:37:57'),
+(2, 'Alice', 'alice@gmail.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 1, NULL, '2023-06-10 13:12:22', '2023-06-10 13:12:22'),
+(3, 'John Doe', 'John@doe.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 0, NULL, '2023-06-10 13:15:28', '2023-06-10 13:15:28');
