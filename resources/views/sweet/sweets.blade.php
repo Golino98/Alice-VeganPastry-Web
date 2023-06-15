@@ -67,8 +67,7 @@
                                             <br>
                                             @if(isset($_SESSION['logged']))
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
-                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
-                                                
+                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>                                                
                                             @else
                                                 <a class="btn btn-annulla" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
