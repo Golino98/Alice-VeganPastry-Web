@@ -19,4 +19,10 @@ class Sweet extends Model
     {
         return $this->hasOne(Category::class,'id','category_id');
     }
+
+    // molti dolci possono far parte di molti ordini
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_sweet', 'sweet_id', 'order_id');
+    }    
 }
