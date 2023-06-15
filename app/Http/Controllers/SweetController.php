@@ -108,9 +108,8 @@ class SweetController extends Controller
         if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
         {
             $dl = new DataLayer();
-            $sweets = $dl->listSweet();
-            $categories = $dl->listCategory();
-            return view('admin.removeSweet')->with('sweets', $sweets)->with('categories', $categories);
+            $dl->deleteSweet($request->input('id'));
+            return redirect()->route('admin.control');
         }
         else
         {

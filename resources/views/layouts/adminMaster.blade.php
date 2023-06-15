@@ -41,7 +41,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.removeSweet')}}">Rimuovi</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Visualizzali tutti</a></li>
                     </ul>
