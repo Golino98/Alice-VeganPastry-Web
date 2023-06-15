@@ -58,9 +58,9 @@
                                     <div class="reflow-add-to-cart ref-product-controls">
                                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
                                                 <div class ="ref-quantity-widget">                                                    
-                                                    <button type="button" class="btn-minus" onclick="decrease({{$sweet->id}})">-</button>    
+                                                    <button type="button" class="btn btn-back" onclick="decrease({{$sweet->id}})">-</button>    
                                                         <input type="number" id='valueSweets{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
-                                                    <button type="button" class="btn-plus" onclick="increase({{$sweet->id}})">+</button>
+                                                    <button type="button" class="btn btn-log" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
                                             </span>
                                             <!-- manda a capo il bottone -->
@@ -71,7 +71,7 @@
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                                 
                                             @else
-                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
+                                                <a class="btn btn-annulla" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
                                             @endif
                                 </span>
