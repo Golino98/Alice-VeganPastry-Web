@@ -28,8 +28,8 @@
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="fw-bold">I nostri dolci</h2>
-                    <p class="text-muted">Guarda e compra i nostri dolci, cruelty free al 100%.&nbsp;</p>
+                    <h2 class="fw-bold">I nostri <p class="fw-bold-inline text-success">dolci </p></h2>
+                    <p class="text-muted">Guarda e compra i nostri dolci, <text class="text-success"> cruelty free </text>al 100%.&nbsp;</p>
                 </div>
             </div>            
         </div>     

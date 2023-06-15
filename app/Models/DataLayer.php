@@ -21,7 +21,6 @@ class DataLayer
         $categories = Category::orderBy('name','asc')->get();
         return $categories;
     }
-
     public function listSweetByCategoryId($categoryId)
     {
         $sweets = Sweet::where('category_id', $categoryId)->orderBy('name','asc')->get();
@@ -91,9 +90,21 @@ class DataLayer
         $sweet->save();
     }
 
+    public function modifyCategory($id, $name)
+    {
+        $category = Category::find($id);
+        $category->name = $name;
+        $category->save();
+    }
+
     public function deleteSweet($id) {
         $sweet = Sweet::find($id);
         $sweet->delete();
+    }
+
+    public function deleteCategory($id) {
+        $category = Category::find($id);
+        $category->delete();
     }
 
     public function modifyUser($name, $password,$conf_password) {
@@ -125,6 +136,11 @@ class DataLayer
             $_SESSION['errorMessage'] = "l'email inserita non è presente nel nostro database!";
             return view('auth.authErrorPage');
         }
+    }
+
+    public function getCategoryById($id) {
+        $category = Category::find($id);
+        return $category;
     }
 
     public function getCategoryIdByName($category) {

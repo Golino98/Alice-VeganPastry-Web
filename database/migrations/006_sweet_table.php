@@ -21,7 +21,7 @@ return new class extends Migration
 
         Schema::table('sweets',function(Blueprint $table)
         {
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

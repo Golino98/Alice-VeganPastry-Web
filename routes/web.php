@@ -39,7 +39,12 @@ Route::post('/admin/panelControll/modifySweet/{id}', [SweetController::class, 's
 Route::get('/admin/panelControll/insertCategory', [CategoryController::class, 'insert'])->name('admin.insertCategory');
 Route::post('/admin/panelControll/insertCategory', [CategoryController::class, 'save'])->name('admin.insertCategory');
 
+Route::get('/admin/panelControll/modifyCategory', [CategoryController::class, 'retrieve'])->name('admin.modifyCategory');
+Route::get('/admin/panelControll/modifyCategory/{id}', [CategoryController::class, 'modify'])->name('admin.modifyCategoryId');
+Route::post('/admin/panelControll/modifyCategory/{id}', [CategoryController::class, 'saveModification'])->name('admin.modifyCategoryId');
+
 Route::post('/admin/panelControll/deleteSweet/{id}', [SweetController::class, 'remove'])->name('admin.removeSweet');
+Route::post('/admin/panelControll/deleteCategory/{id}', [CategoryController::class, 'remove'])->name('admin.removeCategory');
 
 Route::get('/user/register', [AuthController::class, 'registration'])->name('user.registration');
 Route::post('/user/register', [AuthController::class, 'register'])->name('user.registration');
