@@ -31,6 +31,9 @@ Route::post('/admin/panelControll/insertSweet', [SweetController::class, 'save']
 
 Route::get('/admin/panelControll/modifySweet', [SweetController::class, 'retrieve'])->name('admin.modifySweet');
 
+Route::get('/admin/panelControll/modifySweet/{id}', [SweetController::class, 'modify'])->name('admin.modifySweetId');
+Route::post('/admin/panelControll/modifySweet/{id}', [SweetController::class, 'saveModification'])->name('admin.modifySweetId');
+
 Route::get('/admin/panelControll/deleteSweet', [SweetController::class, 'remove'])->name('admin.removeSweet');
 
 Route::get('/user/register', [AuthController::class, 'registration'])->name('user.registration');

@@ -24,8 +24,7 @@
                                         {{$sweet->description}}
                                     </div>
                                     <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
-                                    </span>
-                                        <button a href="#" class="ref-button">Modifica</button>
+                                    <a href="{{route('admin.modifySweetId', ['id' => $sweet->id])}}" class="ref-button">Modifica</a>
                                 </div>
                         </div>
                     </div>

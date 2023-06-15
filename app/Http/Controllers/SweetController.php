@@ -53,6 +53,39 @@ class SweetController extends Controller
         }
      }
 
+     public function modify($id)
+     {
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl = new DataLayer();
+            $sweet = $dl->getSweetById($id);
+            $categories = $dl->listCategory();
+            return view('admin.modifySpecificSweet')->with('sweet', $sweet)->with('categories', $categories);
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            return view('auth.authErrorPage');
+        }
+     }
+
+     public function saveModification(Request $request)
+     {
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl = new DataLayer();
+            $dl->modifySweet($request->input('id'), $request->input('name'), $request->input('category'), $request->input('price'), $request->input('description'));
+            return redirect()->route('admin.control');
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            return view('auth.authErrorPage');
+        }
+     }
+
     public function save(Request $request)
     {
         session_start();

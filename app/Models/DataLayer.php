@@ -75,6 +75,16 @@ class DataLayer
         $sweet->save();
     }
 
+    public function modifySweet($id, $name, $category, $price, $description)
+    {
+        $sweet = Sweet::find($id);
+        $sweet->name = $name;
+        $sweet->category_id = $category;
+        $sweet->price = $price;
+        $sweet->description = $description;
+        $sweet->save();
+    }
+
     public function deleteSweet($id) {
         $sweet = Sweet::find($id);
         $sweet->delete();
