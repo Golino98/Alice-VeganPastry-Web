@@ -12,13 +12,15 @@ class SweetController extends Controller
     {
         $dl = new DataLayer();
         $sweets = $dl->listSweet();
-        return view('sweet.sweets')->with('sweets', $sweets);
+        $categories = $dl->listCategory();
+        return view('sweet.sweets')->with('sweets', $sweets)->with('categories', $categories);
     }
     public function show($id)
     {
         $dl = new DataLayer();
         $sweets = $dl->listSweetByCategoryName($id);
-        return view ('sweet.sweets')->with('sweets', $sweets);
+        $categories = $dl->listCategory();
+        return view ('sweet.sweets')->with('sweets', $sweets)->with('categories', $categories);
     }
     public function insert()
      {
