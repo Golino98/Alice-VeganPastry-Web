@@ -26,7 +26,7 @@
             <div class="row pt-5">
                 <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
                     <div class="text-center">
-                        <h1 class="fw-bold">Pasticceria Vegana made in Vallecamonica</h1>
+                        <h1 class="fw-bold"><p class="fw-bold-inline text-success">Pasticceria Vegana</p> made in <p class="fw-bold-inline text-success">Vallecamonica</p></h1>
                     </div>
                 </div>
                 <div class="col-12 col-lg-10 mx-auto">
@@ -112,6 +112,7 @@
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <p class="fw-bold text-success mb-2">Contattaci</p>
+                    <p><br></p>
                     <h2 class="fw-bold">Come trovarci</h2>
                 </div>
             </div>
