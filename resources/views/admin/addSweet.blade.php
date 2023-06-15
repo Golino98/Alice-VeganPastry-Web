@@ -1,5 +1,5 @@
 @extends('layouts.adminMaster')
-@section('title', 'Aggiungi al database')
+@section('title', 'Aggiungi un dolce al database')
 
 @section('content')
 @parent

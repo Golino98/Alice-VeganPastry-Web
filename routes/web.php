@@ -1,8 +1,11 @@
 <?php
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Tests\Integration\Database\EloquentHasManyThroughTest\Category;
+use Tests\Localization\CaTest;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +33,11 @@ Route::get('/admin/panelControll/insertSweet', [SweetController::class, 'insert'
 Route::post('/admin/panelControll/insertSweet', [SweetController::class, 'save'])->name('admin.insertSweet');
 
 Route::get('/admin/panelControll/modifySweet', [SweetController::class, 'retrieve'])->name('admin.modifySweet');
-
 Route::get('/admin/panelControll/modifySweet/{id}', [SweetController::class, 'modify'])->name('admin.modifySweetId');
 Route::post('/admin/panelControll/modifySweet/{id}', [SweetController::class, 'saveModification'])->name('admin.modifySweetId');
+
+Route::get('/admin/panelControll/insertCategory', [CategoryController::class, 'insert'])->name('admin.insertCategory');
+Route::post('/admin/panelControll/insertCategory', [CategoryController::class, 'save'])->name('admin.insertCategory');
 
 Route::post('/admin/panelControll/deleteSweet/{id}', [SweetController::class, 'remove'])->name('admin.removeSweet');
 

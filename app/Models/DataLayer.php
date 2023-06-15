@@ -75,6 +75,12 @@ class DataLayer
         $sweet->save();
     }
 
+    public function addCategory($name) {
+        $category = new Category();
+        $category->name = $name;
+        $category->save();
+    }
+
     public function modifySweet($id, $name, $category, $price, $description)
     {
         $sweet = Sweet::find($id);
