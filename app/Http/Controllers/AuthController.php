@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\Redirect;
 
 class authController extends Controller
 {
-    public function authentication() {
-        return view('auth.auth');
+    public function authentication() 
+    {
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('auth.auth')->with('categories', $categories);
     }
 
     public function login(Request $req) {
         session_start();
         $dl = new DataLayer();
         $user_name = $dl->getUserName($req->input('username'));
+        $categories = $dl->listCategory();
 
         if ($dl->validUser($req->input('username'), $req->input('password'))) 
         {
@@ -23,14 +27,16 @@ class authController extends Controller
             $_SESSION['loggedName'] = $user_name;
             $_SESSION['loggedEmail'] = $req->input('username');
             $_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('username'));
-            return Redirect::to(route('home'));
+            return Redirect::to(route('home'))->with('categories', $categories);
         }
         $_SESSION['errorMessage'] = "le credenziali inserite sono errate!";
         return view('auth.authErrorPage');
     }
         
     public function registration() {
-        return view('auth.register');
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('auth.register')->with('categories', $categories);
      }
 
      public function admin()
@@ -83,7 +89,9 @@ class authController extends Controller
         }
     }
     public function modification() {
-        return view('auth.modify');
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('auth.modify')->with('categories', $categories);
     }
     public function modify(Request $req)
     {
