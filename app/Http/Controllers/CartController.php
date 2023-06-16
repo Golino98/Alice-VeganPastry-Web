@@ -12,7 +12,7 @@ class CartController extends Controller
     public function showCart()
     {
         session_start();
-        if(isset($_SESSION['logged']))
+        if($this->checkIfLogged())
         {
             $dl = new DataLayer();
             $cart = $dl->getCart($_SESSION['loggedEmail']);
@@ -21,8 +21,37 @@ class CartController extends Controller
 
         }else
         {
-            $_SESSION['errorMessage'] = $this->ERRORE_LOG_CARRELLO;
-            return view('auth.authErrorPage');
+            return $this->returnError();
         }
+    }
+
+    public function addToCart(Request $req)
+    {
+        session_start();
+        if($this->checkIfLogged())
+        {
+            $dl = new DataLayer();
+            $dl->addToCart($_SESSION['loggedEmail'],$req->input('id'),$req->input('quantity'));
+        }else
+        {
+            return $this->returnError();
+        }
+    }
+
+    private function checkIfLogged()
+    {
+        if(isset($_SESSION['logged']))
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+
+    private function returnError()
+    {
+        $_SESSION['errorMessage'] = $this->ERRORE_LOG_CARRELLO;
+        return view('auth.authErrorPage');
     }
 }
