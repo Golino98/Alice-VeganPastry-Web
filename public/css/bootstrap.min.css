@@ -13247,3 +13247,6 @@ input[type=number] {
       
   }
   
+  .total-separator {
+    border-top: 2px solid black;
+}
