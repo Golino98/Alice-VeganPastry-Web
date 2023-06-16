@@ -152,4 +152,12 @@ class DataLayer
         $users = User::where('email',$email)->get(['admin']);
         return ($users[0]->admin);
     }
+
+    public function getCart($email) 
+    {
+        $user = User::where('email',$email)->first();
+        // crea una lista di tutti i carrelli che han come user_id l'id dell'utente loggato
+        $carts = Cart::where('user_id',$user->id)->get();
+        return $carts;
+    }
 }

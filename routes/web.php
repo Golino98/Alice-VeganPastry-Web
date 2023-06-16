@@ -4,24 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
 use App\Http\Controllers\AuthController;
-use Illuminate\Tests\Integration\Database\EloquentHasManyThroughTest\Category;
-use Tests\Localization\CaTest;
+use App\Http\Controllers\CartController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-//Rotta che mi permette di andare nella pagina di login
 Route::get('/', [FrontController::class, 'getHome'])->name('home');
 
 Route::get('/sweet', [SweetController::class, 'index'])->name('sweet.index');
+
+Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');
 
 Route::get('/user/login', [AuthController::class, 'authentication'])->name('user.login');
 Route::post('/user/login', [AuthController::class, 'login'])->name('user.login');

@@ -37,11 +37,13 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
                     <ul class="dropdown-menu">
+                    @if(isset($categories))
                     @foreach ($categories as $category)
                         <li><a class="dropdown-item" href="{{route('sweet.show', ['category' => $category->name])}}">{{$category->name}}</a></li>
                     @endforeach
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Scoprili tutti!</a></li>
+                        @endif
                     </ul>
                 </li>
 
@@ -54,7 +56,7 @@
                     <button class="btn btn-log" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}} <i class="bi bi-list-nested"></i>
                 </button>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-cart3"></i> Il mio carrello</a></li>
+                        <li><a class="dropdown-item" href="{{route('cart.carrello')}}"><i class="bi bi-cart3"></i> Il mio carrello</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-bag-heart"></i> I miei ordini</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>

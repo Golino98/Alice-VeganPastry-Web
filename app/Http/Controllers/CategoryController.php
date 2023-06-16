@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    // Crea una variabile privata non modificabile
+    private $MESSAGGIO_ERRORE = "non hai i privilegi necessari per accedere a questa pagina!"; 
     public function insert()
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $categories = $dl->listCategory();
@@ -20,15 +23,14 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function retrieve()
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $categories = $dl->listCategory();
@@ -36,15 +38,14 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function modify($id)
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $category = $dl->getCategoryById($id);
@@ -52,15 +53,14 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function saveModification(Request $request)
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->modifyCategory($request->input('id'), $request->input('name'));
@@ -68,15 +68,14 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function remove($id)
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->deleteCategory($id);
@@ -84,15 +83,14 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
     public function save(Request $request)
     {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->addCategory($request->input('name'));
@@ -100,8 +98,25 @@ class CategoryController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
+    }
+
+    private function checkPrivilege()
+    {
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private function returnErrorPage()
+    {
+        $_SESSION['errorMessage'] = $this->MESSAGGIO_ERRORE;
+        return view('auth.authErrorPage');
     }
 }

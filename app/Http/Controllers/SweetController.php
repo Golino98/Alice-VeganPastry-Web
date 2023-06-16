@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class SweetController extends Controller
 {   
+
+    // Crea una variabile privata non modificabile
+    private $MESSAGGIO_ERRORE = "non hai i privilegi necessari per accedere a questa pagina!"; 
     public function index()
     {
         $dl = new DataLayer();
@@ -25,7 +28,7 @@ class SweetController extends Controller
     public function insert()
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $categories = $dl->listCategory();
@@ -33,15 +36,14 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function retrieve()
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $sweets = $dl->listSweet();
@@ -50,15 +52,14 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function modify($id)
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $sweet = $dl->getSweetById($id);
@@ -67,15 +68,14 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
      public function saveModification(Request $request)
      {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->modifySweet($request->input('id'), $request->input('name'), $request->input('category'), $request->input('price'), $request->input('description'));
@@ -83,15 +83,14 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
      }
 
     public function save(Request $request)
     {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->addSweet($request->input('name'), $request->input('category'), $request->input('price'), $request->input('description'), $request->input('image'));
@@ -99,15 +98,14 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
     }
 
     public function remove(Request $request)
     {
         session_start();
-        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        if($this->checkPrivilege())
         {
             $dl = new DataLayer();
             $dl->deleteSweet($request->input('id'));
@@ -115,9 +113,26 @@ class SweetController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
-            return view('auth.authErrorPage');
+           return $this->returnErrorPage();
         }
+    }
+
+    private function checkPrivilege()
+    {
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private function returnErrorPage()
+    {
+        $_SESSION['errorMessage'] = $this->MESSAGGIO_ERRORE;
+        return view('auth.authErrorPage');
     }
         
 }
