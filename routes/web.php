@@ -12,9 +12,6 @@ Route::get('/', [FrontController::class, 'getHome'])->name('home');
 // Rotte per i tutti i dolci
 Route::get('/sweet', [SweetController::class, 'index'])->name('sweet.index');
 
-// Rotte per i dolci divisi in base alla categoria
-Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');
-
 // Rotte per la pagina di controllo dell'amministratore
 Route::get('/admin/panelControll', [AuthController::class, 'admin'])->name('admin.control');
 
@@ -31,7 +28,6 @@ Route::post('/admin/panelControll/modifySweet/{id}', [SweetController::class, 's
 Route::post('/admin/panelControll/deleteSweet/{id}', [SweetController::class, 'remove'])->name('admin.removeSweet');
 
 // Rotte per le categorie -> amministratore può aggiungere le categorie
-
 Route::get('/admin/panelControll/insertCategory', [CategoryController::class, 'insert'])->name('admin.insertCategory');
 Route::post('/admin/panelControll/insertCategory', [CategoryController::class, 'save'])->name('admin.insertCategory');
 
@@ -58,10 +54,6 @@ Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modif
 
 // Rotte per il carrello
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');
-Route::post('/carrello',[CartController::class, 'addToCart'])->name('cart.carrello');
 
-
-
-
-
-
+// Rotte per i dolci divisi in base alla categoria -> da lasciare per ultimo (chiedere il motivo al profe)
+Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');

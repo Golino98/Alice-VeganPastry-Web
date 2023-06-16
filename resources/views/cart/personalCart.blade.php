@@ -70,11 +70,9 @@
                 <td colspan="1">
                     <!-- Crea un pulsante per andare alla pagina di checkout -->
                     <a href="#" class="btn btn-block btn-annulla">Checkout</a>
-
                 </td>
                 </tbody>
             </table>
-
         </div>
         </div>
     </section><!-- Start: Footer Multi Column -->
