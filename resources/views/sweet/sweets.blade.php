@@ -63,7 +63,6 @@
                                                     <button type="button" class="btn btn-log" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
                                             </span>
-                                            <!-- manda a capo il bottone -->
                                             <br>
                                             @if(isset($_SESSION['logged']))
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
