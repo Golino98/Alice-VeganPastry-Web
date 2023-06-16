@@ -37,11 +37,13 @@
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"> I nostri dolci </a>
                     <ul class="dropdown-menu">
+                    @if(isset($categories))
                     @foreach ($categories as $category)
                         <li><a class="dropdown-item" href="{{route('sweet.show', ['category' => $category->name])}}">{{$category->name}}</a></li>
                     @endforeach
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Scoprili tutti!</a></li>
+                        @endif
                     </ul>
                 </li>
 

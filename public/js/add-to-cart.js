@@ -29,6 +29,7 @@ function addToCart(logged, id) {
                 `<p></p><div class="alert alert-success alert-dismissible fade show" id="info" role="alert">`,
                 `   <div>Prodotto aggiunto al carrello.</div>`,
                 '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                // ' Aggiunta del prodotto al carrello tramite un metodo post che richiama sè stesso.',
                 '</div>'
             ].join('')
             alertPlaceholder.append(wrapper)
@@ -39,6 +40,7 @@ function addToCart(logged, id) {
             `<p></p><div class="alert alert-success alert-dismissible fade show" id="info" role="alert">`,
             `   <div>Prodotti son stati aggiunti al carrello.</div>`,
             '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            // ' Aggiunta del prodotto al carrello tramite un metodo post che richiama sè stesso.',
             '</div>'
         ].join('')
         alertPlaceholder.append(wrapper)

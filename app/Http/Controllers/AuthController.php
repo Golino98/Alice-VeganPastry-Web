@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class authController extends Controller
 {
+    // Crea una stringa privata non modificabile
+    private $ERRORE_CREDENZIALI = "le credenziali inserite sono errate!";
+    private $ERRORE_PRIVILEGI = "non hai i privilegi necessari per accedere a questa pagina!";
+    private $ERRORE_PSW_NON_UGUALI = "le password inserite non coincidono!";
+    private $ERRORE_PSW_VUOTE = "le password inserite non possono essere vuote!";
+    private $ERRORE_MAIL_DUPLICATA = "l'email inserita è già presente nel nostro database!";
     public function authentication() 
     {
         $dl = new DataLayer();
@@ -29,7 +35,7 @@ class authController extends Controller
             $_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('username'));
             return Redirect::to(route('home'))->with('categories', $categories);
         }
-        $_SESSION['errorMessage'] = "le credenziali inserite sono errate!";
+        $_SESSION['errorMessage'] = $this->ERRORE_CREDENZIALI;
         return view('auth.authErrorPage');
     }
         
@@ -48,7 +54,7 @@ class authController extends Controller
         }
         else
         {
-            $_SESSION['errorMessage'] = "non hai i privilegi necessari per accedere a questa pagina!";
+            $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
             return view('auth.authErrorPage');
         }
      }
@@ -74,17 +80,17 @@ class authController extends Controller
         }
         catch(\ErrorException $e)
         {
-            $_SESSION['errorMessage'] = "le password inserite non coincidono!";     
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
             return view('auth.authErrorPage'); 
         }
         catch(\InvalidArgumentException $e)
         {
-            $_SESSION['errorMessage'] = "le password inserite non possono essere vuote!";     
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_VUOTE;     
             return view('auth.authErrorPage'); 
         }
         catch(\Exception $e)
         {
-            $_SESSION['errorMessage'] = "l'email inserita è già presente nel nostro database!";     
+            $_SESSION['errorMessage'] = $this->ERRORE_MAIL_DUPLICATA;     
             return view('auth.authErrorPage'); 
         }
     }
@@ -104,7 +110,7 @@ class authController extends Controller
             return Redirect::to(route('home'));
         }catch(\Exception $e)
         {
-            $_SESSION['errorMessage'] = "le password inserite non coincidono!";     
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
             return view('auth.authErrorPage');      
         }
     }
@@ -114,4 +120,5 @@ class authController extends Controller
         session_destroy();
         return Redirect::to(route('home'));
     }    
+
 }
