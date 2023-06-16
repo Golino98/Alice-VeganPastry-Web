@@ -65,6 +65,7 @@
                                             </span>
                                             <br>
                                             @if(isset($_SESSION['logged']))
+                                                <!-- Modificare questo pulsante in modo che faccia un post per aggiungere l'item al carrello ma senza che la pagina si ricarichi -->
                                                 <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
                                                 <div id="liveAlertPlaceholder{{$sweet->id}}"></div>                                                
                                             @else

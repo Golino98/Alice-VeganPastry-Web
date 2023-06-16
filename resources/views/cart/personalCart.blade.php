@@ -49,8 +49,7 @@
             @else
                 <p class="fw-bold-personal text-success mb-2">Il tuo carrello è vuoto!</p>
             @endif
-            <!--  Aggiungi una riga vuota ed una per il totale  -->
-            
+
             <tr>
                 <td colspan ="3"></td>
                 <td></td>
@@ -68,7 +67,7 @@
             <tr>
                 <td colspan ="4"></td>
                 <td colspan="1">
-                    <!-- Crea un pulsante per andare alla pagina di checkout -->
+                    <!-- Inserire del codice per il post in modo tale che mi faccia andare alla pagina di checkout (paypal/stripe) -->
                     <a href="#" class="btn btn-block btn-annulla">Checkout</a>
                 </td>
                 </tbody>

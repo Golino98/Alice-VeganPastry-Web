@@ -22,7 +22,7 @@ function addToCart(logged, id) {
                 '</div>'
             ].join('')
             alertPlaceholder.append(wrapper)
-        } else if(value ==1){
+        } else if(value==1){
             const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
             const wrapper = document.createElement('div')
             wrapper.innerHTML = [
@@ -32,7 +32,8 @@ function addToCart(logged, id) {
                 '</div>'
             ].join('')
             alertPlaceholder.append(wrapper)
-        }else{
+        }else if(value<=20)
+        {
             const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
             const wrapper = document.createElement('div')
         wrapper.innerHTML = [
@@ -42,6 +43,17 @@ function addToCart(logged, id) {
             '</div>'
         ].join('')
         alertPlaceholder.append(wrapper)
+        }else{
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder'.concat(id))
+            const wrapper = document.createElement('div')
+            document.getElementById("valueSweets".concat(id)).value = 20;
+            wrapper.innerHTML = [
+                `<p></p><div class="alert alert-warning alert-dismissible fade show" id="info" role="alert">`,
+                `   <div>Non puoi aggiungere più di 20 prodotti per volta. Ne ho aggiunti 20.</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+            alertPlaceholder.append(wrapper)
         }
     }
 }

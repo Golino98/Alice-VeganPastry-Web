@@ -54,6 +54,7 @@ Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modif
 
 // Rotte per il carrello
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');
+Route::post('/carrello',[CartController::class, 'addCart'])->name('cart.carrello');
 
 // Rotte per i dolci divisi in base alla categoria -> da lasciare per ultimo (chiedere il motivo al profe)
 Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');
