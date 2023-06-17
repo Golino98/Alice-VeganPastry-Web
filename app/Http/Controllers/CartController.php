@@ -31,7 +31,7 @@ class CartController extends Controller
         if($this->checkIfLogged())
         {
             $dl = new DataLayer();
-            $dl->addToCart($_SESSION['loggedEmail'],$req->input('id'),$req->input('quantity'));
+            $dl->addToCart($_SESSION['loggedEmail'],$req->input('sweet_id'),$req->input('quantity'));
         }else
         {
             return $this->returnError();

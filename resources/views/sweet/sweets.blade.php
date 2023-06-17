@@ -22,9 +22,7 @@
 
 @section('content')
     @parent
-    <!-- Inserimento interfacciamento con Database -->
     <section class="py-5">
-        <!-- Start: Team -->
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
@@ -50,6 +48,7 @@
                                 <div class="ref-categories">
                                     <span class="ref-category"> {{$sweet->category->name}} </span>
                                 </div>
+                                
                                 <div class ="ref-description">
                                     {{$sweet->description}}
                                 </div>
@@ -59,18 +58,21 @@
                                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
                                                 <div class ="ref-quantity-widget">                                                    
                                                     <button type="button" class="btn btn-back" onclick="decrease({{$sweet->id}})">-</button>    
-                                                        <input type="number" id='valueSweets{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
+                                                        <input type="number" id='quantity{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
                                                     <button type="button" class="btn btn-log" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
                                             </span>
                                             <br>
                                             @if(isset($_SESSION['logged']))
-                                                <!-- Modificare questo pulsante in modo che faccia un post per aggiungere l'item al carrello ma senza che la pagina si ricarichi -->
-                                                <a class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart({{$_SESSION['logged']}},{{$sweet->id}});"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>
-                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>                                                
+                                            <form id="addToCartForm{{$sweet->id}}" action="{{ route('cart.carrello', ['sweet_id' => $sweet->id, 'quantity' => 5])}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <button type="submit" class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(event, {{$sweet->id}}, true);">
+                                                <i class="bi bi-cart3"></i> Aggiungi al carrello
+                                            </button>
+                                            <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                        </form>
                                             @else
-                                                <a class="btn btn-annulla" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(false,{{$sweet->id}})"><i class="bi bi-cart3"></i> Aggiungi al carrello</a>     
-                                                <div id="liveAlertPlaceholder{{$sweet->id}}"></div>
+                                                <a class="btn btn-annulla" href={{route('user.login')}}><i class="bi bi-cart3"></i> Accedi per poter aggiungere al carrello </a>     
                                             @endif
                                 </span>
                             </div>

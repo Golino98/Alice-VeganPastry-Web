@@ -13250,3 +13250,22 @@ input[type=number] {
   .total-separator {
     border-top: 2px solid black;
 }
+.custom-fade {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.custom-fade.show {
+    opacity: 0;
+    animation: fadeAlert 5s ease;
+}
+
+@keyframes fadeAlert {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

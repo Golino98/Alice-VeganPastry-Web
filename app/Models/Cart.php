@@ -10,6 +10,8 @@ class Cart extends Model
     use HasFactory;
 
     protected $table = 'carts';
+    public $timestamps = false;
+
 
     // un cart deve può avere molti dolci
     public function sweets()

@@ -33,7 +33,10 @@ class authController extends Controller
             $_SESSION['loggedName'] = $user_name;
             $_SESSION['loggedEmail'] = $req->input('username');
             $_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('username'));
-            return Redirect::to(route('home'))->with('categories', $categories);
+
+            // Torna alla pagina precedente
+
+            return Redirect::to(route('sweet.index'))->with('categories', $categories);
         }
         $_SESSION['errorMessage'] = $this->ERRORE_CREDENZIALI;
         return view('auth.authErrorPage');
