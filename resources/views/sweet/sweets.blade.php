@@ -56,6 +56,7 @@
                                 <span data-reflow-type="add-to-cart" data-reflow-shoppingcart-url="shopping-cart.html" data-reflow-addtocart-text data-reflow-product="589605485" data-reflow-variant="199976733_s">            
                                     <div class="reflow-add-to-cart ref-product-controls">
                                             <span data-reflow-variant="199976733_s" data-reflow-product="589605485" data-reflow-max-qty="20" data-reflow-quantity="1">
+                                                <form id="addToCartForm{{$sweet->id}}" action="{{ route('cart.carrello', ['sweet_id' => $sweet->id])}}" method="POST" enctype="multipart/form-data">
                                                 <div class ="ref-quantity-widget">                                                    
                                                     <button type="button" class="btn btn-back" onclick="decrease({{$sweet->id}})">-</button>    
                                                         <input type="number" id='quantity{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
@@ -64,7 +65,6 @@
                                             </span>
                                             <br>
                                             @if(isset($_SESSION['logged']))
-                                            <form id="addToCartForm{{$sweet->id}}" action="{{ route('cart.carrello', ['sweet_id' => $sweet->id, 'quantity' => 5])}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <button type="submit" class="ref-button" id="liveAlertBtn{{$sweet->id}}" onclick="addToCart(event, {{$sweet->id}}, true);">
                                                 <i class="bi bi-cart3"></i> Aggiungi al carrello
