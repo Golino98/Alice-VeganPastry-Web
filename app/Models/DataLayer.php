@@ -232,4 +232,14 @@ class DataLayer
         $cart->quantity = $quantity;
         $cart->save();
     }
+
+    /**
+     * Funzione che permette di rimuovere un dolce dal carrello di un utente
+     */
+    public function removeItem($email, $cartId) 
+    {
+        $user = User::where('email',$email)->first();
+        $cart = Cart::where('user_id',$user->id)->where('id',$cartId)->first();
+        $cart->delete();
+    }
 }

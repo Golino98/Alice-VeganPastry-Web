@@ -38,6 +38,20 @@ class CartController extends Controller
         }
     }
 
+    public function removeItem(Request $req)
+    {
+        session_start();
+        if($this->checkIfLogged())
+        {
+            $dl = new DataLayer();
+            $dl->removeItem($_SESSION['loggedEmail'],$req->input('id'));
+            return redirect()->route('cart.carrello');
+        }else
+        {
+            return $this->returnError();
+        }
+    }
+
     private function checkIfLogged()
     {
         if(isset($_SESSION['logged']))
