@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
@@ -58,6 +59,9 @@ Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modif
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');
 Route::post('/carrello',[CartController::class, 'addToCart'])->name('cart.carrello');
 Route::post('/cart',[CartController::class, 'removeItem'])->name('cart.removeItem');
+
+Route::get('/success', [StripeController::class, 'success'])->name('payment.success');
+Route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
 
 // Rotte per i dolci divisi in base alla categoria -> da lasciare per ultimo (chiedere il motivo al profe)
 Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');

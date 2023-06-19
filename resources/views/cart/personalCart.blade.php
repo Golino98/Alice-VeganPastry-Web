@@ -87,7 +87,12 @@
                                 <td colspan="4"></td>
                                 <td colspan="1">
                                     <!-- Inserire del codice per il post in modo tale che mi faccia andare alla pagina di checkout (paypal/stripe) -->
-                                    <a href="#" class="btn btn-block btn-annulla">Checkout</a>
+                                    <form action="{{route('checkout')}}" method="POST">
+                                        @csrf
+                                        <!-- Passa in maniera nascosta la lista degli item come JSON serializzato -->
+                                        <input type="hidden" name="cartItems" value="{{ json_encode($cart) }}">
+                                        <button type="submit" class="btn btn-block btn-annulla">Checkout</button>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
