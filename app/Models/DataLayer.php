@@ -256,6 +256,27 @@ class DataLayer
     // SEZIONE ORDINI
 
     /**
+     * Funzione che permette di aggiungere un ordine al database
+     */
+    public function insertOrder($email)
+    {
+        $user = User::where('email',$email)->first();
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->payment_date = date('Y-m-d H:i:s');
+
+        // Recupera tutti gli Sweet_id contenuti in carts dato l'id dell'utente
+        $carts = Cart::where('user_id',$user->id)->get();
+        foreach($carts as $cart)
+        {
+            $sweet = Sweet::find($cart->sweet_id);
+            $order->sweets_list = $sweet->name . " (x" . $cart->quantity . ")";
+        }
+        $order->status = 0;
+        $order->save();
+    }
+
+    /**
      * Funzione che permette di ottenere la lista di tutti gli ordini
      */
     public function listOrders()

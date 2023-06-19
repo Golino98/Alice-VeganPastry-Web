@@ -56,7 +56,9 @@ class StripeController extends Controller
     {
         session_start();
         $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        $dl->insertOrder($_SESSION['loggedEmail']);
         $dl->deleteCart($_SESSION['loggedEmail']);
-        return view('payment.success');
+        return view('payment.success')->with('categories', $categories);
     }
 }
