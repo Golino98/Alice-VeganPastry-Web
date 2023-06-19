@@ -57,7 +57,7 @@
                 </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('cart.carrello')}}"><i class="bi bi-cart3"></i> Il mio carrello</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-bag-heart"></i> I miei ordini</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.orders')}}"><i class="bi bi-bag-heart"></i> I miei ordini</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
                     </ul>

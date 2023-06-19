@@ -63,5 +63,8 @@ Route::post('/cart',[CartController::class, 'removeItem'])->name('cart.removeIte
 Route::get('/success', [StripeController::class, 'success'])->name('payment.success');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
 
+// Rotte per gli ordini di un utente generico
+Route::get('/ordini', [OrderController::class, 'getOrdersOfUser'])->name('user.orders');
+
 // Rotte per i dolci divisi in base alla categoria -> da lasciare per ultimo (chiedere il motivo al profe)
 Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');

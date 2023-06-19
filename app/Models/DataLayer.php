@@ -164,7 +164,7 @@ class DataLayer
      * Funzione che permette di ottenere l'id di un utente passando la sua email
      */
     public function getUserID($email) {
-        $users = User::where('email',$email)->get(['id']);
+        $users = User::where('email',$email)->get();
         return $users[0]->id;
     }
 
@@ -312,5 +312,13 @@ class DataLayer
         return $orders;
     }
 
-    
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini di un utente
+     */
+    public function getOrders()
+    {
+        $user = User::where('email',$_SESSION['loggedEmail'])->first();
+        $orders = Order::where('user_id',$user->id)->orderBy('payment_date','desc')->orderBy('id','desc')->get();
+        return $orders;
+    }    
 }
