@@ -6,6 +6,7 @@
 <section class="py-5">
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
+            @if(count($orders) > 0)
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -48,6 +49,12 @@
                         @endforeach
                     </tbody>
                 </table>
+                @else
+                <h2 class="text-center">Non ci sono ordini da preparare, <p class="fw-bold-inline text-success">puoi riposare!</p></h2>
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_uk2qyv3i.json"  background="transparent"  speed="1.5"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
+                @endif
+    
             </div>
         </div>
     </div>
