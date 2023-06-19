@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
@@ -14,6 +15,7 @@ Route::get('/sweet', [SweetController::class, 'index'])->name('sweet.index');
 
 // Rotte per la pagina di controllo dell'amministratore
 Route::get('/admin/panelControll', [AuthController::class, 'admin'])->name('admin.control');
+Route::post('admin/panelControll', [OrderController::class, 'modifyStatus'])->name('admin.modifyStatus');
 
 // Rotte per i dolci -> amministratore può aggiungere i dolci
 Route::get('/admin/panelControll/insertSweet', [SweetController::class, 'insert'])->name('admin.insertSweet');

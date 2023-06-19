@@ -242,4 +242,15 @@ class DataLayer
         $cart = Cart::where('user_id',$user->id)->where('id',$cartId)->first();
         $cart->delete();
     }
+
+    // SEZIONE ORDINI
+
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini
+     */
+    public function listOrders()
+    {
+        $orders = Order::orderBy('id','asc')->get();
+        return $orders;
+    }
 }

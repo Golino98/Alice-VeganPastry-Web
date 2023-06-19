@@ -53,7 +53,11 @@ class authController extends Controller
         session_start();
         if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
         {
-            return view('admin.adminControlSystem');
+            $dl = new DataLayer();
+            $orders = $dl->listOrders();
+            // Per ogni ordine voglio sapere l'email di chi lo ha ordinato
+            
+            return view('admin.adminControlSystem')->with('orders', $orders);
         }
         else
         {
