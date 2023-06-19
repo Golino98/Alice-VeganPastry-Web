@@ -243,6 +243,16 @@ class DataLayer
         $cart->delete();
     }
 
+    public function deleteCart($email)
+    {
+        $user = User::where('email',$email)->first();
+        $carts = Cart::where('user_id',$user->id)->get();
+        foreach($carts as $cart)
+        {
+            $cart->delete();
+        }
+    }
+
     // SEZIONE ORDINI
 
     /**

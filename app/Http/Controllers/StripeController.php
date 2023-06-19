@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\DataLayer;
 use App\Models\Sweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -53,6 +54,9 @@ class StripeController extends Controller
 
     public function success()
     {
+        session_start();
+        $dl = new DataLayer();
+        $dl->deleteCart($_SESSION['loggedEmail']);
         return view('payment.success');
     }
 }
