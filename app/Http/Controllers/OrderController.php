@@ -13,5 +13,12 @@ class OrderController extends Controller
         $order = Order::find($req->order_id);
         $order->status = $req->status;
         $order->save();
-        return redirect()->route('admin.control');}
+        return redirect()->route('admin.control');
+    }
+
+    public function listByStatus($status)
+    {
+        $orders = Order::where('status', $status)->get();
+        return view('admin.adminControlSystem', ['orders' => $orders]);
+    }
 }

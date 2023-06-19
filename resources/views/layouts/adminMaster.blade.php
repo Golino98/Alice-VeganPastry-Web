@@ -54,6 +54,16 @@
                         <li><a class="dropdown-item" href="{{ route('admin.modifyCategory')}}">Visualizzale tutte</a></li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
+                    </ul>
+                </li>
                 @show
                 </li>
             </ul>    

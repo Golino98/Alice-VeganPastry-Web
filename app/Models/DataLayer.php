@@ -250,7 +250,36 @@ class DataLayer
      */
     public function listOrders()
     {
-        $orders = Order::orderBy('id','asc')->get();
+        $orders = Order::orderBy('id','desc')->get();
         return $orders;
     }
+
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini completati (status = 2)
+     */
+    public function listCompletedOrders()
+    {
+        $orders = Order::where('status',2)->orderBy('id','asc')->get();
+        return $orders;
+    }
+
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini iniziati ma non ancora terminati (status = 1)
+     */
+    public function listInPreparationOrders()
+    {
+        $orders = Order::where('status',1)->orderBy('id','asc')->get();
+        return $orders;
+    }
+
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini da fare (status = 0)
+     */
+    public function listToDoOrders()
+    {
+        $orders = Order::where('status',0)->orderBy('id','asc')->get();
+        return $orders;
+    }
+
+    
 }

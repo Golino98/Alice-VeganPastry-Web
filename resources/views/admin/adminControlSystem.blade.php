@@ -41,7 +41,7 @@
                                     <td><button type="submit" class="btn btn-preparazione">In preparazione</a></td>
                                 @else($order->status == 2)
                                     <input type="hidden" name="status" value="0">
-                                    <td><button type="submit" class="btn btn-log">Consegnato</a></td>
+                                    <td><button type="submit" class="btn btn-log">Pronto</a></td>
                             @endif
                             </form>
                         </tr>
