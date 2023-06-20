@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('description'); 
             $table->float('price');
             $table->string('image');
-            $table->string('opt_image')->nullable();
             $table->integer('category_id')->unsigned();
         });
 
