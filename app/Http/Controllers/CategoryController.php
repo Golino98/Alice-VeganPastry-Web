@@ -94,7 +94,7 @@ class CategoryController extends Controller
         {
             $dl = new DataLayer();
             $dl->addCategory($request->input('name'));
-            return view('admin.adminControlSystem');
+            return redirect()->route('admin.control');
         }
         else
         {

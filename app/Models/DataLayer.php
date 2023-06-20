@@ -320,5 +320,15 @@ class DataLayer
         $user = User::where('email',$_SESSION['loggedEmail'])->first();
         $orders = Order::where('user_id',$user->id)->orderBy('payment_date','desc')->orderBy('id','desc')->get();
         return $orders;
-    }    
+    }
+    
+    /**
+     * Funzione che permette di ottenere la lista di tutti gli ordini
+     */
+    public function getAllOrders()
+    {
+        $orders = Order::orderBy('payment_date','desc')->orderBy('id','desc')->get();
+        return $orders;
+    }
+
 }
