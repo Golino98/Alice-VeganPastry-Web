@@ -93,6 +93,14 @@ class DataLayer
     public function addCategory($name) {
         $category = new Category();
         $category->name = $name;
+
+        $categories = Category::where('name',$name)->get();
+        if(count($categories) > 0)
+        {
+            return;
+        }
+
+        mkdir("img/sweets/".strtolower($name));
         $category->save();
     }
 
@@ -102,6 +110,11 @@ class DataLayer
     public function modifyCategory($id, $name)
     {
         $category = Category::find($id);
+
+        $oldPath = "img/sweets/".strtolower($category->name);
+        $newPath = "img/sweets/".strtolower($name);
+        rename($oldPath, $newPath);
+
         $category->name = $name;
         $category->save();
     }
@@ -112,7 +125,25 @@ class DataLayer
 
      public function deleteCategory($id) {
         $category = Category::find($id);
-        $category->delete();
+        if($category != null)
+        {
+            $category->delete();
+
+            // Cancella la cartella in /img/sweets con il nome della categoria e tutti i file al suo interno
+            $path = "img/sweets/".strtolower($category->name);
+            $files = glob($path.'/*');
+            foreach($files as $file)
+            {
+                if(is_file($file))
+                {
+                    unlink($file);
+                }
+            }
+            rmdir($path);
+        }else
+        {
+            return;
+        }
     }
 
     // SEZIONE USER
