@@ -119,6 +119,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
+                        @if(isset($_SESSION['logged']))
                         <form class="p-3 p-xl-4" method="post">
                             <!-- Start: Success Example -->
                             <div class="mb-3"><input class="form-control" type="text" id="name-1" name="name" placeholder="Nome"></div><!-- End: Success Example -->
@@ -127,6 +128,13 @@
                             <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6" placeholder="Dicci qualcosa!"></textarea></div>
                             <div><button class="btn btn-log shadow d-block w-100" type="submit"><i class="bi bi-send"></i> Invia</button></div>
                         </form>
+                        @else
+                            <div class="mb-3"><input class="form-control" type="text" disabled placeholder="Nome"></div><!-- End: Success Example -->
+                            <!-- Start: Error Example -->
+                            <div class="mb-3"><input class="form-control" type="email" disabled placeholder="Email"></div><!-- End: Error Example -->
+                            <div class="mb-3"><textarea class="form-control" disabled rows="6" placeholder="Dicci qualcosa!"></textarea></div>
+                            <div><a class="btn btn-log shadow d-block w-100" href="{{route('user.login')}}">Accedi per poter scrivere qualcosa!</a></div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4 col-xl-4 d-flex justify-content-center justify-content-xl-start">

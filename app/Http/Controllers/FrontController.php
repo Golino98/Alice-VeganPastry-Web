@@ -12,13 +12,16 @@ class FrontController extends Controller
     {
         $dl = new DataLayer();
         $categories = $dl->listCategory();
+        session_start();
 
         if (isset($_SESSION['logged'])) 
         {
-            return view('index')->with('logged', true)->with('loggedName', $_SESSION['loggedName'])->with('categories', $categories);
+            return view('index')->with($_SESSION['logged'], true)->with('loggedName', $_SESSION['loggedName'])->with('categories', $categories);
         } else 
         {
-            return view('index')->with('logged', false)->with('categories', $categories);
+            // Crea la variabile $_SESSION['logged']
+            return view('index')->with('categories', $categories);
+            
         }
     }
 }

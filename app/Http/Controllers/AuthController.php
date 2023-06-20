@@ -114,7 +114,7 @@ class authController extends Controller
         try
         {
             $dl->modifyUser($req->input('name'), $req->input('password'), $req->input('conf_password'));
-            return Redirect::to(route('home'));
+            return Redirect::to(route('home'))->with($_SESSION['loggedName'] = $req->input('name'));
         }catch(\Exception $e)
         {
             $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
