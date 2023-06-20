@@ -48,10 +48,21 @@ class DataLayer
     {
         $sweet = Sweet::find($id);
         $sweet->name = $name;
+
+        $categoryName = Category::find($category)->name;
+
+        $oldPath = "img/sweets/".strtolower($sweet->category->name)."/".$sweet->image;
+        $newPath = "img/sweets/".strtolower($categoryName)."/".$sweet->image;
+
+        copy($oldPath, $newPath);
+        unlink($oldPath);
+
         $sweet->category_id = $category;
+
         $sweet->price = $price;
         $sweet->description = $description;
         $sweet->save();
+        
     }
 
     /**
