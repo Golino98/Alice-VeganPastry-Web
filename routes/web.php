@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MessageController;
 
 // Rotta per la pagina iniziale
 Route::get('/', [FrontController::class, 'getHome'])->name('home');

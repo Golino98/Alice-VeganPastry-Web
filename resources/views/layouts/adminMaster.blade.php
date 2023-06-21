@@ -100,14 +100,20 @@
                 </div><!-- End: Services -->
                 <!-- Start: About -->
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">Contattaci</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-telephone"></i> +39 345 828 1074</li>
+                        <i class="bi bi-bank"></i>04385700986</li>
+                    </ul>
+                </div><!-- End: About -->
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column">
                     <h3 class="fs-6 fw-bold">I nostri Social</h3>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-instagram"></i><a href="https://www.instagram.com/alice.veganpastry/"> VeganPastry</a></li>
                         <li><i class="bi bi-instagram"></i><a href="https://www.instagram.com/pellegrinellialice/"> Alice</a></li>
                     </ul>
-                </div><!-- End: About -->
+                </div>
                 <!-- Start: Careers -->
-                
             </div>
             <hr>
             <div class="text-center mb-0">

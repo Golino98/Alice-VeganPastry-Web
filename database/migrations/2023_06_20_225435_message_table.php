@@ -6,23 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('orders',function(Blueprint $table)
-        {
-            $table->increments('id');
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id();
+            $table->date('date')->useCurrent();
+            $table->string('message');
             $table->bigInteger('user_id')->unsigned();
-            
-            $table->timestamp('payment_date')->useCurrent();
-
-            $table->longText('sweets_list');
-            $table->string('status');
+            $table->boolean('is_read')->default(false);
+            $table->timestamps();
         });
 
-        Schema::table('orders', function (Blueprint $table) {
+        Schema::table('messages', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('messages');
     }
 };
