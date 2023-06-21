@@ -32,6 +32,15 @@
             </div>            
         </div>     
         
+        @if(count($sweets) == 0)
+            <div class="container py-5">
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                        <h2 class="fw-bold">Non ci sono dolci in questa categoria!</h2>
+                    </div>
+                </div>            
+            </div>
+        @else
         @foreach ($sweets as $sweet)
         <section class="py-5">
             <div class="container py-5">
@@ -82,5 +91,6 @@
             </div>
         </section>
         @endforeach
+        @endif
     </section>
 @endsection
