@@ -7,7 +7,6 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SweetController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\MessageController;
 
 // Rotta per la pagina iniziale
 Route::get('/', [FrontController::class, 'getHome'])->name('home');
@@ -61,6 +60,9 @@ Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modif
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');
 Route::post('/carrello',[CartController::class, 'addToCart'])->name('cart.carrello');
 Route::post('/cart',[CartController::class, 'removeItem'])->name('cart.removeItem');
+// Nuova rotta per aggiornare la quantità
+Route::post('/cart/updateQuantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
+
 
 Route::get('/success', [StripeController::class, 'success'])->name('payment.success');
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
