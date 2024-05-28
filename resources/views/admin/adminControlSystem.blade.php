@@ -35,7 +35,7 @@
                                 @elseif($order->status == 1)
                                     <button class="btn btn-preparazione" disabled-btn>In preparazione</button>
                                 @elseif($order->status == 2)
-                                    <button class="btn btn-logg" disabled-btn>Pronto</button>
+                                    <button class="btn btn-pronto" disabled-btn>Pronto</button>
                                 @elseif($order->status == 3)
                                     <button class="btn btn-consegnato" disabled-btn>Consegnato</button>
                                 @endif
