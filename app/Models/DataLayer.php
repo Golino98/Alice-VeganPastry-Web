@@ -270,9 +270,21 @@ class DataLayer
         $user = User::where('email',$email)->first();
         $cart = new Cart();
         $cart->user_id = $user->id;
-        $cart->sweet_id = $sweet_id;
-        $cart->quantity = $quantity;
-        $cart->save();
+        //Cerco nel carrello se ho già presente un dolce con lo stesso id
+        $cartItem = Cart::where('user_id', $user->id)->where('sweet_id', $sweet_id)->first();
+
+        // Se non ho trovato nessun dolce con lo stesso id, lo aggiungo al carrello
+        if($cartItem == null)
+        {
+            $cart->sweet_id = $sweet_id;
+            $cart->quantity = $quantity;
+            $cart->save();
+            return;
+        } else {
+            $cartItem->quantity = $cartItem->quantity + $quantity;
+            $cartItem->save();
+            return;
+        }
     }
 
     public function updateCart($email, $id, $quantity)
