@@ -72,3 +72,8 @@ Route::get('/ordini', [OrderController::class, 'getOrdersOfUser'])->name('user.o
 
 // Rotte per i dolci divisi in base alla categoria -> da lasciare per ultimo (chiedere il motivo al profe)
 Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');
+
+
+//rotte aggiunte da daniele
+Route::get('/admin/register', [AuthController::class, 'adminregistration'])->name('admin.registration');
+Route::post('/admin/register', [AuthController::class, 'adminregister'])->name('admin.registration');
