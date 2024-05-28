@@ -217,7 +217,7 @@ public function adminregistration() {
             $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
             return view('auth.authErrorPage');
         }
-    }
+    }   
     
 }
 

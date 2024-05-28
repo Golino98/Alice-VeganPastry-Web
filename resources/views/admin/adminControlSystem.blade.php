@@ -7,7 +7,12 @@
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
             @if(count($orders) > 0)
-            <div class="table-responsive">
+
+            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder='Cerca per mail' title="Inserisci una mail">
+            
+            <div style="height: 20px;"></div>
+
+            <div class="table-responsive" id="myTable">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -118,3 +123,23 @@
 </section>
 @endsection
 
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1]; // Cambiato da [0] a [2] per prendere la terza colonna (Mail)
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
