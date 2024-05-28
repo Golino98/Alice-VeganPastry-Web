@@ -184,6 +184,18 @@ class DataLayer
         $user->save();
     }
 
+     /**
+     * Funzione che permette di aggiungere un utente al database
+     */
+    public function addAdmin($name, $password, $email) {
+        $user = new User();
+        $user->name = $name;
+        $user->password = md5($password);
+        $user->email = $email;
+        $user->admin = 1;
+        $user->save();
+    }
+
 
     /**
      * Funzione che permette di modificare un utente all'interno del database
@@ -281,9 +293,17 @@ class DataLayer
             $cart->save();
             return;
         } else {
-            $cartItem->quantity = $cartItem->quantity + $quantity;
-            $cartItem->save();
-            return;
+            if($cartItem->quantity + $quantity > 20)
+            {
+                $cartItem->quantity = 20;
+                $cartItem->save();
+                return;
+            }else{
+                $cartItem->quantity += $quantity;
+                $cartItem->save();
+                return;
+            }
+            
         }
     }
 

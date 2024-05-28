@@ -32,6 +32,7 @@ class CartController extends Controller
         {
             $dl = new DataLayer();
             $dl->addToCart($_SESSION['loggedEmail'],$req->input('sweet_id'),$req->input('quantity'));
+            
         }else
         {
             return $this->returnError();
@@ -45,7 +46,8 @@ class CartController extends Controller
         {
             $dl = new DataLayer();
             $dl->removeItem($_SESSION['loggedEmail'],$req->input('id'));
-            return redirect()->route('cart.carrello');
+            $cart = $dl->getCart($_SESSION['loggedEmail']);
+            return redirect()->route('cart.carrello')->with('cart',$cart);
         }else
         {
             return $this->returnError();

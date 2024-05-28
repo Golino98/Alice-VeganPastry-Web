@@ -74,3 +74,8 @@ function addToCart(event, sweetId) {
         showAlert(_WARNING, sweetId, _MAX_TO_CART);
     }
 }
+
+
+function addAdmin(event, sweetId) {
+        showAlert(_SUCCESS, "Account registrato correttamente" );
+}

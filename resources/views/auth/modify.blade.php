@@ -1,5 +1,5 @@
 <?php session_start();?>
-@extends('layouts.master')
+@extends('layouts.masterModify')
 @section('title', 'Modifica')
 
 @section('content')

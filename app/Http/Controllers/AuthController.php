@@ -128,4 +128,48 @@ class authController extends Controller
         return Redirect::to(route('home'));
     }    
 
+    ///
+public function adminregistration() {
+    $dl = new DataLayer();
+    $categories = $dl->listCategory();
+    return view('auth.adminregister')->with('categories', $categories);
+ }
+
+ public function adminregister(Request $req) {
+    $dl = new DataLayer();    
+    session_start();
+    try
+    {
+        if($req->input('password') != $req->input('conf_password'))
+        {
+            throw new \ErrorException();
+        }else if($req->input('password') == null || $req->input('conf_password') == null)
+        {
+            throw new \InvalidArgumentException();
+        }
+        $dl->addAdmin($req->input('name'), $req->input('password'), $req->input('email'));
+        #$_SESSION['logged'] = true;
+        #$_SESSION['loggedName'] = $req->input('name');
+        #$_SESSION['loggedEmail'] = $req->input('email');
+        #$_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('email'));
+        return Redirect::to(route('admin.registration'));
+    }
+    catch(\ErrorException $e)
+    {
+        $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+        return view('auth.authErrorPage'); 
+    }
+    catch(\InvalidArgumentException $e)
+    {
+        $_SESSION['errorMessage'] = $this->ERRORE_PSW_VUOTE;     
+        return view('auth.authErrorPage'); 
+    }
+    catch(\Exception $e)
+    {
+        $_SESSION['errorMessage'] = $this->ERRORE_MAIL_DUPLICATA;     
+        return view('auth.authErrorPage'); 
+    }
 }
+}
+
+
