@@ -77,3 +77,8 @@ Route::get('/{category}', [SweetController::class, 'show'])->name('sweet.show');
 //rotte aggiunte da daniele
 Route::get('/admin/register', [AuthController::class, 'adminregistration'])->name('admin.registration');
 Route::post('/admin/register', [AuthController::class, 'adminregister'])->name('admin.registration');
+
+
+//Riprogettazione goli
+Route::get('/admin/removeClientList', [AuthController::class, 'clientList'])->name('admin.removeClientList');
+Route::delete('/admin/remove-client/{id}', [AuthController::class, 'removeClient'])->name('admin.removeClient');

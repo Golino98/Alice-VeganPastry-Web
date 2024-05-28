@@ -40,10 +40,14 @@
                                 @elseif($order->status == 1)
                                     <input type="hidden" name="status" value="2">
                                     <td><button type="submit" class="btn btn-preparazione">In preparazione</a></td>
-                                @else($order->status == 2)
-                                    <input type="hidden" name="status" value="0">
+                                @elseif($order->status == 2)
+                                    <input type="hidden" name="status" value="3">
                                     <td><button type="submit" class="btn btn-log">Pronto</a></td>
-                            @endif
+                                @elseif($order->status == 3)
+                                <input type="hidden" name="status" value="0">
+                                    <td><a class="btn btn-consegnato">Consegnato</a></td>
+                               
+                                @endif
                             </form>
                         </tr>
                         @endforeach

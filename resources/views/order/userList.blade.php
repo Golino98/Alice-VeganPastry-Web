@@ -28,8 +28,10 @@
                                     <td><a class="btn btn-back">Da preparare</a></td>
                                 @elseif($order->status == 1)
                                 <td><a class="btn btn-preparazione">In preparazione</a></td>
-                                @else($order->status == 2)
+                                @elseif($order->status == 2)
                                     <td><a class="btn btn-log">Pronto</a></td>
+                                @elseif($order->status == 3)
+                                    <td><a class="btn btn-consegnato">Consegnato</a></td>
                             @endif
                             </form>
                         </tr>
