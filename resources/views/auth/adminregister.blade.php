@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.masterModify')
 @section('title', 'Registrati')
 
 @section('content')
