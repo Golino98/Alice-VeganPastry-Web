@@ -1,10 +1,15 @@
-
+const _ZEROD_TO_CART = 'Devi selezionare almeno una unità del dolce prima di poterlo aggiungere al carrello.';
+const _ONE_TO_CART = 'Prodotto aggiunto al carrello.';
+const _MORE_TO_CART = 'I prodotti sono stati aggiunti al carrello.';
+const _MAX_TO_CART = 'Non puoi aggiungere più di 20 prodotti per volta.';
 
 const _SUCCESS = 'alert-success';
 const _WARNING = 'alert-warning';
 const _DANGER = 'alert-danger';
 
+const _ADD_TO_CART = 'addToCartForm';
 
+const _ELEMENT = 'quantity';
 
 var currentAlert = null; // Variabile per tracciare l'alert corrente
 
@@ -37,56 +42,40 @@ function showAlert(alertType, sweetId, message) {
 }
 
 
+function addToCart(event, sweetId) {
+    var value = parseInt(document.getElementById(_ELEMENT.concat(sweetId)).value, 10);
+    event.preventDefault(); // Previeni il comportamento predefinito del form
 
-function addAdmin(event, sweetId) {
+    if (value <= 0) {
+        showAlert(_WARNING, sweetId, _ZEROD_TO_CART);
+    } else if (value == 1) {
+        // Esegui la richiesta AJAX
+        var form = document.getElementById(_ADD_TO_CART + sweetId);
+        var formData = new FormData(form);
 
-        showAlert(_SUCCESS, "Account registrato correttamente" );
-   
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(formData);
+
+        showAlert(_SUCCESS, sweetId, _ONE_TO_CART);
+    } else if (value <= 20) {
+        // Esegui la richiesta AJAX
+        var form = document.getElementById(_ADD_TO_CART + sweetId);
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(formData);
+
+        showAlert(_SUCCESS, sweetId, _MORE_TO_CART);
+    } else {
+        showAlert(_WARNING, sweetId, _MAX_TO_CART);
+    }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.add-to-cart-form').forEach(form => {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const sweetId = this.dataset.sweetId;
-            const formData = new FormData(this);
 
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showAlert('alert-success', sweetId, 'Prodotto aggiunto al carrello!');
-                } else {
-                    showAlert('alert-danger', sweetId, 'Errore durante l\'aggiunta al carrello.');
-                }
-            })
-            .catch(error => {
-                console.error('Errore:', error);
-                showAlert('alert-danger', sweetId, 'Errore durante l\'aggiunta al carrello.');
-            });
-        });
-    });
-});
-
-function showAlert(alertType, sweetId, message) {
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder' + sweetId);
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = `
-        <div class="alert ${alertType} alert-dismissible fade show" role="alert">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    `;
-    alertPlaceholder.append(wrapper);
-
-    setTimeout(() => {
-        wrapper.classList.remove('show');
-        setTimeout(() => wrapper.remove(), 500);
-    }, 5000);
+function addAdmin(event, sweetId) {
+        showAlert(_SUCCESS, "Account registrato correttamente" );
 }
