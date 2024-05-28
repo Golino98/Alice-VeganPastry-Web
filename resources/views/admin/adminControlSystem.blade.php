@@ -42,7 +42,10 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-annulla" data-bs-toggle="modal" data-bs-target="#statusModal{{ $order->id }}">
-                                <i class="bi bi-pencil"></i>&nbsp Modifica Stato
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-minus" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $order->id }}">
+                                    <i class="bi bi-trash"></i>
                                 </button>
                                 
                                 <!-- Modal -->
@@ -75,18 +78,42 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="deleteModal{{ $order->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $order->id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{ $order->id }}">Elimina Ordine</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Sei sicuro di voler eliminare questo ordine?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-annulla" data-bs-dismiss="modal">Annulla</button>
+                                                <form action="{{ route('admin.deleteOrder', ['id' => $order->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-minus">Elimina</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-            @else
-            <h2 class="text-center">Non ci sono ordini da preparare, <p class="fw-bold-inline text-success">puoi riposare!</p></h2>
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_uk2qyv3i.json"  background="transparent"  speed="1.5"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
-            @endif
             </div>
+        @else
+        <h2 class="text-center">Non ci sono ordini da preparare, <p class="fw-bold-inline text-success">puoi riposare!</p></h2>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_uk2qyv3i.json"  background="transparent"  speed="1.5"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
+        @endif
         </div>
     </div>
 </section>
 @endsection
+

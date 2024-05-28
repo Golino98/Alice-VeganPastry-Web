@@ -82,3 +82,5 @@ Route::post('/admin/register', [AuthController::class, 'adminregister'])->name('
 //Riprogettazione goli
 Route::get('/admin/removeClientList', [AuthController::class, 'clientList'])->name('admin.removeClientList');
 Route::delete('/admin/remove-client/{id}', [AuthController::class, 'removeClient'])->name('admin.removeClient');
+
+Route::delete('/admin/remove-order/{id}', [AuthController::class, 'removeOrder'])->name('admin.deleteOrder');

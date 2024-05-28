@@ -202,6 +202,22 @@ public function adminregistration() {
             return view('auth.authErrorPage');
         }
     }
+
+    public function removeOrder($id) {
+        session_start();
+        $dl = new DataLayer();
+        
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl->removeOrder($id);
+            return Redirect::to(route('admin.control'));
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
+            return view('auth.authErrorPage');
+        }
+    }
     
 }
 

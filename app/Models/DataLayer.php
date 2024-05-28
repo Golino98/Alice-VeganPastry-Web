@@ -434,4 +434,11 @@ class DataLayer
         $user->delete();
         return;
     }
+
+    public function removeOrder($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+        return;
+    }
 }
