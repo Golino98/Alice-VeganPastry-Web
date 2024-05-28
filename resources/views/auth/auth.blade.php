@@ -1,7 +1,7 @@
 <?php session_start();?>
 @extends('layouts.master')
 @section('title', 'Accedi')
-
+<script src="/js/authFunctions.js"></script>
 @section('content')
 @parent
     <section class="py-5">
@@ -21,8 +21,13 @@
                                 </svg></div>
                             <form id="login-form" action="{{route('user.login')}}" method="post">
                                 @csrf
+                                <div>
                                 <div class="mb-3"><input class="form-control" type="email" name="username" placeholder="Email"></div>
-                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                                <div class="mb-3"><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
+                                <input type="checkbox" onclick="showPasswordLogin()">Mostra password</input>
+                                <br>
+                                <br>
+                                </div>
                                 <label for="Login" class="btn btn-log"><i class="bi-check-lg"></i> Accedi</label>
                                 <input id="Login" type="submit" value="Login" hidden>
                             </form>

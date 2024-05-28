@@ -282,10 +282,46 @@ class DataLayer
         $user = User::where('email',$email)->first();
         $cart = new Cart();
         $cart->user_id = $user->id;
-        $cart->sweet_id = $sweet_id;
-        $cart->quantity = $quantity;
-        $cart->save();
+        //Cerco nel carrello se ho già presente un dolce con lo stesso id
+        $cartItem = Cart::where('user_id', $user->id)->where('sweet_id', $sweet_id)->first();
+
+        // Se non ho trovato nessun dolce con lo stesso id, lo aggiungo al carrello
+        if($cartItem == null)
+        {
+            $cart->sweet_id = $sweet_id;
+            $cart->quantity = $quantity;
+            $cart->save();
+            return;
+        } else {
+            if($cartItem->quantity + $quantity > 20)
+            {
+                $cartItem->quantity = 20;
+                $cartItem->save();
+                return;
+            }else{
+                $cartItem->quantity += $quantity;
+                $cartItem->save();
+                return;
+            }
+            
+        }
     }
+
+    public function updateCart($email, $id, $quantity)
+    {
+        // Trova l'utente con l'email fornita
+        $user = User::where('email', $email)->first();
+        
+        // Trova il carrello dell'utente
+        $cart = Cart::where('user_id', $user->id)->first();
+
+        $cartItem = $cart::where('id', $id)->first();
+
+        $cartItem->quantity = $quantity;
+        $cartItem->save();
+        return;
+    }
+
 
     /**
      * Funzione che permette di rimuovere un dolce dal carrello di un utente
