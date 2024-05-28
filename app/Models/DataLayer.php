@@ -281,9 +281,17 @@ class DataLayer
             $cart->save();
             return;
         } else {
-            $cartItem->quantity = $cartItem->quantity + $quantity;
-            $cartItem->save();
-            return;
+            if($cartItem->quantity + $quantity > 20)
+            {
+                $cartItem->quantity = 20;
+                $cartItem->save();
+                return;
+            }else{
+                $cartItem->quantity += $quantity;
+                $cartItem->save();
+                return;
+            }
+            
         }
     }
 
