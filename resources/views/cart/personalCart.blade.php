@@ -1,4 +1,17 @@
-@extends('layouts.master')
+<?php if (session_status() === PHP_SESSION_NONE) 
+{
+    session_start();
+}
+
+
+// Check if logged is true and privilege is 1, then redirect
+if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege'] == 1) {
+    header("Location: " . route('admin.control'));
+    exit();
+}
+?>
+
+@extends('layouts.master.modify')
 
 @section('title', 'Il mio carrello')
 
