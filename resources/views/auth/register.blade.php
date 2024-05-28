@@ -3,7 +3,8 @@
 
 @section('content')
 @parent
-<script src="/js/authFunctions.js"></script>     
+<script src="/js/authFunctions.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
     <section class="py-5">
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
@@ -26,18 +27,22 @@
                                         <input class="form-control" type="text" name="name" placeholder="Username">
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control" type="email" name="email" placeholder="Email">
+                                        <input class="form-control" type="email" name="email" placeholder="Email" onkeyup="checkExistingMail()">
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
-                                        <input type="checkbox" onclick="showPasswordRegister()" style="padding: -10px"> Mostra password
+                                        <input class="form-control" type="password" name="password" id="password" placeholder="Password" onkeyup="checkMatchPassword();">
+                                        <input type="checkbox" onclick="showPasswordRegister()" style="padding: -10px"> Mostra password</input>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-formatPassword"></span>
                                     </div>
                                     <div class="mb-3">
-                                        <input class="form-control" type="password" name="conf_password" id="conf_password" placeholder="Reinserisci la password">
-                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra password
+                                        <input class="form-control" type="password" name="conf_password" id="conf_password" placeholder="Reinserisci la password" onkeyup="checkMatchPassword()">
+                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra password</input>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-repeatPassword"></span>
                                     </div>
                                     <label for="Register" class="btn btn-log"><i class="bi-check-lg"></i> Registrati</label>
-                                    <input id="Register" type="submit" value="Register" hidden>
+                                    <input id="Register" type="submit" value="Register" hidden disabled>
                                 </div>
                             </form>
                             <p class="text-muted-personal">Hai già un profilo?&nbsp;<a href="{{route('user.login')}}">Accedi</a></p>
