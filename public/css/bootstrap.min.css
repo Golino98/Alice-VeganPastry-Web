@@ -3389,6 +3389,32 @@ textarea.form-control.is-invalid {
     
 }
 
+.btn-back, .btn-preparazione, .btn-logg, .btn-consegnato {
+    pointer-events: none; /* Rende il bottone non cliccabile */
+    opacity: 1; /* Mantiene l'opacità originale */
+}
+
+.btn-back.disabled-btn {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-preparazione.disabled-btn {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-logg.disabled-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-consegnato.disabled-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+
 .btn-consegnato {
     --bs-btn-padding-x: 2rem;
     --bs-btn-padding-y: 0.6rem;
