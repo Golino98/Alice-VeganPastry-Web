@@ -275,6 +275,22 @@ class DataLayer
         $cart->save();
     }
 
+    public function updateCart($email, $id, $quantity)
+    {
+        // Trova l'utente con l'email fornita
+        $user = User::where('email', $email)->first();
+        
+        // Trova il carrello dell'utente
+        $cart = Cart::where('user_id', $user->id)->first();
+
+        $cartItem = $cart::where('id', $id)->first();
+
+        $cartItem->quantity = $quantity;
+        $cartItem->save();
+        return;
+    }
+
+
     /**
      * Funzione che permette di rimuovere un dolce dal carrello di un utente
      */

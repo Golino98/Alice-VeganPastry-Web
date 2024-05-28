@@ -63,6 +63,14 @@ class CartController extends Controller
         }
     }
 
+    public function updateQuantity(Request $request)
+    {
+        session_start();
+        $dl = new DataLayer();
+        $dl->updateCart($_SESSION['loggedEmail'], $request->input('id'), $request->input('quantity'));
+        return redirect()->route('cart.carrello');
+    }
+
     private function returnError()
     {
         $_SESSION['errorMessage'] = $this->ERRORE_LOG_CARRELLO;

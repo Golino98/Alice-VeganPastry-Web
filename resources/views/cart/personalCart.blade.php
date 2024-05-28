@@ -38,9 +38,19 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $sweet->name }}</td>
-                                    <td>{{ $cartItem->quantity }}</td>
+                                    <td class="text-center align-middle">
+                                        <form id="updateForm{{ $cartItem->id }}" action="{{ route('cart.updateQuantity') }}" method="POST" class="d-inline">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $cartItem->id }}">
+                                            <select name="quantity" class="form-control" onchange="confirmUpdate('{{ $cartItem->id }}', this.value)">
+                                                @for($i = 1; $i <= 20; $i++)
+                                                    <option value="{{ $i }}" @if($cartItem->quantity == $i) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </form>
+                                    </td>
                                     <td>{{ $sweet->price }} €</td>
-                                    <td> 
+                                    <td>
                                         <button type="button" class="btn btn-back" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cartItem->id }}">
                                             <i class="bi bi-trash3"></i>
                                         </button>
@@ -58,7 +68,7 @@
                                                         <button type="button" class="btn btn-annulla" data-bs-dismiss="modal">Annulla</button>
                                                         <form action="{{ route('cart.removeItem') }}" method="POST" class="d-inline">
                                                             @csrf
-                                                            <input type="hidden" name="id" value="{{$cartItem->id}}">
+                                                            <input type="hidden" name="id" value="{{ $cartItem->id }}">
                                                             <button type="submit" class="btn btn-back">Elimina</button>
                                                         </form>
                                                     </div>
@@ -100,9 +110,45 @@
                 @else
                     <h2 class="fw-bold">Il tuo <p class="fw-bold-inline text-success">carrello</p> è <text class ="fw-bold-inline text-success">vuoto!</h2>
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_qh5z2fdq.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px;"  loop  autoplay></lottie-player>
+                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_qh5z2fdq.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
                 @endif
             </div>
         </div>
     </section><!-- Start: Footer Multi Column -->
+
+    <!-- Modal per confermare la modifica della quantità -->
+<div class="modal fade" id="confirmUpdateModal" tabindex="-1" aria-labelledby="confirmUpdateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="confirmUpdateModalLabel">Conferma Modifica</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler modificare la quantità a <span id="newQuantity"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-back" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-log" id="confirmUpdateButton">Conferma</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmUpdate(cartItemId, newQuantity) {
+        // Aggiorna il value del campo select con il nuovo valore della quantità
+        document.querySelector(`#updateForm${cartItemId} select[name="quantity"]`).value = newQuantity;
+        // Aggiorna il testo all'interno dello span con il nuovo valore della quantità
+        document.getElementById('newQuantity').innerText = newQuantity;
+        const confirmUpdateButton = document.getElementById('confirmUpdateButton');
+        confirmUpdateButton.onclick = function() {
+            document.getElementById('updateForm' + cartItemId).submit();
+        };
+        var myModal = new bootstrap.Modal(document.getElementById('confirmUpdateModal'));
+        myModal.show();
+    }
+</script>
+
 @endsection
+       
