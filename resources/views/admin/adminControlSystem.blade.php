@@ -80,27 +80,28 @@
                                 </div>
 
                                 <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal{{ $order->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $order->id }}" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteModalLabel{{ $order->id }}">Elimina Ordine</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Sei sicuro di voler eliminare questo ordine?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-annulla" data-bs-dismiss="modal">Annulla</button>
-                                                <form action="{{ route('admin.deleteOrder', ['id' => $order->id]) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-minus">Elimina</button>
-                                                </form>
+                                    <div class="modal fade" id="deleteModal{{ $order->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $order->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $order->id }}">Elimina Ordine</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Sei sicuro di voler <p class="fw-bold-inline text-danger">eliminare l'ordine numero {{ $order->id }}</p>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-annulla" data-bs-dismiss="modal">Annulla</button>
+                                                    <form action="{{ route('admin.deleteOrder', ['id' => $order->id]) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-minus">Elimina</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
                             </td>
                         </tr>
                         @endforeach
