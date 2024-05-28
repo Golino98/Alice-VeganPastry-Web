@@ -43,3 +43,50 @@ function addAdmin(event, sweetId) {
         showAlert(_SUCCESS, "Account registrato correttamente" );
    
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const sweetId = this.dataset.sweetId;
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert('alert-success', sweetId, 'Prodotto aggiunto al carrello!');
+                } else {
+                    showAlert('alert-danger', sweetId, 'Errore durante l\'aggiunta al carrello.');
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+                showAlert('alert-danger', sweetId, 'Errore durante l\'aggiunta al carrello.');
+            });
+        });
+    });
+});
+
+function showAlert(alertType, sweetId, message) {
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder' + sweetId);
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+        <div class="alert ${alertType} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    alertPlaceholder.append(wrapper);
+
+    setTimeout(() => {
+        wrapper.classList.remove('show');
+        setTimeout(() => wrapper.remove(), 500);
+    }, 5000);
+}

@@ -11,7 +11,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
 }
 ?>
 
-@extends('layouts.master.modify')
+@extends('layouts.masterModify')
 
 @section('title', 'Il mio carrello')
 
@@ -138,7 +138,9 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Sei sicuro di voler modificare la quantità <p class="fw-bold-inline text-success">{{$sweet->name}} </p> a <p class="fw-bold-inline text-success"><span id="newQuantity"></span></p>?
+                @if(isset($sweet))
+                    Sei sicuro di voler modificare la quantità <p class="fw-bold-inline text-success">{{$sweet->name}} </p> a <p class="fw-bold-inline text-success"><span id="newQuantity"></span></p>?
+                @endif
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-back" data-bs-dismiss="modal">Annulla</button>
@@ -162,5 +164,4 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
         myModal.show();
     }
 </script>
-
 @endsection
