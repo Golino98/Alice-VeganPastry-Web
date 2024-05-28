@@ -41,8 +41,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Visualizzali tutti</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -50,8 +48,6 @@
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.modifyCategory')}}">Visualizzale tutte</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

@@ -58,7 +58,7 @@
                                     <span class="ref-category"> {{$sweet->category->name}} </span>
                                 </div>
                                 
-                                <div class ="ref-description">
+                                <div class ="ref-description">  
                                     {{$sweet->description}}
                                 </div>
                                 <strong class="ref-price ref-on-sale">€ {{$sweet->price}}</strong>
