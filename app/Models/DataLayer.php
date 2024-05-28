@@ -372,43 +372,5 @@ class DataLayer
         $orders = Order::orderBy('payment_date','desc')->orderBy('id','desc')->get();
         return $orders;
     }
-
-    /**
-     * Funzione che ottiene una lista di messaggi di un ordine di data e se letto o meno
-     */
-    public function getMessageList()
-    {
-        $messages = Message::orderBy('date','desc')->get();
-        return $messages;
-    }
-
-    public function modifyIsRead($id)
-    {
-        $message = Message::find($id);
-        $message->is_read = !$message->is_read;
-        $message->save();
-    }
-
-    public function getMessage($id)
-    {
-        $message = Message::find($id);
-        return $message;
-    }
-
-    public function modifyStatus($id, $status)
-    {
-        $message = Message::find($id);
-        $message->is_read = $status;
-        $message->save();
-    }
-
-    public function sendMessage($id, $message)
-    {
-        $message = new Message();
-        $message->user_id = $id;
-        $message->message = $message;
-        $message->date = date('Y-m-d H:i:s');
-        $message->is_read = 0;
-        $message->save();
-    }
+    
 }
