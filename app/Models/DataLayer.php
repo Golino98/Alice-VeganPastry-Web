@@ -420,5 +420,25 @@ class DataLayer
         $orders = Order::orderBy('payment_date','desc')->orderBy('id','desc')->get();
         return $orders;
     }
+
+    public function getAllUser()
+    {
+        //recupera tutti gli utenti che hanno privilegio 0 in ordine alfabetico di mail
+        $users = User::where('admin',0)->orderBy('email','asc')->get();
+        return $users;
+    }
     
+    public function removeUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return;
+    }
+
+    public function removeOrder($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+        return;
+    }
 }

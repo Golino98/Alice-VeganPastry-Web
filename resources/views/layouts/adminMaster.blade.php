@@ -43,8 +43,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Visualizzali tutti</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -52,14 +50,13 @@
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.modifyCategory')}}">Visualizzale tutte</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
                         <li><hr class="dropdown-divider"></li>
@@ -79,7 +76,12 @@
                         <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
+<<<<<<< HEAD
                         <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
+=======
+                        <li><a class="dropdown-item" href="{{route('admin.removeClientList')}}"><i class="bi bi-person-fill-x"></i> Rimuovi utente</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
+>>>>>>> aca264e344a3acdb22dd82afe9d8fa2dd5a7f4c6
                         </ul>
                     </div>
                 @else
