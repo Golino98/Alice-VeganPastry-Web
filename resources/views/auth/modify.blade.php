@@ -1,7 +1,7 @@
 <?php session_start();?>
 @extends('layouts.masterModify')
 @section('title', 'Modifica')
-
+<script src="/js/confirm.js"></script>
 @section('content')
 @parent
     <section class="py-5">
@@ -34,7 +34,7 @@
                                         <input type="password" class="form-control" name = "conf_password" id="conf_password" placeholder="Password">
                                         <label>Reinserisci la password</label>
                                     </div>
-                                    <label for="Modify" class="btn btn-log">Salva le modifiche  <i class="bi bi-check2"></i></label>
+                                    <label for="Modify"  id="modify-label" class="btn btn-log" onclick="confirmModify(); return false;">Salva le modifiche  <i class="bi bi-check2"></i></label>
                                     <input id="Modify" type="submit" value="Modify" hidden>
                                 </form>
                                 <!-- Add space between the two buttons -->
@@ -49,5 +49,24 @@
 
             </div>
         </div>
+
+        <div class="modal fade" id="customConfirmModal" tabindex="-1" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customConfirmModalLabel">Conferma</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Sei sicuro di voler salvare le modifiche?
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-back" data-bs-dismiss="modal">No</button>
+                        <button type="button" id="confirm-yes" class="btn btn-log">Salva</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
     </section>
 @endsection

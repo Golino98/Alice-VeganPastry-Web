@@ -24,7 +24,7 @@
                                 <div>
                                 <div class="mb-3"><input class="form-control" type="email" name="username" placeholder="Email"></div>
                                 <div class="mb-3"><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
-                                <input type="checkbox" onclick="showPasswordLogin()">Mostra password</input>
+                                <input type="checkbox" onclick="showPasswordLogin()"> Mostra password</input>
                                 <br>
                                 <br>
                                 </div>

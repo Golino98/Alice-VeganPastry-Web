@@ -17,6 +17,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="/js/confirm.js"></script>
 </head>
 
 <script src="/js/bootstrap.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="/js/bs-init.js"></script>
     <script src="/js/bold-and-bright.js"></script>
 </script>
+
 
 <body>
 
@@ -77,7 +79,7 @@
                         <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
                         </ul>
                     </div>
                 @else
@@ -88,6 +90,7 @@
         </div>
     </nav><!-- End: Navbar Centered Links -->
 @yield('content')
+
 <br>
 <footer class="bg-primary-gradient">
     <div class="container py-4 py-lg-5">
@@ -129,5 +132,22 @@
         </div>
     </div>
 </footer>
+<div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-labelledby="logoutConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutConfirmModalLabel">Conferma Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler uscire?
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-back" data-bs-dismiss="modal">No</button>
+                <button type="button" id="logout-yes" class="btn btn-log">Esci</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
