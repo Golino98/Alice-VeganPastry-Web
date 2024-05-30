@@ -61,7 +61,7 @@
                         Sei sicuro di voler salvare le modifiche?
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-back" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-minus" data-bs-dismiss="modal">No</button>
                         <button type="button" id="confirm-yes" class="btn btn-log">Salva</button>
                     </div>
                 </div>

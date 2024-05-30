@@ -76,12 +76,8 @@
                         <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
-<<<<<<< HEAD
-                        <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
-=======
                         <li><a class="dropdown-item" href="{{route('admin.removeClientList')}}"><i class="bi bi-person-fill-x"></i> Rimuovi utente</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
->>>>>>> aca264e344a3acdb22dd82afe9d8fa2dd5a7f4c6
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
                         </ul>
                     </div>
                 @else
@@ -145,7 +141,7 @@
                 Sei sicuro di voler uscire?
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-back" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-minus" data-bs-dismiss="modal">No</button>
                 <button type="button" id="logout-yes" class="btn btn-log">Esci</button>
             </div>
         </div>

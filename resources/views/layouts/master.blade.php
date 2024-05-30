@@ -156,7 +156,8 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
                 Sei sicuro di voler uscire?
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-back" data-bs-dismiss="modal">No</button>
+                
+                <button type="button" class="btn btn-minus" data-bs-dismiss="modal">No</button>
                 <button type="button" id="logout-yes" class="btn btn-log">Esci</button>
             </div>
         </div>
