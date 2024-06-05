@@ -26,8 +26,11 @@
                                 <div class="mb-3"><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
                                 <input type="checkbox" onclick="showPasswordLogin()"> Mostra password</input>
                                 <br>
-                                <br>
+                                <div class="col-12">
+                                    <p class="small mb-0"><a href="{{ route('user.forgotPassword') }}">Ho dimenticato la password</a></p>
                                 </div>
+                                </div>
+                                <br>
                                 <label for="Login" class="btn btn-log"><i class="bi-check-lg"></i> Accedi</label>
                                 <input id="Login" type="submit" value="Login" hidden>
                             </form>

@@ -14,6 +14,8 @@ class authController extends Controller
     private $ERRORE_PSW_NON_UGUALI = "le password inserite non coincidono!";
     private $ERRORE_PSW_VUOTE = "le password inserite non possono essere vuote!";
     private $ERRORE_MAIL_DUPLICATA = "l'email inserita è già presente nel nostro database!";
+    private $INVIO_MAIL_NUOVA_PW = "ti abbiamo inviato per mail una nuova password: controlla subito!";
+    
     public function authentication() 
     {
         $dl = new DataLayer();
@@ -217,7 +219,13 @@ public function adminregistration() {
             $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
             return view('auth.authErrorPage');
         }
-    }   
+    }
+    
+    public function forgotPassword() {
+        session_start();
+        $_SESSION['errorMessage'] = $this->INVIO_MAIL_NUOVA_PW;
+        return view('auth.authErrorPage');
+    }
     
 }
 

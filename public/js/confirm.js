@@ -1,4 +1,7 @@
+import 
+
 function confirmModify() {
+    
     var myModal = new bootstrap.Modal(document.getElementById('customConfirmModal'), {
         backdrop: 'static'
     });
@@ -7,6 +10,8 @@ function confirmModify() {
     document.getElementById('confirm-yes').addEventListener('click', function() {
         document.getElementById('Modify').click();
     });
+
+    
 }
 
 

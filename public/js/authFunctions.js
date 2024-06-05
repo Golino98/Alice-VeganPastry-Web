@@ -29,11 +29,14 @@ function showPasswordRepeatRegister() {
 function checkMatchPassword() {
     password = $("#password").val();
     passwordMessage = $("#invalid-formatPassword");
+    passwordRegexMessage = $("#invalid-regexPassword");
     repeatPassword = $("#conf_password").val();
     repeatPasswordMessage = $("#invalid-repeatPassword");
     submitRegister = $("#Register");
     error1 = false;
     error2 = false;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{1,}$/;
+    
 
     if (password.length < 8) {
         passwordMessage.html("La password deve essere lunga almeno 8 caratteri");
@@ -42,6 +45,17 @@ function checkMatchPassword() {
     } else {
         passwordMessage.html("Lunghezza della password corretta");
         passwordMessage.css("color", "green");
+        error1 = false;
+    }
+
+    
+    if (!passwordRegex.test(password)) {
+        passwordRegexMessage.html("La password deve contenere almeno 1 lettera maiuscola, 1 numero e 1 carattere speciale");
+        passwordRegexMessage.css("color", "red");
+        error1 = true;
+    } else {
+        passwordRegexMessage.html("Caratteri necessari presenti");
+        passwordRegexMessage.css("color", "green");
         error1 = false;
     }
 

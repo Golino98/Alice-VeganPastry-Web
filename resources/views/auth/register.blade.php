@@ -34,6 +34,9 @@
                                         <input type="checkbox" onclick="showPasswordRegister()" style="padding: -10px"> Mostra password</input>
                                         <br>
                                         <span class="invalid-input" id="invalid-formatPassword"></span>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-regexPassword"></span>
+                                        
                                     </div>
                                     <div class="mb-3">
                                         <input class="form-control" type="password" name="conf_password" id="conf_password" placeholder="Reinserisci la password" onkeyup="checkMatchPassword()">

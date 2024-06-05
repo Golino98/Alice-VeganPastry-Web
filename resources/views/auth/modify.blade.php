@@ -2,6 +2,8 @@
 @extends('layouts.masterModify')
 @section('title', 'Modifica')
 <script src="/js/confirm.js"></script>
+<script src="/js/authFunctions.js"></script>
+
 @section('content')
 @parent
     <section class="py-5">
@@ -27,13 +29,29 @@
                                         <label>Username</label>
                                     </div>
                                     <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" name = "oldPassword" id="oldPassword" placeholder="Vecchia password">
+                                        <label>Vecchia password</label>
+                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra vecchia password</input>
+                                    
+                                    </div>
+                                    <div class="form-floating mb-3">
                                         <input type="password" class="form-control" name = "password" id="password" placeholder="Password">
-                                        <label>Password</label>
+                                        <label>Nuova password</label>
+                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra nuova password</input>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Lunghezza della password corretta</span>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Caratteri necessari presenti</span>
+                                    
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="password" class="form-control" name = "conf_password" id="conf_password" placeholder="Password">
-                                        <label>Reinserisci la password</label>
+                                        <label>Reinserisci la nuova password</label>
+                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra ripeti nuova password</input>
+                                        <br>
+                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Le due password corrispondono</span>
                                     </div>
+                                    <br>
                                     <label for="Modify"  id="modify-label" class="btn btn-log" onclick="confirmModify(); return false;">Salva le modifiche  <i class="bi bi-check2"></i></label>
                                     <input id="Modify" type="submit" value="Modify" hidden>
                                 </form>
