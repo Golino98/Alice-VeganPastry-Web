@@ -54,9 +54,16 @@ Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout
 Route::get('/user/forgotPassword', [AuthController::class, 'forgotPassword'])->name('user.forgotPassword');
 
 
+Route::post('/user/recoverPassword', [AuthController::class, 'recoverPassword'])->name('user.recoverPassword');
+
+
 // Rotte per un utente generico -> può modificare il proprio profilo
 Route::get('/user/modify', [AuthController::class, 'modification'])->name('user.modify');
 Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modify');
+
+Route::get('/user/modifyUsername', [AuthController::class, 'modificationUsername'])->name('user.modifyUsername');
+Route::post('/user/modifyUsername', [AuthController::class, 'modifyUsername'])->name('user.modifyUsername');
+
 
 // Rotte per il carrello
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');

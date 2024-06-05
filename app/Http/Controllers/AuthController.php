@@ -124,6 +124,26 @@ class authController extends Controller
         }
     }
 
+    public function modificationUsername() {
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('auth.modifyUsername')->with('categories', $categories);
+    }
+    public function modifyUsername(Request $req)
+    {
+        $dl = new DataLayer();
+        session_start();
+
+        try
+        {
+            $dl->modifyUsername($req->input('name'));
+            return Redirect::to(route('home'))->with($_SESSION['loggedName'] = $req->input('name'));
+        }catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+            return view('auth.authErrorPage');      
+        }
+    }
     public function logout() {
         session_start();
         session_destroy();
@@ -222,9 +242,12 @@ public function adminregistration() {
     }
     
     public function forgotPassword() {
-        session_start();
+        return view('auth.recoverPassword');
+    }
+
+    public function recoverPassword(Request $req) {
         $_SESSION['errorMessage'] = $this->INVIO_MAIL_NUOVA_PW;
-        return view('auth.authErrorPage');
+        return view('auth.recoverPasswordDone');
     }
     
 }
