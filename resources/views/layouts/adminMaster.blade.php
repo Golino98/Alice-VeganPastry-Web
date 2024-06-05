@@ -63,6 +63,9 @@
                         <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a>
+                </li>
                 @show
                 </li>
             </ul>    
