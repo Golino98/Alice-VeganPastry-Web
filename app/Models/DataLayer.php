@@ -198,7 +198,7 @@ class DataLayer
 
 
     /**
-     * Funzione che permette di modificare un utente all'interno del database
+     * Funzione che permette di modificare un utente all'interno del database (password)
      */
     public function modifyUser($name, $password,$conf_password) {
         $user = User::where('email',$_SESSION['loggedEmail'])->first();
@@ -214,6 +214,17 @@ class DataLayer
         }        
     }
     
+    /**
+     * Funzione che permette di modificare un utente all'interno del database (username)
+     */
+    public function modifyUsername($name) {
+        $user = User::where('email',$_SESSION['loggedEmail'])->first();
+        $user->name = $name;
+        
+        $user->save();
+            
+    }
+
     /**
      * Funzione che permette di ottenere l'id di un utente passando la sua email
      */
@@ -420,5 +431,25 @@ class DataLayer
         $orders = Order::orderBy('payment_date','desc')->orderBy('id','desc')->get();
         return $orders;
     }
+
+    public function getAllUser()
+    {
+        //recupera tutti gli utenti che hanno privilegio 0 in ordine alfabetico di mail
+        $users = User::where('admin',0)->orderBy('email','asc')->get();
+        return $users;
+    }
     
+    public function removeUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return;
+    }
+
+    public function removeOrder($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+        return;
+    }
 }

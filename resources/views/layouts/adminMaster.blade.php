@@ -17,6 +17,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="/js/confirm.js"></script>
 </head>
 
 <script src="/js/bootstrap.min.js"></script>
@@ -25,12 +26,13 @@
     <script src="/js/bold-and-bright.js"></script>
 </script>
 
+
 <body>
 
 <!-- Start: Navbar Centered Links -->
 
 <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container" ><a class="navbar-brand d-flex align-items-center" href="{{route('home')}}"  alt="">
+        <div class="container" ><a class="navbar-brand d-flex align-items-center" href="{{route('admin.control')}}"  alt="">
             <img src="/img/logo/logo.jpg" alt="" width="100" height="100" class="d-inline-block align-text-top">
             </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -41,8 +43,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('sweet.index')}}">Visualizzali tutti</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -50,19 +50,21 @@
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.modifyCategory')}}">Visualizzale tutte</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a>
                 </li>
                 @show
                 </li>
@@ -74,9 +76,11 @@
                         <button class="btn btn-log" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}} <i class="bi bi-list-nested"></i>
                     </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
-                            <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
-                            <li><a class="dropdown-item" href="{{route('user.logout')}}"><i class="bi bi-door-open"></i> Esci</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.removeClientList')}}"><i class="bi bi-person-fill-x"></i> Rimuovi utente</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
                         </ul>
                     </div>
                 @else
@@ -87,6 +91,7 @@
         </div>
     </nav><!-- End: Navbar Centered Links -->
 @yield('content')
+
 <br>
 <footer class="bg-primary-gradient">
     <div class="container py-4 py-lg-5">
@@ -128,5 +133,22 @@
         </div>
     </div>
 </footer>
+<div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-labelledby="logoutConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutConfirmModalLabel">Conferma Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler uscire?
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn btn-minus" data-bs-dismiss="modal">No</button>
+                <button type="button" id="logout-yes" class="btn btn-log">Esci</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

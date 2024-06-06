@@ -11,49 +11,25 @@
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <h2 class="fw-bold">Bentornat<p class="fw-bold-inline text-success">ə</p></h2>
-                    <p class="fw-bold-personal text-success mb-2">Modifica la password del tuo profilo vegano</p>
+                    <p class="fw-bold-personal text-success mb-2">Modifica lo username del tuo profilo vegano</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div class="card">
                         <div class="card-body text-center d-flex flex-column align-items-center">
-                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-                                <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5"/>
-                                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-                            </svg>
+                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-key">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                                </svg>
                         </div>
 
                                 <form id="modify-form" action="{{route('user.modify')}}" method="post">
                                     @csrf
-                                    <div class="form-floating mb-3" style="display: none;" >
+                                    <div class="form-floating mb-3">
                                         <input type="form-control" class="form-control" type="text" name = "name" placeholder="Username" value="<?php echo $_SESSION["loggedName"];?>">
                                         <label>Username</label>
                                     </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name = "oldPassword" id="oldPassword" placeholder="Vecchia password">
-                                        <label>Vecchia password</label>
-                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra vecchia password</input>
                                     
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name = "password" id="password" placeholder="Password">
-                                        <label>Nuova password</label>
-                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra nuova password</input>
-                                        <br>
-                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Lunghezza della password corretta</span>
-                                        <br>
-                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Caratteri necessari presenti</span>
-                                    
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name = "conf_password" id="conf_password" placeholder="Password">
-                                        <label>Reinserisci la nuova password</label>
-                                        <input type="checkbox" onclick="showPasswordRepeatRegister()"> Mostra ripeti nuova password</input>
-                                        <br>
-                                        <span class="invalid-input" id="invalid-regexPassword" style="color: green">Le due password corrispondono</span>
-                                    </div>
                                     <br>
                                     <label for="Modify"  id="modify-label" class="btn btn-log" onclick="confirmModify(); return false;">Salva le modifiche  <i class="bi bi-check2"></i></label>
                                     <input id="Modify" type="submit" value="Modify" hidden>
@@ -65,7 +41,7 @@
                                     </div>
                                     <br>
                                     <div class="col-12">
-                                    <p class="small mb-0">oppure <a href="{{ route('user.modifyUsername') }}">modifica il tuo username</a></p>
+                                    <p class="small mb-0">oppure <a href="{{ route('user.modify') }}">modifica la tua password</a></p>
                                 </div>
                             </div>
                             </div>

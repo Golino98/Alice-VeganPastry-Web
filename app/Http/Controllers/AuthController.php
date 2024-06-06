@@ -14,6 +14,8 @@ class authController extends Controller
     private $ERRORE_PSW_NON_UGUALI = "le password inserite non coincidono!";
     private $ERRORE_PSW_VUOTE = "le password inserite non possono essere vuote!";
     private $ERRORE_MAIL_DUPLICATA = "l'email inserita è già presente nel nostro database!";
+    private $INVIO_MAIL_NUOVA_PW = "ti abbiamo inviato per mail una nuova password: controlla subito!";
+    
     public function authentication() 
     {
         $dl = new DataLayer();
@@ -122,6 +124,26 @@ class authController extends Controller
         }
     }
 
+    public function modificationUsername() {
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('auth.modifyUsername')->with('categories', $categories);
+    }
+    public function modifyUsername(Request $req)
+    {
+        $dl = new DataLayer();
+        session_start();
+
+        try
+        {
+            $dl->modifyUsername($req->input('name'));
+            return Redirect::to(route('home'))->with($_SESSION['loggedName'] = $req->input('name'));
+        }catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+            return view('auth.authErrorPage');      
+        }
+    }
     public function logout() {
         session_start();
         session_destroy();
@@ -136,40 +158,98 @@ public function adminregistration() {
  }
 
  public function adminregister(Request $req) {
-    $dl = new DataLayer();    
-    session_start();
-    try
-    {
-        if($req->input('password') != $req->input('conf_password'))
+        $dl = new DataLayer();    
+        session_start();
+        try
         {
-            throw new \ErrorException();
-        }else if($req->input('password') == null || $req->input('conf_password') == null)
-        {
-            throw new \InvalidArgumentException();
+            if($req->input('password') != $req->input('conf_password'))
+            {
+                throw new \ErrorException();
+            }else if($req->input('password') == null || $req->input('conf_password') == null)
+            {
+                throw new \InvalidArgumentException();
+            }
+            $dl->addAdmin($req->input('name'), $req->input('password'), $req->input('email'));
+            #$_SESSION['logged'] = true;
+            #$_SESSION['loggedName'] = $req->input('name');
+            #$_SESSION['loggedEmail'] = $req->input('email');
+            #$_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('email'));
+            return Redirect::to(route('admin.registration'));
         }
-        $dl->addAdmin($req->input('name'), $req->input('password'), $req->input('email'));
-        #$_SESSION['logged'] = true;
-        #$_SESSION['loggedName'] = $req->input('name');
-        #$_SESSION['loggedEmail'] = $req->input('email');
-        #$_SESSION['privilege'] = $dl->getUserPrivilegies($req->input('email'));
-        return Redirect::to(route('admin.registration'));
+        catch(\ErrorException $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+            return view('auth.authErrorPage'); 
+        }
+        catch(\InvalidArgumentException $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_VUOTE;     
+            return view('auth.authErrorPage'); 
+        }
+        catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_MAIL_DUPLICATA;     
+            return view('auth.authErrorPage'); 
+        }
     }
-    catch(\ErrorException $e)
+
+    public function clientList()
     {
-        $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
-        return view('auth.authErrorPage'); 
+        session_start();
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl = new DataLayer();
+            $clients = $dl->getAllUser();
+            return view('admin.removeClient')->with('clients', $clients);
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
+            return view('auth.authErrorPage');
+        }
     }
-    catch(\InvalidArgumentException $e)
-    {
-        $_SESSION['errorMessage'] = $this->ERRORE_PSW_VUOTE;     
-        return view('auth.authErrorPage'); 
+
+    public function removeClient($id) {
+        session_start();
+        $dl = new DataLayer();
+        
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl->removeUser($id);
+            return Redirect::to(route('admin.removeClientList'));
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
+            return view('auth.authErrorPage');
+        }
     }
-    catch(\Exception $e)
-    {
-        $_SESSION['errorMessage'] = $this->ERRORE_MAIL_DUPLICATA;     
-        return view('auth.authErrorPage'); 
+
+    public function removeOrder($id) {
+        session_start();
+        $dl = new DataLayer();
+        
+        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && $_SESSION['privilege'] == 1)
+        {
+            $dl->removeOrder($id);
+            return Redirect::to(route('admin.control'));
+        }
+        else
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PRIVILEGI;
+            return view('auth.authErrorPage');
+        }
     }
-}
+    
+    public function forgotPassword() {
+        return view('auth.recoverPassword');
+    }
+
+    public function recoverPassword(Request $req) {
+        $_SESSION['errorMessage'] = $this->INVIO_MAIL_NUOVA_PW;
+        return view('auth.recoverPasswordDone');
+    }
+    
 }
 
 
