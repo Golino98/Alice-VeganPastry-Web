@@ -37,6 +37,7 @@
             <img src="/img/logo/logo.jpg" alt="" width="100" height="100" class="d-inline-block align-text-top">
             <span>Alice VeganPastry</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
+            @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==0)
             <ul class="navbar-nav mx-auto">
                 @section('menu')
                 <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
@@ -52,10 +53,46 @@
                         @endif
                     </ul>
                 </li>
+                
 
                 @show
                 </li>
             </ul>
+            @elseif(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==1)
+            <ul class="navbar-nav mx-auto">
+                @section('menu')
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-pie"></i> Dolci</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-notebook"></i> Categorie</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a>
+                </li>
+                @show
+                </li>
+            </ul>   
+            @endif
             <!-- Check if logged is true or false  -->
             
             @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==0)
