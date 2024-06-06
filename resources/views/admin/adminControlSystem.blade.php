@@ -5,13 +5,13 @@
 @parent
 <section class="py-5">
     <div class="container py-5">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" >
+            <div class="col-md-8 col-xl-6 text-center mx-auto" style="margin-bottom: 15px;">
+            <h2 class="fw-bold">Pannello di <p class="fw-bold-inline text-success">controllo</p></h2>
+            </div>
             @if(count($orders) > 0)
-
             <input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder='Cerca per mail' title="Inserisci una mail">
-            
             <div style="height: 20px;"></div>
-
             <div class="table-responsive" id="myTable">
                 <table class="table table-striped">
                     <thead>

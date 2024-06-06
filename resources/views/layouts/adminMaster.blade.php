@@ -39,21 +39,21 @@
             <ul class="navbar-nav mx-auto">
                 @section('menu')
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-pie"></i> Dolci</a>
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-pie"></i> Gestione dolci</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-notebook"></i> Categorie</a>
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-notebook"></i> Gestione categorie</a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
+                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Gestione ordini</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
