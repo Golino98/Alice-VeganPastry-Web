@@ -61,7 +61,7 @@
                                 <!-- Add space between the two buttons -->
                                 <div class="mb-2"></div>
                                 <div>  
-                                    <a href="{{route('home')}}" class="btn btn-back">Torna alla Home  <i class="bi bi-house"></i></a>
+                                    <a href="{{route('home')}}" class="btn btn-minus">Torna alla Home  <i class="bi bi-house"></i></a>
                                     </div>
                                     <br>
                                     <div class="col-12">
