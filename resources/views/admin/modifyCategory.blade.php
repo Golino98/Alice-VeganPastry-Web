@@ -21,7 +21,7 @@
                                     <td>
                                     <a href="{{ route('admin.modifyCategoryId', ['id' => $category->id]) }}" class="btn btn-annulla"><i class="bi bi-pencil"></i> Modifica</a>
                                     <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-back" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $category->id }}"><i class="bi bi-trash3"></i> Elimina</button>
+                                <button type="button" class="btn btn-minus" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $category->id }}"><i class="bi bi-trash3"></i> Elimina</button>
 
                                     <div class="modal fade" id="deleteModal{{ $category->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $category->id }}" aria-hidden="true">
                                     <div class="modal-dialog">
