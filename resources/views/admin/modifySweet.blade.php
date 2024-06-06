@@ -26,7 +26,7 @@
                                 <a href="{{ route('admin.modifySweetId', ['id' => $sweet->id]) }}" class="btn btn-annulla"><i class="bi bi-pencil"></i> Modifica</a>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-back" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $sweet->id }}"><i class="bi bi-trash3"></i> Elimina</button>
+                                <button type="button" class="btn btn-minus" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $sweet->id }}"><i class="bi bi-trash3"></i> Elimina</button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="deleteModal{{ $sweet->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $sweet->id }}" aria-hidden="true">
