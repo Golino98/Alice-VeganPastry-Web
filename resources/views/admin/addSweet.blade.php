@@ -28,7 +28,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
-                        <input type="number" class="form-control" id="price" name="price" step="any" placeholder="Inserisci il prezzo del dolce" required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="price" name="price" step="any" placeholder="Inserisci il prezzo del dolce" required>
+                            <span class="input-group-text">€</span>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>

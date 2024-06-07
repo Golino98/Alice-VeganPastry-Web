@@ -114,7 +114,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
                                         @csrf
                                         <!-- Passa in maniera nascosta la lista degli item come JSON serializzato -->
                                         <input type="hidden" name="cartItems" value="{{ json_encode($cart) }}">
-                                        <button type="submit" class="btn btn-block btn-annulla">Checkout</button>
+                                        <button type="submit" class="btn btn-block btn-annulla">Vai al pagamento</button>
                                     </form>
                                 </td>
                             </tr>
