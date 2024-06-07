@@ -12,7 +12,7 @@
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <h2 class="fw-bold">Benvenut<p class="fw-bold-inline text-success">ə</p></h2>
-                    <p class="fw-bold-personal text-success mb-2">Aggiungi un'admin</p>
+                    <p class="fw-bold-personal text-success mb-2">Aggiungi un admin</p>
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
