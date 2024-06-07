@@ -64,6 +64,12 @@ Route::post('/user/modify', [AuthController::class, 'modify'])->name('user.modif
 Route::get('/user/modifyUsername', [AuthController::class, 'modificationUsername'])->name('user.modifyUsername');
 Route::post('/user/modifyUsername', [AuthController::class, 'modifyUsername'])->name('user.modifyUsername');
 
+Route::get('/admin/modify', [AuthController::class, 'modificationAdmin'])->name('admin.modify');
+Route::post('/admin/modify', [AuthController::class, 'modifyAdmin'])->name('admin.modify');
+
+Route::get('/admin/modifyUsername', [AuthController::class, 'modificationUsernameAdmin'])->name('admin.modifyUsername');
+Route::post('/admin/modifyUsername', [AuthController::class, 'modifyUsernameAdmin'])->name('admin.modifyUsername');
+
 
 // Rotte per il carrello
 Route::get('/carrello',[CartController::class, 'showCart'])->name('cart.carrello');

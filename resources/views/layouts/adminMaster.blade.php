@@ -17,14 +17,16 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <script src="/js/confirm.js"></script>
+    
 </head>
 
 <script src="/js/bootstrap.min.js"></script>
     <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
     <script src="/js/bs-init.js"></script>
     <script src="/js/bold-and-bright.js"></script>
+    <script src="/js/confirm.js"></script>
 </script>
+
 
 
 <body>
@@ -77,7 +79,7 @@
                     </button>
                         <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.removeClientList')}}"><i class="bi bi-person-fill-x"></i> Rimuovi utente</a></li>
                         <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>

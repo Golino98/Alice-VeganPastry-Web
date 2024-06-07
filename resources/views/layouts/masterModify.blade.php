@@ -30,14 +30,11 @@
 
 <body>
 
-<!-- Start: Navbar Centered Links -->
-
-<nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
+    <nav class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
         <div class="container" ><a class="navbar-brand d-flex align-items-center" href="{{route('home')}}"  alt="">
             <img src="/img/logo/logo.jpg" alt="" width="100" height="100" class="d-inline-block align-text-top">
-            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <span>Alice VeganPastry</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
-            @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==0)
             <ul class="navbar-nav mx-auto">
                 @section('menu')
                 <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
@@ -58,55 +55,33 @@
                 @show
                 </li>
             </ul>
-            @elseif(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==1)
-            <ul class="navbar-nav mx-auto">
-                @section('menu')
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-pie"></i> Dolci</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('admin.insertSweet')}}">Aggiungi</a></li>           
-                        <li><a class="dropdown-item" href="{{route('admin.modifySweet')}}">Modifica o elimina</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi fi-rr-notebook"></i> Categorie</a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{route('admin.insertCategory')}}">Aggiungi</a></li>           
-                        <li><a class="dropdown-item" href="{{route('admin.modifyCategory')}}">Modifica o elimina</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Ordini</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a>
-                </li>
-                @show
-                </li>
-            </ul>   
-            @endif
             <!-- Check if logged is true or false  -->
-            
             @if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==0)
+
+            <div class="d-flex justify-content-between align-items-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{route('cart.carrello')}}"><i class="bi bi-cart"></i> Carrello</a></li>
+                </ul>
+                
                 <div class="btn-group">
-                    <button class="btn btn-log" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{$_SESSION['loggedName']}} <i class="bi bi-list-nested"></i>
-                </button>
+                    <button class="btn btn-log" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        {{$_SESSION['loggedName']}} <i class="bi bi-list-nested"></i>
+                    </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('cart.carrello')}}"><i class="bi bi-cart3"></i> Il mio carrello</a></li>
                         <li><a class="dropdown-item" href="{{route('user.orders')}}"><i class="bi bi-bag-heart"></i> I miei ordini</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.logout')}} " onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a>
+                        </li>
                     </ul>
                 </div>
+            </div>
+            
 
+                  
+
+                
+
+                
             @elseif(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['privilege']) && $_SESSION['privilege']==1)
 
             
@@ -118,7 +93,6 @@
                         <li><a class="dropdown-item" href="{{route('admin.control')}}"><i class="bi bi-pie-chart"></i> Pannello di controllo</a></li>
                         <li><a class="dropdown-item" href="{{route('user.modify')}}"><i class="bi bi-person-lines-fill"></i> Modifica profilo</a></li>
                         <li><a class="dropdown-item" href="{{route('admin.registration')}}"><i class="bi bi-person-fill-add"></i> Aggiungi admin</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.removeClientList')}}"><i class="bi bi-person-fill-x"></i> Rimuovi utente</a></li>
                         <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="confirmLogout(this.href); return false"><i class="bi bi-door-open"></i> Esci</a></li>
                     </ul>
                 </div>
@@ -129,6 +103,7 @@
         </div>
         </div>
     </nav><!-- End: Navbar Centered Links -->
+
 
 @yield('content')
 

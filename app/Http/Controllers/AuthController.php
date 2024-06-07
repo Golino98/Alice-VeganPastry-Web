@@ -144,6 +144,52 @@ class authController extends Controller
             return view('auth.authErrorPage');      
         }
     }
+
+    public function modificationAdmin() {
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('admin.modifyPassword')->with('categories', $categories);
+    }
+    public function modifyAdmin(Request $req)
+    {
+        $dl = new DataLayer();
+        session_start();
+
+        try
+        {
+            $dl->modifyUser($req->input('name'), $req->input('password'), $req->input('conf_password'));
+            return Redirect::to(route('home'))->with($_SESSION['loggedName'] = $req->input('name'));
+        }catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+            return view('auth.authErrorPage');      
+        }
+    }
+
+    public function modificationUsernameAdmin() {
+        $dl = new DataLayer();
+        $categories = $dl->listCategory();
+        return view('admin.modifyUsername')->with('categories', $categories);
+    }
+    public function modifyUsernameAdmin(Request $req)
+    {
+        $dl = new DataLayer();
+        session_start();
+
+        try
+        {
+            $dl->modifyUsername($req->input('name'));
+            return Redirect::to(route('home'))->with($_SESSION['loggedName'] = $req->input('name'));
+        }catch(\Exception $e)
+        {
+            $_SESSION['errorMessage'] = $this->ERRORE_PSW_NON_UGUALI;     
+            return view('auth.authErrorPage');      
+        }
+    }
+
+
+
+
     public function logout() {
         session_start();
         session_destroy();
@@ -154,7 +200,7 @@ class authController extends Controller
 public function adminregistration() {
     $dl = new DataLayer();
     $categories = $dl->listCategory();
-    return view('auth.adminregister')->with('categories', $categories);
+    return view('admin.adminregister')->with('categories', $categories);
  }
 
  public function adminregister(Request $req) {
