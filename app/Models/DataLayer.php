@@ -200,9 +200,8 @@ class DataLayer
     /**
      * Funzione che permette di modificare un utente all'interno del database (password)
      */
-    public function modifyUser($name, $password,$conf_password) {
+    public function modifyUser($password,$conf_password) {
         $user = User::where('email',$_SESSION['loggedEmail'])->first();
-        $user->name = $name;
         if($password == $conf_password)
         {
             $user->password = md5($password);

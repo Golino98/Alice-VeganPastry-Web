@@ -23,7 +23,9 @@
                                 </svg>
                         </div>
 
-                                <form id="modify-form" action="{{route('user.modify')}}" method="post">
+                        <form id="modify-form-username" action="{{route('user.modifyUsername')}}" method="post">
+                       
+
                                     @csrf
                                     <div class="form-floating mb-3">
                                         <input type="form-control" class="form-control" type="text" name = "name" placeholder="Username" value="<?php echo $_SESSION["loggedName"];?>">

@@ -68,7 +68,6 @@ Route::get('/admin/modify', [AuthController::class, 'modificationAdmin'])->name(
 Route::post('/admin/modify', [AuthController::class, 'modifyAdmin'])->name('admin.modify');
 
 Route::get('/admin/modifyUsername', [AuthController::class, 'modificationUsernameAdmin'])->name('admin.modifyUsername');
-Route::post('/admin/modifyUsername', [AuthController::class, 'modifyUsernameAdmin'])->name('admin.modifyUsername');
 
 
 // Rotte per il carrello
