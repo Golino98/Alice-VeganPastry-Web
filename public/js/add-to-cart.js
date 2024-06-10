@@ -59,6 +59,12 @@ function addToCart(event, sweetId) {
         xhr.send(formData);
 
         showAlert(_SUCCESS, sweetId, _ONE_TO_CART);
+        var quantityInputs = document.querySelectorAll('input[type="number"][name="quantity"]');
+        quantityInputs.forEach(function(input) {
+            input.value = 0;
+        });
+        
+        
     } else if (value <= 20) {
         // Esegui la richiesta AJAX
         var form = document.getElementById(_ADD_TO_CART + sweetId);
@@ -70,6 +76,10 @@ function addToCart(event, sweetId) {
         xhr.send(formData);
 
         showAlert(_SUCCESS, sweetId, _MORE_TO_CART);
+        var quantityInputs = document.querySelectorAll('input[type="number"][name="quantity"]');
+        quantityInputs.forEach(function(input) {
+            input.value = 0;
+        });
     } else {
         showAlert(_WARNING, sweetId, _MAX_TO_CART);
     }

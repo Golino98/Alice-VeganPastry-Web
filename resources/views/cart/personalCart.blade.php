@@ -64,7 +64,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
                                     </td>
                                     <td>{{ $sweet->price }} €</td>
                                     <td>
-                                        <button type="button" class="btn btn-back" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cartItem->id }}">
+                                        <button type="button" class="btn btn-minus" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $cartItem->id }}">
                                             <i class="bi bi-trash3"></i>
                                         </button>
                                         <div class="modal fade" id="deleteModal{{ $cartItem->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $cartItem->id }}" aria-hidden="true">
@@ -82,7 +82,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION
                                                         <form action="{{ route('cart.removeItem') }}" method="POST" class="d-inline">
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $cartItem->id }}">
-                                                            <button type="submit" class="btn btn-back">Elimina</button>
+                                                            <button type="submit" class="btn btn-minus">Elimina</button>
                                                         </form>
                                                     </div>
                                                 </div>
