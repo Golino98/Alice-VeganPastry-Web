@@ -41,9 +41,12 @@
                 </div>            
             </div>
         @else
+        <div class="container">
+        <input type="text" id="searchTerm" class="form-control" oninput="filterSweets()" placeholder='Cerca...' title="Inserisci nome del dolce">
+        </div>
         @foreach ($sweets as $sweet)
         <section class="py-5">
-            <div class="container py-5">
+            <div class="container py-5 sweets-container">
                 <div data-reflow-type="product" data-bss-dynamic-product data-bss-dynamic-product-param="product" data-reflow-shoppingcart-url="shopping-cart.html">
                     <div class="reflow-product"> 
                         <div class="ref-media">
@@ -69,6 +72,7 @@
                                                 <div class ="ref-quantity-widget">                                                    
                                                     <button type="button" class="btn btn-back" onclick="decrease({{$sweet->id}})">-</button>    
                                                         <input type="number" id='quantity{{$sweet->id}}' name="quantity" value=0 min=0 max=20 onfocus="this.value=''"/>
+
                                                     <button type="button" class="btn btn-log" onclick="increase({{$sweet->id}})">+</button>
                                                 </div>
                                             </span>
@@ -91,6 +95,12 @@
             </div>
         </section>
         @endforeach
+
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
         @endif
     </section>
 @endsection

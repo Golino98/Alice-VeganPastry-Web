@@ -13411,3 +13411,7 @@ input[type=number] {
         visibility: hidden;
     }
 }
+
+.hidden {
+    display: none;
+}

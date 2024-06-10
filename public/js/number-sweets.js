@@ -19,3 +19,22 @@ function increase(id) {
         document.getElementById("quantity".concat(id)).value = value;
     }
 }
+
+function filterSweets() {
+    var searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+    var sweets = document.getElementsByClassName("reflow-product");
+
+    // Cicla attraverso tutti i dolci
+    for (var i = 0; i < sweets.length; i++) {
+        var sweetName = sweets[i].getElementsByClassName("ref-name")[0].innerText.toLowerCase();
+
+        // Verifica se il nome del dolce contiene il termine di ricerca
+        if (sweetName.includes(searchTerm)) {
+            // Mostra il dolce
+            sweets[i].classList.remove("hidden");
+        } else {
+            // Nascondi il dolce
+            sweets[i].classList.add("hidden");
+        }
+    }
+}
