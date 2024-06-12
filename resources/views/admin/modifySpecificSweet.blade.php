@@ -23,23 +23,22 @@
                             <input type="text" class="form-control" id="name" name="name" value='{{ $sweet->name }}' required>
                         </div>
                         <div class="mb-3">
-                            <label for="category" class="form-label">Categoria</label>
-                            <select class="form-select" id="category" name="category" required>
+                            <label for="category" class="form-label">Categoria (lascia vuoto per mantenere la categoria attuale)</label>
+                            <select class="form-select" id="category" name="category">
+                                <!-- Mostra la categoria attuale -->
+                                <option value="" selected>{{ $sweet->category->name }}</option>
                                 <!-- Le option value vengono prese direttamente dal nome delle categorie nel database -->
                                 @foreach ($categories as $category)
-                                    @if($category->id == $sweet->category_id)
-                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                                    @else
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @if($category->name != $sweet->category->name)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endif
                                 @endforeach
-
                             </select>
                         </div>
                         <div class="mb-3">
-                        <label for="price" class="form-label">Prezzo</label>
+                            <label for="price" class="form-label">Prezzo</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="price" name="price" step="any" placeholder="Inserisci il prezzo del dolce" required>
+                                <input type="number" class="form-control" id="price" name="price" step="any" placeholder="Inserisci il prezzo del dolce" value='{{ $sweet->price }}' required>
                                 <span class="input-group-text">€</span>
                             </div>
                         </div>

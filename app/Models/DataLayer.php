@@ -45,25 +45,37 @@ class DataLayer
      * Funzione che permette di modificare un dolce all'interno del database
      */
     public function modifySweet($id, $name, $category, $price, $description)
-    {
-        $sweet = Sweet::find($id);
-        $sweet->name = $name;
+{
+    $sweet = Sweet::find($id);
+    $sweet->name = $name;
 
+    // Verifica se la categoria è stata cambiata
+    if (!empty($category) && $category != $sweet->category_id) {
         $categoryName = Category::find($category)->name;
 
-        $oldPath = "img/sweets/".strtolower($sweet->category->name)."/".$sweet->image;
-        $newPath = "img/sweets/".strtolower($categoryName)."/".$sweet->image;
+        $oldPath = "img/sweets/" . strtolower($sweet->category->name) . "/" . $sweet->image;
+        $newDir = "img/sweets/" . strtolower($categoryName);
+        $newPath = $newDir . "/" . $sweet->image;
 
-        copy($oldPath, $newPath);
-        unlink($oldPath);
+        // Controlla se il file esiste
+        if (file_exists($oldPath)) {
+            // Crea la directory di destinazione se non esiste
+            if (!file_exists($newDir)) {
+                mkdir($newDir, 0777, true);
+            }
+            // Sposta il file
+            rename($oldPath, $newPath);
+        }
 
         $sweet->category_id = $category;
-
-        $sweet->price = $price;
-        $sweet->description = $description;
-        $sweet->save();
-        
     }
+
+    $sweet->price = $price;
+    $sweet->description = $description;
+    $sweet->save();
+}
+
+
 
     /**
      * Funzione che permette di rimuovere un dolce dal database
