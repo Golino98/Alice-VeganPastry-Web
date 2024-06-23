@@ -58,9 +58,9 @@
                 <a class="nav-link dropdown-toggle-split" href="{{ route('sweet.index') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bag-check"></i> Gestione ordini</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 3]) }}">Consegnati</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Completati</a></li>           
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 2]) }}">Pronti</a></li>           
                         <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 1]) }}">In preparazione</a></li>
-                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da fare</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.listByStatus',['status' => 0]) }}">Da preparare</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ route('admin.control')}}">Visualizzali tutti</a></li>
                     </ul>
