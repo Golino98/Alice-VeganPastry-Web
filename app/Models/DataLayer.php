@@ -123,7 +123,10 @@ class DataLayer
             return;
         }
 
-        mkdir("img/sweets/".strtolower($name));
+
+        if (!is_dir(strtolower("img/sweets/".$name))) {
+            mkdir("img/sweets/".strtolower($name));
+        }
         $category->save();
     }
 

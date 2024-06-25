@@ -13,9 +13,15 @@ INSERT INTO `sweets` (`id`, `name`, `description`, `price`, `image`, `category_i
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'fraGolino', 'giacomogolino@gmail.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 0, NULL, '2023-06-10 12:37:57', '2023-06-10 12:37:57'),
 (2, 'Alice', 'alice@gmail.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 1, NULL, '2023-06-10 13:12:22', '2023-06-10 13:12:22'),
-(3, 'John Doe', 'John@doe.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 0, NULL, '2023-06-10 13:15:28', '2023-06-10 13:15:28');
+(3, 'John Doe', 'John@doe.com', NULL, '6e6bc4e49dd477ebc98ef4046c067b5f', 0, NULL, '2023-06-10 13:15:28', '2023-06-10 13:15:28'),
+(4, 'PasticcereTest Admin', 'pasticcere@example.com', NULL, 'b40cdb9a915a9a68a5820ca6313dec9b', 1, NULL, '2024-06-10 13:15:28', '2024-06-10 13:15:28'),
+(5, 'Cliente Goloso', 'clienteGoloso@example.com', NULL, '977fe4442317429b9d94e63c8ef86efb', 0, NULL, '2024-06-10 13:16:28', '2024-06-10 13:16:28');
 
 INSERT INTO `orders` (`id`, `user_id`, `payment_date`, `sweets_list`, `status`) VALUES
 (2, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)', '0'),
 (3, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)\r\nTorta alle mele (x7)', '1'),
-(4, 1, '2023-06-19 15:35:02', 'Frutta fresca(x2)', '2');
+(4, 1, '2023-06-19 15:35:02', 'Frutta fresca (x2)', '2'),
+(5, 5, '2024-05-19 12:35:22', 'Frutta fresca (x2)', '0'),
+(6, 5, '2024-05-22 11:03:44', 'Cupcake alla fragola (x2)\r\nTorta alle mele (x2)', '1'),
+(7, 5, '2024-05-14 17:35:36', 'Torta alle mele (x3)', '0'),
+(8, 5, '2024-06-02 21:18:45', 'Torta alle mele (x1)', '0');
