@@ -28,8 +28,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ad
 
 
 INSERT INTO `orders` (`id`, `user_id`, `payment_date`, `sweets_list`, `status`) VALUES
-(2, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)', '0'),
-(3, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)\r\nTorta alle mele (x7)', '1'),
+(2, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)', '2'),
+(3, 1, '2023-06-19 14:03:44', 'Cupcake alla fragola (x1)\r\nTorta alle mele (x7)', '2'),
 (4, 1, '2023-06-19 15:35:02', 'Frutta fresca (x2)', '2'),
 (5, 5, '2024-05-19 12:35:22', 'Frutta fresca (x2)', '0'),
 (6, 5, '2024-05-22 11:03:44', 'Cupcake alla fragola (x2)\r\nTorta alle mele (x2)', '1'),
